@@ -1,0 +1,146 @@
+/*$dir: rtl;*/
+@import url('../resources/css/fonts/font-awesome.css');
+ 
+@import url('../resources/css/bootstrap/bootstrap.css');
+@font-face {
+    font-family: 'DroidArabicKufi';
+    src: url('../resources/css/fonts/DroidArabicKufi.eot');
+    src: url('../resources/css/fonts/DroidArabicKufi.eot') format('embedded-opentype'),
+         url('../resources/css/fonts/DroidArabicKufi.woff') format('woff'),
+         url('../resources/css/DroidArabicKufi.ttf') format('truetype'),
+         url('../resources/css/fonts/DroidArabicKufi.svg#DroidArabicKufi') format('svg');
+
+}
+
+
+@font-face {
+	font-family: 'ha-icon';
+	src:
+	  url('../resources/css/fonts/ha.ttf?6y368w') format('truetype'),
+	  url('../resources/css/fonts/ha-icon.woff?6y368w') format('woff'),
+	  url('../resources/css/fonts/ha-icon.svg?6y368w#ha-icon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+  }
+
+
+
+@import '_variables.scss';
+@import '_blue.scss';
+@import '_mixins.scss';
+@import 'layout/_header.scss';
+@import 'from/_components.scss';
+@import 'layout/_containter-body.scss';
+@import '_login.scss';
+@import 'from/_tree.scss';
+@import 'from/_table.scss';
+@import 'layout/_footer.scss'; 
+
+
+html,body {
+	height: 95%;
+	padding: 0px;
+	width: 100%;
+}
+
+form {
+	min-height: 100%;
+	position: relative;
+	max-height: 100%;
+}
+
+body {
+	font-family:$font-family-arabic;
+	font-size:$font-size - 2;
+	-ms-overflow-style: scrollbar;
+	height: 100%;
+  color: #222; 
+  
+
+}
+
+
+
+/* BASE - Base styles, variables, mixins, etc */
+
+
+
+
+
+
+
+
+label {
+	direction: ltr;
+	display: initial;
+	font-weight: normal !important;
+}
+
+
+
+
+
+/*------------------------ Css Modification 29-11-2015  By Nabil ---------------------*/
+
+.ui-button-text-icon-left .ui-button-text {
+	color: #fff
+}
+
+
+
+.ui-state-active .ui-column-title {
+	color: #004469 !important
+}
+
+.spaninputWithIcon {
+	display: inline !important;
+	float: inherit !important;
+}
+
+.ui-datatable-reflow .ui-datatable-data td .ui-column-title {
+	display: none !important;
+}
+
+.spaninputWithIcon>.inputText {
+	width: calc(98% -   32px) !important;
+}
+
+/***********************************************random css******************************************************/
+
+
+
+
+
+.f-left {
+	float: $f-left !important; 
+}
+
+.f-right {
+	float:$f-right !important
+}
+
+.f-none {
+	float: none !important
+}
+
+.r-dir {
+	float: $f-right;
+}
+
+.l-dir {
+	float: $f-left;
+}
+.l-r-left {
+	float: $f-left !important
+}
+
+label {
+	direction: ltr;
+	display: initial;
+	font-weight: normal !important;
+}
+
+@import '_responsev.scss';
+
+
+

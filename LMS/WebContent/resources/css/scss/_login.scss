@@ -1,0 +1,372 @@
+.bg-login{background-size: cover !important;  }
+.btn-top-lang {
+	position: absolute;
+	#{$f-left}: 0px;
+	z-index: 1;
+	top: -26px;@include transition(background-color 0.7s .2s, color 2s);
+	background:$login-back-lan;
+	color:#fff;
+.btn-icon{ padding:side-values(  0PX 6PX 0PX 7PX)  }
+
+.btn-trans
+{
+ padding:5px 10px !important;
+ padding:side-values( 0px 10px 6px 0px)  !important;
+    margin: 0px;
+    vertical-align: initial;
+ }
+
+&:hover{background:$hover-default-btn}
+}
+
+
+
+
+
+
+#logo {
+ 
+  margin: 0 auto;   
+  margin-top:30px;
+  padding: 15px;
+  text-align: center;
+
+
+ 
+}  
+
+
+.logo-pagelogin {
+	width: 100%;
+	margin: 0 auto;
+	
+	position: relative;
+	margin-top: 0;
+	margin-bottom: 10px;
+	text-align:center; 
+
+	h3 {
+	
+
+	
+	color: #fff;
+	font-size:$font-size + 4;
+	font-weight: bold;
+}
+
+
+	
+}
+
+.content-login {
+	font-size: 14px;
+	font-weight: bold;
+	color: #333333;
+	margin-top: 45px;
+	padding-right: 0px;
+	padding-bottom: 4px;
+	padding-left: 0px;
+	/*width: 65%;*/
+	margin-right: auto;
+	margin-left: auto;
+	font-family: $font-family-arabic;
+	margin-right: auto;
+	 position:relative
+}
+.input-prepend{
+	margin-bottom:20px
+	
+	}
+
+
+#login {
+
+  width: 50%;
+  margin: 0 auto; 
+  padding:0px;
+   background:$login-background ;
+     overflow:hidden ;
+      margin-top:10%;
+
+       @include box-shadow(0px, 0px, 10px, -4px, rgba(0,0,0,0.75));
+
+  @include new-radius(0px);
+		i {
+  font-size: $font-size + 3;
+  color:#cacaca; 
+}
+
+ input[type="text"], input[type="password"] {
+ 	 border: 0px !important;
+ border-bottom: 1px solid #C1CFDE !important;
+
+     padding-#{$f-right}: 34px;
+   
+    box-shadow: none !important;
+    margin:0px;
+     @include new-radius(0px !important) ;
+  	
+  }
+
+p {
+  margin-top: 10px;
+  margin-bottom:10px;
+  padding: 0px;
+}
+.back-logo-login-color{background:$logo-background-login; padding:9.5% 0;float:$f-right}
+.text-log{color:#707172; margin:20px 0px 30px 0px; text-align: center;  }
+
+#forget-password {
+ font-size: $font-size - 3;
+}
+.kindly-massage-loginpage {
+	
+	width: 99%;
+	margin: 0 auto;
+	padding: 4px 0px 4px 0px;
+	position: relative; 
+	text-align:center;
+	margin-top:10px
+	
+}
+
+} 
+
+.add-on{
+	    POSITION: absolute;
+    #{$f-right}: 30PX;
+    z-index:5 ;
+        height: auto!important;
+    min-width:none;
+    padding: 0px!important;
+    font-size: inherit;
+    font-weight: normal;
+    line-height: inherit;
+    text-align: center;
+    text-shadow: 0!important;
+    background-color:transparent !important;
+    border:0px!important;
+	}
+
+.add-on .fa-unlock-alt,.add-on .fa-user{
+	top: 7px;
+    position: relative;
+   
+	}
+
+#login-copyright {
+  text-align: center;
+  width: 250px;
+  margin: 0 auto; 
+  padding: 10px 10px 0 10px;
+  color: #999;
+  font-size: $font-size - 3;
+}
+
+.fix-btn{margin-left: 0px;
+    margin-top: 20px;}
+
+.kindly-massage-loginpage {
+	width: 99%;
+	margin: 0 auto;
+	padding: 9px 0px 8px 0px;
+	position: relative;
+	margin-top: 9px;
+  
+  
+    color:#707172;
+
+}
+
+
+.btn-span{
+
+	width:100% !important; 
+}
+
+
+.btn-span-orange-login {
+	text-align: center !important;
+	cursor: pointer;
+	@include new-radius(4px);
+@include transition(background-color .9s ,ease-in);
+
+	background:$login-background-btn; 
+	border: 1px solid $border-color-w !important;
+	width:100%; 
+
+    &:hover{background-color:$hover-default-btn};
+
+	.btn-trans{
+    padding: 2px 10px;
+    padding-left: 5px !important;
+    width: 100%
+
+	}
+
+
+
+
+}
+
+
+
+.placeholder-password-username {
+	color: #000 !important;
+	font-family: $font-family-arabic;
+	font-weight: normal;
+	padding: 5px 10px;
+	@include new-radius(4px !important);
+	width: 99%;
+	   
+}
+
+.w-select-10 {
+	width: 30%
+}
+
+.w-select-60 {
+	width: 60%
+}
+.errorMessage {
+	
+	color: red;
+    text-align: center;
+    position: absolute;
+    top: -28px;
+    margin: 0 auto;
+    width: 95%;
+    white-space: nowrap;
+}
+
+.remarkMessage {
+	
+	font-size: $font-size - 3;
+	font-weight: bold;
+	color: #ff0000;
+	margin-right: 5px;
+	margin-left: 5px
+}
+
+
+.input {
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	margin: 1em;
+	max-width: 350px;
+	width: calc(100% - 2em);
+	vertical-align: top;
+}
+
+.input__field {
+	position: relative;
+	display: block;
+	float: left;
+	padding: 0.8em;
+	width: 60%;
+	border: none;
+	border-radius: 0;
+	background: #f0f0f0;
+	color: #aaa;
+	font-weight: bold;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	-webkit-appearance: none; /* for box shadows to show on iOS */
+}
+
+.input__field:focus {
+	outline: none;
+}
+
+.input__label {
+	display: inline-block;
+	float: right;
+	padding: 0 1em;
+	width: 40%;
+	color: #6a7989;
+	font-weight: bold;
+	font-size: 70.25%;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.input__label-content {
+	position: relative;
+	display: block;
+	padding: 1.6em 0;
+	width: 100%;
+}
+
+
+
+
+/* Kaede */
+.input--kaede {
+	display: block;
+	overflow: hidden;
+	margin: 1em auto 2em;
+	background: #EFEEEE;
+}
+
+.input__field--kaede {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	width: 60%;
+	height: 100%;
+	background: #fff;
+	color: #9DABBA;
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.input__label--kaede {
+	z-index: 10;
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-align:right;
+	cursor: text;
+	-webkit-transform-origin: 0% 50%;
+	transform-origin: 0% 50%;
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.input__label-content--kaede {
+	padding: 1.5em 0;
+}
+
+.input__field--kaede:focus,
+.input--filled .input__field--kaede {
+	-webkit-transform: translate3d(100%, 0, 0);
+	transform: translate3d(100%, 0, 0);
+	-webkit-transition-delay: 0.06s;
+	transition-delay: 0.06s;
+}
+
+.input__field--kaede:focus + .input__label--kaede,
+.input--filled .input__label--kaede  {
+	-webkit-transform: translate3d(60%, 0, 0);
+	transform: translate3d(60%, 0, 0);
+	pointer-events: none;
+}
+
+@media screen and (max-width: 34em) {
+	.input__field--kaede:focus + .input__label--kaede,
+	.input--filled .input__label--kaede  {
+		-webkit-transform: translate3d(65%, 0, 0) scale3d(0.65, 0.65, 1);
+		transform: translate3d(65%, 0, 0) scale3d(0.65, 0.65, 1);
+		pointer-events: none;
+	}
+}

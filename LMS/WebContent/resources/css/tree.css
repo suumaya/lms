@@ -1,0 +1,82 @@
+a{
+	text-decoration: blink;
+}
+
+.rf-trn {
+    background: url("../resources/images/tree_sep_1.png") no-repeat scroll right center rgba(0, 0, 0, 0);
+    color: #000000;
+    cursor: default;
+    font-family: Arial,Verdana,sans-serif;
+    font-size: 11px;
+    overflow: hidden;
+    padding: 1px 0;
+    white-space: nowrap;
+    width: 100%;
+}
+.rf-trn-lbl {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 4px 0 2px;
+    vertical-align: middle;
+}
+.rf-trn-cnt {
+    display: inline-block;
+}
+.rf-trn-sel {
+    background: none repeat scroll 0 0 #F1EEE9;
+}
+.rf-tr-nd {
+    background: url("../resources/images/tree_sep_2.png") repeat-y scroll 0 0 rgba(0, 0, 0, 0);
+    min-height: 0;
+	background-position: right;    
+}
+.rf-tr-nd-last {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.rf-tr-nd .rf-tr-nd {
+    margin-right: 16px;
+    margin-left: 0px;
+}
+.rf-trn-ico, .rf-trn-hnd, .rf-trn-hnd-ldn-fct {
+    cursor: pointer;
+    display: inline-block;
+    height: 16px;
+    margin: 0;
+    vertical-align: middle;
+    width: 16px;
+}
+.rf-trn-hnd-lf {
+    cursor: default;
+}
+.rf-trn-hnd-colps {
+    background: url("../resources/images/tree_plus.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+}
+.rf-trn-hnd-exp {
+    background: url("../resources/images/tree_minus.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+}
+.rf-trn-ico-exp, .rf-trn-ico-colps {
+    background: url("../resources/images/tree_folder.gif") no-repeat scroll center center rgba(0, 0, 0, 0);
+}
+.rf-trn-ico-lf {
+    background: url("../resources/images/tree_file.gif") no-repeat scroll center center rgba(0, 0, 0, 0);
+}
+.rf-trn-ico-cst {
+    background-image: none;
+    background-position: 0 0;
+}
+.rf-tr-nd-exp > .rf-trn > .rf-trn-cnt > .rf-trn-ico-colps, .rf-tr-nd-colps > .rf-trn > .rf-trn-cnt > .rf-trn-ico-exp {
+    display: none;
+}
+.rf-tr-nd.rf-tr-nd-colps .rf-tr-nd {
+    display: none;
+}
+.rf-trn-hnd-ldn-fct {
+    cursor: default;
+    display: none;
+}
+.rf-trn-ldn > .rf-trn-hnd-ldn-fct {
+    display: inline-block;
+}
+.rf-trn-ldn > .rf-trn-hnd-ldn-fct + .rf-trn-hnd {
+    display: none;
+}

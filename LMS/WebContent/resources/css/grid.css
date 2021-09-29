@@ -1,0 +1,164 @@
+.gridRowOdd{
+    background-color: white;
+}
+
+.gridRowEven{
+    background-color: #ececf0;
+}
+
+.gridMaster{
+    border-collapse:collapse;
+    border: 1px solid #E3E8EA;
+    width: 100%;
+    background-color: #f7f7f7;
+    /*table-layout:fixed;*/
+}
+
+.row_width {}
+
+.high { background: #f7e952;}
+.med { background: #54D85C;}
+.immediate { background: #FF654C;}
+.low { background: white;}
+
+.redStyle { color: #FF654C; }
+.blackStyle { color: #000000; }
+.Indexed th:nth-child(1){
+       width:3%;
+}
+
+.DateField th:nth-child(3){
+       width:10%;
+}
+
+.IssueReqIndex th:nth-child(1){
+       width:5%;
+}
+
+.IssueReq4 th:nth-child(4){
+       width:25%;
+}
+
+
+.IssueReq5 th:nth-child(5){
+       width:25%;
+}
+
+.ReturnReq3 th:nth-child(3){
+       width:25%;
+}
+
+.IssueReq6 th:nth-child(6){
+       width:10%;
+}
+.YrdRcvMng5 th:nth-child(5){
+       width:10%;
+}
+.YrdRcvMng5 th:nth-child(4){
+       width:25%;
+}
+.YrdRcvMng8 th:nth-child(7){
+       width:10%;
+}
+.IndexedCustody th:nth-child(1){
+       width:4%;
+}
+.IndexedCustody1 th:nth-child(2){
+       width:10%;
+}
+.IndexedCustody6 th:nth-child(6){
+       width:10%;
+}
+.IndexedCustody7 th:nth-child(7){
+       width:10%;
+}
+.IndexedCustody1 th:nth-child(6){
+       width:4%;
+}
+
+.IndexedIssueTrn6 th:nth-child(6){
+       width:4%;
+}
+
+.IndexedIssueTrn7 th:nth-child(7){
+       width:4%;
+}
+
+.IndexedIssueTrn8 th:nth-child(8){
+       width:4%;
+}
+
+.IndexedIssueTrn9 th:nth-child(9){
+       width:4%;
+}
+
+.CustomizedAddIssueTable th:nth-child(2){
+              width: 50%;
+       }
+
+.gridMaster th{
+    border-collapse:collapse;
+    height: 24px;
+    color: #3E5557;
+    font-size: 12px;
+    background-position: bottom;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #E3E8EA;
+    border-right-color: #E3E8EA;
+    border-bottom-color: #FFFFFF;
+    border-left-color: #E3E8EA;
+    font-family: Tahoma;
+    font-weight: normal;
+    text-align: center;
+    /*white-space: nowrap;*/
+}
+.gridMaster td{
+    border-collapse:collapse;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #E3E8EA;
+    border-right-color: #E3E8EA;
+    border-bottom-color: #ececf0;
+    border-left-color: #E3E8EA;
+    height: 17px;
+    font-size: 11px;
+    padding-right: 1px;
+    padding-left: 1px;
+    text-align: center;
+    font-family: Tahoma;
+    
+}
+
+.gridMaster a{
+    font-size: 12px;
+    padding-right: 1px;
+    padding-left: 1px;
+    
+}
+
+.gridBorderNone{
+	border: none!important;
+}
+
+.gridBorderNone td{
+	border: none!important;
+}
+
+.gridMaster tr:HOVER{
+    background: #79c9ec !important;
+    
+}
+

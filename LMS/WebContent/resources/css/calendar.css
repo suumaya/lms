@@ -1,0 +1,205 @@
+.hijriError{
+ color: red;
+    background-color: rgb(255, 225, 225);
+}
+.custom_text_calendar {
+    width: 25%;
+    background-color: #FFFFFF;
+    padding-right: 5px;
+    border: 1px solid #D0D0D0;
+}
+
+.custom_text_calendar_New {
+    width: 40px;
+    height:25px;
+    background-color: #FFFFFF;
+    padding-right: 5px;
+    border: 1px solid #D0D0D0;
+}
+
+.custom_image_calendar {
+    vertical-align: bottom;
+    cursor: pointer;
+}
+
+.custom_calendar_table{
+    width: 238px !important;
+    height: 180px;
+    font-family: Arial;
+    font-size: 12px;
+    z-index:9;
+    position: absolute;
+    table-layout: auto;
+    
+}
+
+.custom_calendar_title_btn{
+    width: 60%;
+    font-family: Arial;
+    font-weight: bold;
+    color: #2D4D52;
+    font-size: 11px;
+}
+
+.custom_calendar_title_month_select_option{
+    width: 49%;
+   font-family: DroidArabicKufi;
+    font-weight: bold;
+    color: #335358;
+    font-size: 12px;
+}
+
+.custom_calendar_title_year_select_option{
+    width: 30%;
+    font-family: DroidArabicKufi;
+    font-weight: bold;
+    color: #335358;
+    font-size: 12px;
+}
+
+.custom_calendar_btn{
+    width: 10%;
+    color: #000000;
+    background-color: gray;
+}
+
+.custom_calendar_btn:hover{
+    font-family: Arial;
+    color: #000000;
+    background-color: #CCC;
+    border-color: #FFFFFF #BED6F8 #BED6F8 #FFFFFF;
+    cursor: pointer;
+}
+
+.custom_calendar_btn_disabled{
+    width: 10%;
+    color: #A0A0A0;
+}
+
+.custom_calendar_header_section{
+    width: 100%;
+    height: 22px;
+    background-color: #ccc;
+    
+}
+
+.custom_calendar_header_table{
+    width: 100%;
+    height: 100%;
+}
+
+.custom_calendar_label_values{
+    width: 34px;
+   
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#535353', endColorstr='#1d1d1d');
+ -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+ -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+ box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+ 
+ 
+ 
+ background: -webkit-linear-gradient(#535353, #1d1d1d);
+ background:-moz-linear-gradient(#535353, #1d1d1d);
+    background: -o-linear-gradient(#535353, #1d1d1d); /* For Opera 11.1 to 12.0 */
+    background: linear-gradient(#535353, #1d1d1d); /* Standard syntax (must be last) */
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.custom_calendar_body_section{
+    width: 100%;
+    height: 138px;
+}
+
+.custom_calendar_body_table{
+    width: 100%;
+    height: 100%;
+}
+
+.custom_calendar_body_table td{
+    border: 1px solid #BED6F8;
+    height: 20px;
+}
+
+.custom_calendar_date_value{
+    background-color: #3E5557;
+    border: 1px solid #BED6F8;
+    cursor: pointer;
+}
+
+.custom_calendar_date_value:hover{
+    background-color: #CCC;
+    cursor: pointer;
+}
+
+.custom_calendar_date_selected_value{
+    background-color: #C3D4F0;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.custom_calendar_date_today_value{
+    background-color: #FF7800;
+    color: #FFEBDA;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.custom_calendar_date_not_used{
+    background-color: #3E5557 !important;
+    color: #A0A0A0 !important;
+}
+
+.custom_calendar_date_vaction_value{
+    background-color: #000;
+    color: #FF7800;
+    cursor: pointer;
+}
+
+.custom_calendar_date_vaction_value:hover{
+    background-color: #CCC;
+    cursor: pointer;
+}
+
+.custom_calendar_date_current{
+    background-color: #FF7800!important;
+    color: #FFEBDA;
+    cursor: pointer;
+}
+
+.custom_calendar_footer_section{
+    width: 100%;
+    height: 20px;
+    background-color: #D1E1EB;
+    border: 1px solid #BED6F8 !important;
+}
+
+.custom_calendar_header_section{
+    width: 100%;
+    height: 20px;
+    background-color: gray;
+    border: 1px solid #55ABE0;
+}
+
+.custom_calendar_footer_table{
+    width: 100%;
+    height: 100%;
+}
+
+.custom_calendar_table td {
+       text-align: center;
+       font-size: 13px;
+       color:white;
+       font-family: Arial !important;
+       padding-top: 0px !important;
+       padding-right: 0px !important;
+       padding-bottom: 0px !important;
+       padding-left:0px !important;
+      border:1px solid #AAC5E0 !important;
+    background-color: #91BCE8;
+    width:auto !important; 
+}
+
+.custom_calendar_btn{background-color: #598FC6!important;}

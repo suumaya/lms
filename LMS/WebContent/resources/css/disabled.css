@@ -1,0 +1,7 @@
+textarea[disabled], input[type="text"][disabled], input[type="password"][disabled], select[disabled] {
+	color: #6E71B9;
+	cursor: default;
+	border: 1px solid #E8E8E8;
+	font-family: Tahoma;
+	background-image:none;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface componentType="com.code.ui.components.hijri.UIHijri">
+	<composite:attribute name="value" type="java.util.Date" />
+	<composite:attribute name="nullable" default="false" />
+	<composite:attribute name="viewOldRange" default="false" />
+	<composite:attribute name="onAjaxEvent"  />
+	<composite:attribute name="onChangeAjaxSubmit" default="false" />
+	<composite:attribute name="reRenderIds" />
+	<composite:attribute name="listenerMethod" method-signature="void listener(javax.faces.event.AjaxBehaviorEvent)" />
+	<composite:attribute name="disabled" default="false" />
+</composite:interface>
+
+<composite:implementation>
+	<h:panelGroup id="data">
+		<h:selectOneMenu styleClass="form-control" disabled="#{cc.attrs.disabled}" id="day" value="#{cc.day}" onchange="hijriDateOnChange(this.id, #{cc.attrs.nullable});">
+			<c:if test="#{cc.attrs.nullable}">
+				<f:selectItem itemLabel="" itemValue="0" />
+			</c:if>
+
+			<f:selectItem itemLabel="01" itemValue="01" />
+			<f:selectItem itemLabel="02" itemValue="02" />
+			<f:selectItem itemLabel="03" itemValue="03" />
+			<f:selectItem itemLabel="04" itemValue="04" />
+			<f:selectItem itemLabel="05" itemValue="05" />
+			<f:selectItem itemLabel="06" itemValue="06" />
+			<f:selectItem itemLabel="07" itemValue="07" />
+			<f:selectItem itemLabel="08" itemValue="08" />
+			<f:selectItem itemLabel="09" itemValue="09" />
+			<f:selectItem itemLabel="10" itemValue="10" />
+			<f:selectItem itemLabel="11" itemValue="11" />
+			<f:selectItem itemLabel="12" itemValue="12" />
+			<f:selectItem itemLabel="13" itemValue="13" />
+			<f:selectItem itemLabel="14" itemValue="14" />
+			<f:selectItem itemLabel="15" itemValue="15" />
+			<f:selectItem itemLabel="16" itemValue="16" />
+			<f:selectItem itemLabel="17" itemValue="17" />
+			<f:selectItem itemLabel="18" itemValue="18" />
+			<f:selectItem itemLabel="19" itemValue="19" />
+			<f:selectItem itemLabel="20" itemValue="20" />
+			<f:selectItem itemLabel="21" itemValue="21" />
+			<f:selectItem itemLabel="22" itemValue="22" />
+			<f:selectItem itemLabel="23" itemValue="23" />
+			<f:selectItem itemLabel="24" itemValue="24" />
+			<f:selectItem itemLabel="25" itemValue="25" />
+			<f:selectItem itemLabel="26" itemValue="26" />
+			<f:selectItem itemLabel="27" itemValue="27" />
+			<f:selectItem itemLabel="28" itemValue="28" />
+			<f:selectItem itemLabel="29" itemValue="29" />
+			<f:selectItem itemLabel="30" itemValue="30" />
+
+			<c:if test="#{cc.attrs.onChangeAjaxSubmit}">
+				<f:ajax event="change" listener="#{cc.attrs.listenerMethod}" execute="@form" render="#{cc.attrs.reRenderIds}" onevent="#{cc.attrs.onAjaxEvent}" />
+			</c:if>
+		</h:selectOneMenu>
+
+		<h:selectOneMenu styleClass="form-control" disabled="#{cc.attrs.disabled}" id="month" value="#{cc.month}" onchange="hijriDateOnChange(this.id, #{cc.attrs.nullable});">
+			<c:if test="#{cc.attrs.nullable}">
+				<f:selectItem itemLabel="" itemValue="0" />
+			</c:if>
+
+			<f:selectItem itemLabel="01" itemValue="01" />
+			<f:selectItem itemLabel="02" itemValue="02" />
+			<f:selectItem itemLabel="03" itemValue="03" />
+			<f:selectItem itemLabel="04" itemValue="04" />
+			<f:selectItem itemLabel="05" itemValue="05" />
+			<f:selectItem itemLabel="06" itemValue="06" />
+			<f:selectItem itemLabel="07" itemValue="07" />
+			<f:selectItem itemLabel="08" itemValue="08" />
+			<f:selectItem itemLabel="09" itemValue="09" />
+			<f:selectItem itemLabel="10" itemValue="10" />
+			<f:selectItem itemLabel="11" itemValue="11" />
+			<f:selectItem itemLabel="12" itemValue="12" />
+
+			<c:if test="#{cc.attrs.onChangeAjaxSubmit}">
+				<f:ajax event="change" listener="#{cc.attrs.listenerMethod}" execute="@form" render="#{cc.attrs.reRenderIds}" onevent="#{cc.attrs.onAjaxEvent}" />
+			</c:if>
+		</h:selectOneMenu>
+
+		<h:selectOneMenu styleClass="form-control" disabled="#{cc.attrs.disabled}" id="year" value="#{cc.year}" onchange="hijriDateOnChange(this.id, #{cc.attrs.nullable});">
+			<c:if test="#{cc.attrs.nullable}">
+				<f:selectItem itemLabel="" itemValue="0" />
+			</c:if>
+
+			<c:if test="#{cc.attrs.viewOldRange}">
+				<c:forEach begin="0" end="99" var="i">
+					<f:selectItem itemLabel="#{i+1325}" itemValue="#{i+1325}" />
+				</c:forEach>
+			</c:if>
+
+			<f:selectItem itemLabel="1425" itemValue="1425" />
+			<f:selectItem itemLabel="1426" itemValue="1426" />
+			<f:selectItem itemLabel="1427" itemValue="1427" />
+			<f:selectItem itemLabel="1428" itemValue="1428" />
+			<f:selectItem itemLabel="1429" itemValue="1429" />
+			<f:selectItem itemLabel="1430" itemValue="1430" />
+			<f:selectItem itemLabel="1431" itemValue="1431" />
+			<f:selectItem itemLabel="1432" itemValue="1432" />
+			<f:selectItem itemLabel="1433" itemValue="1433" />
+			<f:selectItem itemLabel="1434" itemValue="1434" />
+			<f:selectItem itemLabel="1435" itemValue="1435" />
+			<f:selectItem itemLabel="1436" itemValue="1436" />
+			<f:selectItem itemLabel="1437" itemValue="1437" />
+			<f:selectItem itemLabel="1438" itemValue="1438" />
+			<f:selectItem itemLabel="1439" itemValue="1439" />
+			<f:selectItem itemLabel="1440" itemValue="1440" />
+			<f:selectItem itemLabel="1441" itemValue="1441" />
+			<f:selectItem itemLabel="1442" itemValue="1442" />
+			<f:selectItem itemLabel="1443" itemValue="1443" />
+
+			<c:if test="#{cc.attrs.onChangeAjaxSubmit}">
+				<f:ajax event="change" listener="#{cc.attrs.listenerMethod}" execute="@form" render="#{cc.attrs.reRenderIds}" onevent="#{cc.attrs.onAjaxEvent}" />
+			</c:if>
+		</h:selectOneMenu>
+	</h:panelGroup>
+</composite:implementation>
+</html>

@@ -1,7 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:prime="http://primefaces.org/ui">
-<h:head></h:head>
+<h:head>
+<style> 
+.my_footer {
+position: sticky;
+top:100%;
+bottom: 0 px;
+}
+</style>
+</h:head>
+
 <h:body class="fixed-top">
 	<ui:composition>
 		<div id="wrapper" class="">
@@ -37,7 +46,7 @@
 		<!-- BEGIN COPYRIGHT -->
 
 		<div class="footer">
-			<ui:include src="/Main/footer.xhtml" />
+			<ui:include src="/Main/footer2.xhtml" />
 		</div>
 	</ui:composition>
 </h:body>

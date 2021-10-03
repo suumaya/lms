@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:h="http://java.sun.com/jsf/html" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+ xmlns:prime="http://primefaces.org/ui" 
+ xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+ 
+ 
+</h:head>
+ 
+	
+	<ui:composition> 
+    	<h:outputStylesheet library="css" name="nav.css" />  
+<div class="sidenav">
+
+  <h:outputLink value="#{request.contextPath}/Student/userHistory.xhtml" >
+	My History
+</h:outputLink>
+
+ <h:outputLink value="#{request.contextPath}/Student/examList.xhtml" >
+	My Exam List
+</h:outputLink>
+
+  <h:outputLink value="#{request.contextPath}/Student/help.xhtml" >
+Help
+</h:outputLink>
+    
+<h:outputLink value="#{request.contextPath}/Student/logOut.xhtml" >
+	Log Out
+</h:outputLink>
+
+</div> 
+
+
+
+</ui:composition>
+ 
+</html>

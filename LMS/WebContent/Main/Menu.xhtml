@@ -1,29 +1,60 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:h="http://java.sun.com/jsf/html" 
-xmlns:ui="http://java.sun.com/jsf/facelets"
- xmlns:prime="http://primefaces.org/ui" 
- xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
 <h:head>
- 
- 
+	<h:outputStylesheet rendered="#{msgs.dir == 'rtl'}" library="css" name="toggleMenu.css" target="head" />
+	<h:outputStylesheet rendered="#{msgs.dir == 'ltr'}" library="css" name="EnglishToggleMenu.css" target="head" />
+
 </h:head>
- 
-	
-	<ui:composition> 
-    	<h:outputStylesheet library="css" name="nav.css" />
-<div class="sidenav">
+<h:body>
+	<ui:composition>
+		<h:outputStylesheet rendered="#{msgs.dir == 'rtl'}" library="css" name="toggleMenu.css" target="head" />
+		<h:outputStylesheet rendered="#{msgs.dir == 'ltr'}" library="css" name="EnglishToggleMenu.css" target="head" />
+		<h:outputText value="" style="display:none;">
+		
+		</h:outputText>
+		<h:outputScript>
+			jQuery(document).ready(function() {
+            // Collapsing all
+            $('.ui-panelmenu-panel h3.ui-state-active a').click();
+            $('.ui-panelmenu-panel .ui-panelmenu-content ul li a:not([href]) span.ui-icon-triangle-1-s').parents('a').click();
+            $('.ui-panelmenu-panel h3.ui-state-hover').removeClass('ui-state-hover');
+           
+            // Expanding selected
+            var windowhref = window.location.href;
+            var context = '/' + window.location.pathname.split('/')[1];
+            windowhref = windowhref.substring(windowhref.indexOf(context, 0), windowhref.length);
+            var selector ="a[href='"+windowhref + "']";
+            if(selector.indexOf("Welcome") == -1){
+           
+                var rootLink = $(selector).parents('.ui-panelmenu-panel').find('a')[0];
+                if(rootLink !== undefined)
+                	rootLink.click();
+                     
+                var link = $(selector).parent('li').parent('ul').parent('li');
+                while (link !== undefined &amp;&amp; link.length !== 0) {
+					var anchorLink = link.find('a')[0];
+                    if(anchorLink !== undefined)
+						anchorLink.click();
+                    link = link.parent('ul').parent('li');
+                }
+               	// Changing selected link's color
+                $(selector).addClass('selected-menu');
+            }
+        });			
+		</h:outputScript>
+			
+		<div class="new-list">
+			
+		</div>
 
-  <a href="#">My History</a>
-  <a href="#">My Exam List</a>
-   <a href="#">Help</a>
-    <a href="#">Log Out</a>
 
-</div> 
+		<div>
+			<h1>Welcome User!</h1>	
+   <h3>Explore the future with us.<br></br> 
+What do you want to do?</h3><br></br>
+		</div>
 
-
-
-</ui:composition>
- 
+	</ui:composition>
+</h:body>
 </html>

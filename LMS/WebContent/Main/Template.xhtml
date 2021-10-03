@@ -9,14 +9,23 @@
 				<div class="navbar-inner">
 					<h:panelGroup id="headerData">
 						<div class="sub_content">
-							<ui:include src="/Main/header2.xhtml" />
+							<ui:include src="/Main/header.xhtml" />
 						</div>
 					</h:panelGroup>
 				</div>
 			</div>
 			<div id="container" class="row-fluid">
 				<div class="bg-Drark">
-					
+					<!-- BEGIN SIDEBAR -->
+					<div >
+						<!--<nav id="spy">-->
+						<nav id="spy" class="mCustomScrollbar light spe-scrollbar"
+						data-mcs-theme="minimal-dark">
+						<div id="sidebar" class="nav-collapse collapse">
+							<ui:include src="/Main/user_menu.xhtml" />
+						</div>
+						</nav>
+					</div>
 					<div id="body">
 						<!-- BEGIN PAGE CONTAINER-->
 						<ui:insert />

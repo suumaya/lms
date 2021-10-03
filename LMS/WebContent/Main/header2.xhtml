@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:prime="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+</h:head>
+<h:body>
+	<ui:composition>
+		<h:outputStylesheet library="css" rendered="#{msgs.dir == 'rtl'}" name="styles.css" />
+		<h:outputScript name="bootstrap/js/bootstrap.min.js" library="css" target="head" />
+		<h:outputScript name="bootstrap/js/jquery.mCustomScrollbar.concat.min.js" library="css" target="head" />
+		<h:outputScript name="bootstrap/sjs/jquery.min.js" library="css" target="head" />
+		<h:outputScript name="websocket-client.js" library="javascript" target="head" />
+		<style>
+			.ui-menu .ui-menuitem-link {
+				display: block;
+				width: 95%;
+			}
+			
+			.ui-menu .ui-menuitem-text {
+				float: right !important;
+			}
+			
+			.top-link-header li, .top-link-notfi li {
+				padding: 8px 8px !important;
+			}
+		</style>
+		
+		<div class="topHeader">
+
+<!--  
+			<div class="divLogo">
+				<a href="#{request.contextPath}/Main/Welcome.jsf" id="homeUpperIcon">
+					<i class="fa fa-home" />
+					<img src="../resources/images/logo_FG-pass.png" />
+				</a>
+			</div>
+-->
+
+			<div class="main-nav-top">
+				<div class="col-md-8 col-sm-8 col-xs-10 container-top  padding-none">
+					<div class="l-dir w-left-top-icon top-list">
+						<ul id="buttonCollapse1" class="menu top-link-notfi">
+							 <li><a href="#">Online Management System</a></li>
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Contact</a></li>
+  <li><a href="#">About</a></li>
+						</ul>
+					</div>
+					<div style="clear: both;" />
+				</div>
+			</div>
+		</div>
+	</ui:composition>
+</h:body>
+</html>

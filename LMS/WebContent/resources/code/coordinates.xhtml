@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:composite="http://java.sun.com/jsf/composite" xmlns:p="http://primefaces.org/ui">
+<composite:interface componentType="coordinates">
+	<composite:attribute name="longitude" required="true" type="java.lang.Double" />
+	<composite:attribute name="latitude" required="true" type="java.lang.Double" />
+	<composite:attribute name="emptyLatitude" default="false" type="java.lang.Boolean" />
+	<composite:attribute name="emptyLongitude" default="false" type="java.lang.Boolean" />
+	<composite:attribute name="disabled" default="false" type="java.lang.Boolean" />
+	<composite:attribute name="rendered" default="true" type="java.lang.Boolean" />
+</composite:interface>
+<composite:implementation>
+	<script type="text/javascript">
+	</script>
+	<h:panelGroup rendered="#{cc.attrs.rendered}">
+		<table width="100%">
+			<tr>
+				<td width="35%">
+					<h:panelGroup id="coordinateNPanelId">
+						<h:outputText value="''" style=" font-size: 16px; font-weight: 600; " />
+						<h:inputText disabled="#{cc.attrs.disabled}" style="width:12%;" value="#{cc.nSecs}" onkeypress="return checkFloatWithMaxedLength(event, this, 4, 2);" onblur="return isDigitFloat(this, 2, 4, 2)" maxlength="5">
+							<f:ajax listener="#{cc.submitNCoordinateValues}" execute="coordinateNPanelId" />
+						</h:inputText>
+						<h:outputText value="'" style=" font-size: 16px; font-weight: 600; " />
+						<h:inputText disabled="#{cc.attrs.disabled}" style="width:10%;" value="#{cc.nMinutes}" onkeypress="return checkNumberWithinRange(event, this, 0, 59);" onblur="return isDigitFloat(this);" maxlength="2">
+							<f:ajax listener="#{cc.submitNCoordinateValues}" execute="coordinateNPanelId" />
+						</h:inputText>
+						<h:outputText value="°" style=" font-size: 16px; font-weight: 600; " />
+						<h:inputText disabled="#{cc.attrs.disabled}" style="width:10%;" value="#{cc.nDegrees}" onkeypress="return checkNumberWithinRange(event, this, 0, 89);" onblur="return isDigitFloat(this);" maxlength="2">
+							<f:ajax listener="#{cc.submitNCoordinateValues}" execute="coordinateNPanelId" />
+						</h:inputText>
+						ش
+				</h:panelGroup>
+				</td>
+			</tr>
+			<tr>
+				<td width="35%">
+					<h:panelGroup id="coordinateEPanelId">
+						<h:outputText value="''" style=" font-size: 16px; font-weight: 600; " />
+						<h:inputText disabled="#{cc.attrs.disabled}" style="width:12%;" value="#{cc.eSecs}" onkeypress="return checkFloatWithMaxedLength(event, this, 4, 2);" onblur="return isDigitFloat(this, 2, 4, 2)" maxlength="5">
+							<f:ajax listener="#{cc.submitECoordinateValues}" execute="coordinateEPanelId" />
+						</h:inputText>
+						<h:outputText value="'" style=" font-size: 16px; font-weight: 600; " />
+						<h:inputText disabled="#{cc.attrs.disabled}" style="width:10%;" value="#{cc.eMinutes}" onkeypress="return checkNumberWithinRange(event, this, 0, 59);" onblur="return isDigitFloat(this);" maxlength="2">
+							<f:ajax listener="#{cc.submitECoordinateValues}" execute="coordinateEPanelId" />
+						</h:inputText>
+						<h:outputText value="°" style=" font-size: 16px; font-weight: 600; " />
+						<h:inputText disabled="#{cc.attrs.disabled}" style="width:10%;" value="#{cc.eDegrees}" onkeypress="return checkNumberWithinRange(event, this, 0, 179);" onblur="return isDigitFloat(this);" maxlength="3">
+							<f:ajax listener="#{cc.submitECoordinateValues}" execute="coordinateEPanelId" />
+						</h:inputText>
+						ق
+				</h:panelGroup>
+				</td>
+			</tr>
+		</table>
+	</h:panelGroup>
+</composite:implementation>
+</html>

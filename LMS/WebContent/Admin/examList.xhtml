@@ -14,11 +14,22 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:util="http://java.sun.com/jsf/compo
 <h:body  >
  
 
-<ui:decorate template="../Main/Template.xhtml">
+<ui:decorate template="../Main/Admin_Template.xhtml">
 	   	
        <h1> 
-     Help Center	
+       Existing Exams
        </h1>
+        <ui:repeat var="row" value="#{examBean.examData}">
+   <div  class="center students">
+  <div class="card-body "  >
+    <h5 class="card-title">#{row.examName}</h5>
+     <a href="#" class="btn btn-success" >Remove Exam</a>
+  </div>
+  </div>  
+  
+  </ui:repeat>
+  
+    <a href="#" class="btn btn-success" >Add New Exam</a><br/><br/>
   
 		</ui:decorate> 
 	 

@@ -1,4 +1,4 @@
-package resources;
+package resources.exam;
 
 import java.io.Serializable;
 import java.sql.Date;
@@ -38,7 +38,7 @@ public class ExamData implements Serializable {
 	private Date examDate; 
 	private String examName;
 	private ExamData examData;
-
+	
 	public ExamData() {
 		//this.examData = new ExamData(); 
 	}

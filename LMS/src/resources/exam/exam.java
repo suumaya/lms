@@ -1,4 +1,4 @@
-package resources;
+package resources.exam;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
@@ -18,7 +18,14 @@ public class exam implements Serializable{
 	private Date examDate; 
 	private List<ExamData> examData;
 	private String examName;
+	private List<question> questions; 
 	
+	public List<question> getQuestions() {
+		return questions;
+	}
+	public void setQuestions(List<question> questions) {
+		this.questions = questions;
+	}
 	public boolean isStarted() {
 		return started;
 	}

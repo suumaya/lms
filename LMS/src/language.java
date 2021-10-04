@@ -9,7 +9,6 @@ import javax.faces.context.FacesContext;
 @ManagedBean(name="language")
 @SessionScoped
 public class language  implements Serializable{
-	private static final long serialVersionUID = 1L;
     
     private Locale locale = FacesContext.getCurrentInstance().getViewRoot().getLocale();
  
@@ -22,7 +21,10 @@ public class language  implements Serializable{
     }
  
     public void changeLanguage(String language) {
-        locale = new Locale(language);
-        FacesContext.getCurrentInstance().getViewRoot().setLocale(new Locale(language));
+    	if(Locale.ENGLISH == locale)
+            locale = new Locale("ar");
+    	else
+        locale = new Locale("en");
+        FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);
     }
 }

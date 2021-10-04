@@ -27,12 +27,12 @@ border-radius: 5px;
 
 <ui:decorate template="../../Main/Template.xhtml">
        <h1> 
-       Exams Question:
+       #{exam_question}:
        </h1>
    <ui:repeat var="row" value="#{examBean.examData}" varStatus="myVarStatus">
    <div  class="center exams">
   <div class="card-body"  >
-    <h5 class="card-title"> #{myVarStatus.index+1} EXAM QUESTION </h5>
+    <h5 class="card-title"> #{myVarStatus.index+1} EXAM QUESTION Refrence from BEAN</h5>
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> ans1</input>
 </div>

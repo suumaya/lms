@@ -15,11 +15,11 @@ xmlns:ui="http://java.sun.com/jsf/facelets"
 <h:outputStylesheet library="css" name="nav.css" />
 
 <ul>
-  <li><a href="#">Online Management System</a></li>
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Contact</a></li>
-  <li><a href="#">About</a></li>
-  <li> <h:commandButton action="#{language.changeLanguage(msgs.language)}" value="#{msgs.language}" /></li>
+  <li><a href="#">#{msgs.website_name}</a></li>
+  <li><a href="#">#{msgs.Home}</a></li>
+  <li><a href="#">#{msgs.Contact}</a></li>
+  <li><a href="#">#{msgs.About}</a></li>
+  <li> <h:commandButton action="#{language.changeLanguage()}" value="#{msgs.language}" /></li>
 </ul>
 
 

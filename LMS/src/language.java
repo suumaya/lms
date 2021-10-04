@@ -20,8 +20,9 @@ public class language  implements Serializable{
         return locale.getLanguage();
     }
  
-    public void changeLanguage(String language) {
-    	if(Locale.ENGLISH == locale)
+    public void changeLanguage() {
+    	
+    	if("en".equals(locale.getLanguage()))
             locale = new Locale("ar");
     	else
         locale = new Locale("en");

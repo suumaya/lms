@@ -14,23 +14,23 @@ xmlns:ui="http://java.sun.com/jsf/facelets"
 	<ui:composition> 
     	<h:outputStylesheet library="css" name="nav.css" />  
 <div class="sidenav">
+ 
 
-  <h:outputLink value="#{request.contextPath}/Student/userHistory.xhtml" >
-	#{msgs.my_history}
-</h:outputLink>
-
- <h:outputLink value="#{request.contextPath}/Student/examList.xhtml" >
-	#{msgs.my_exam_list}
-</h:outputLink>
-
-  <h:outputLink value="#{request.contextPath}/Student/help.xhtml" >
-  #{msgs.help}
-</h:outputLink>
+ <a href="../Student/userHistory.xhtml">
+	My History
+</a>
+ 
+ <a href="../Student/examList.xhtml">
+	My Exam List
+</a>
     
-<h:outputLink value="#{request.contextPath}/Student/logOut.xhtml" >
-#{msgs.log_out}
-</h:outputLink>
+<a href="../Student/help.xhtml">
+	Help
+</a>
 
+<a href="../Student/logOut.xhtml">
+	Log Out
+</a>
 </div> 
 
 

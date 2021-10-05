@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:util="http://java.sun.com/jsf/composite/util">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<h:outputStylesheet library="css" name="styles.css" />
+	<h:outputStylesheet library="css" name="grid.css" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+
+	<h:outputScript name="utilities.js" library="javascript" target="head" />
+	<style>
+.center {
+border-radius: 5px;
+  margin: auto;
+  width: 95%;
+  border: 1px solid #ececec;
+  padding: 10px;
+  margin-bottom: 5px;
+  
+}
+div.students:hover{
+background-color: #ececec;
+}
+
+.studentTable {   
+   border-collapse:collapse;
+   border:1px solid #000000;
+}
+
+.studentTableHeader {
+   text-align:center;
+   background:none repeat scroll 0 0 #B5B5B5;
+   border-bottom:1px solid #000000;  
+   padding:2px;
+}
+
+.studentTableOddRow {
+   text-align:center;
+   background:none repeat scroll 0 0 #FFFFFFF;	
+}
+
+.studentTableEvenRow {
+   text-align:center;
+   background:none repeat scroll 0 0 #D3D3D3;
+}
+
+</style>
+</h:head>
+<h:body  >
+
+
+<ui:decorate template="../Main/admin_Template.xhtml">
+   
+       <h1> 
+       Students:
+       </h1>
+       	<h:form>
+    
+    
+   
+ <h:dataTable value = "#{userData.students}" var = "student" 
+   styleClass = "studentTable"
+   headerClass = "studentTableHeader"
+   rowClasses = "studentTableOddRow,studentTableEvenRow">
+   
+   <h:column>    				
+      <f:facet name = "header">Name</f:facet>    				
+      #{student.name}	
+   </h:column>
+   
+      <h:column>    				
+      <f:facet name = "header"> Action </f:facet>    				
+         <a href="#" class="btn btn-success" >Remove</a>
+   </h:column>
+  
+   
+</h:dataTable>
+    
+    
+  	</h:form>
+   <a href="#" class="btn btn-success" >Add new Student</a>
+  
+  
+		</ui:decorate> 
+			 
+		
+</h:body>
+</html>

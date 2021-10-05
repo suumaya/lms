@@ -10,6 +10,22 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:util="http://java.sun.com/jsf/compo
 	<h:outputStylesheet library="css" name="bootstrap.css" />
 
 	<h:outputScript name="utilities.js" library="javascript" target="head" />
+	
+		<style>
+.center {
+border-radius: 5px;
+  margin: auto;
+  width: 95%;
+  border: 1px solid #ececec;
+  padding: 10px;
+  margin-bottom: 5px;
+  
+}
+div.exams:hover{
+background-color: #ececec;
+}
+
+</style>
 </h:head>
 <h:body  >
  
@@ -19,8 +35,9 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:util="http://java.sun.com/jsf/compo
        <h1> 
        Existing Exams
        </h1>
+       
         <ui:repeat var="row" value="#{examBean.examData}">
-   <div  class="center students">
+   <div  class="center exams">
   <div class="card-body "  >
     <h5 class="card-title">#{row.examName}</h5>
      <a href="#" class="btn btn-success" >Remove Exam</a>

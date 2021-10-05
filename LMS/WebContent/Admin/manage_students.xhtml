@@ -22,30 +22,67 @@ div.students:hover{
 background-color: #ececec;
 }
 
+.studentTable {   
+   border-collapse:collapse;
+   border:1px solid #000000;
+}
+
+.studentTableHeader {
+   text-align:center;
+   background:none repeat scroll 0 0 #B5B5B5;
+   border-bottom:1px solid #000000;  
+   padding:2px;
+}
+
+.studentTableOddRow {
+   text-align:center;
+   background:none repeat scroll 0 0 #FFFFFFF;	
+}
+
+.studentTableEvenRow {
+   text-align:center;
+   background:none repeat scroll 0 0 #D3D3D3;
+}
+
 </style>
 </h:head>
 <h:body  >
-	<h:form>
+
 
 <ui:decorate template="../Main/admin_Template.xhtml">
+   
        <h1> 
        Students:
        </h1>
-   <ui:repeat var="row" value="#{examBean.examData}">
-   <div  class="center students">
-  <div class="card-body "  >
-    <h5 class="card-title">#{row.studentName}</h5>
-     <a href="#" class="btn btn-success" >Remove Student</a>
-  </div>
-  </div>  
+       	<h:form>
+    
+    
+   
+ <h:dataTable value = "#{userData.students}" var = "student" 
+   styleClass = "studentTable"
+   headerClass = "studentTableHeader"
+   rowClasses = "studentTableOddRow,studentTableEvenRow">
+   
+   <h:column>    				
+      <f:facet name = "header">Name</f:facet>    				
+      #{student.name}	
+   </h:column>
+   
+      <h:column>    				
+      <f:facet name = "header"> Action </f:facet>    				
+         <a href="#" class="btn btn-success" >Remove</a>
+   </h:column>
   
-  </ui:repeat>
-  
+   
+</h:dataTable>
+    
+    
+  	</h:form>
    <a href="#" class="btn btn-success" >Add new Student</a>
   
   
 		</ui:decorate> 
-			</h:form>
+			 
 		
 </h:body>
 </html>

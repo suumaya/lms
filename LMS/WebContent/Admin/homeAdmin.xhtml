@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:util="http://java.sun.com/jsf/composite/util">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<h:outputStylesheet library="css" name="styles.css" />
+	<h:outputStylesheet library="css" name="grid.css" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+
+	<h:outputScript name="utilities.js" library="javascript" target="head" />
+    <style type="text/css" xml:space="preserve">
+    table.table tr th, table.table tr td {
+        border-color: #e9e9e9;
+    
+    }
+        table.table th{
+     background-color: #7f7f7f;
+     color: #ffffff;
+    }
+    table.table-upcoming-exams tbody tr:nth-of-type(odd) table.table-past-exams{
+    	background-color: #fcfcfc;
+	}
+    .table-wrapper {
+        padding: 20px;
+        max-width: 500px;
+  		margin: auto;
+  		border-style: ridge;
+  		    margin-top: 15px;
+    }
+
+</style>
+  </h:head>
+  <h:body>
+    <div class="container">
+      <div class="table-wrapper">
+        <table class="table table-upcoming-exams">
+          <thead>
+            <tr>
+             
+              <th>
+                Upcoming Exams
+              </th>     
+            </tr>
+          </thead>
+          <tbody>
+            <tr>       
+              <td>
+                  <a href="#" class="page-link">Exam 5</a>
+              </td>
+              </tr>
+              <tr>
+              <td>
+                  <a href="#" class="page-link">Exam 6</a>
+              </td>       
+            </tr>
+          </tbody>
+        </table>       
+      </div>
+   <div class="table-wrapper">
+        <table class="table table-past-exams">
+          <thead>
+            <tr>
+             
+              <th>
+                Past Exams
+              </th>     
+            </tr>
+          </thead>
+          <tbody>
+            <tr>       
+              <td>
+                  <a href="#" class="page-link">Exam 1</a>
+              </td>
+              </tr>
+              <tr>
+              <td>
+                  <a href="#" class="page-link">Exam 2</a>
+              </td>       
+            </tr>
+             <tr>       
+              <td>
+                  <a href="#" class="page-link">Exam 3</a>
+              </td>
+              </tr>
+              <tr>
+              <td>
+                  <a href="#" class="page-link">Exam 4</a>
+              </td>       
+            </tr>
+          </tbody>
+        </table>
+       
+      </div>    
+      
+    </div>
+</h:body>
+</html>

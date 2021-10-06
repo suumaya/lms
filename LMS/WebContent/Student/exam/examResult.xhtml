@@ -26,26 +26,39 @@
 div.exams:hover {
 	background-color: #ececec;
 }
+#td {
+  text-align: left;
+}
+#th {
+  text-align: left;
+}
 </style>
 </h:head>
 <h:body>
 	<h:form>
 
 		<ui:decorate template="../../Main/Template.xhtml">
-			<h1>#{msgs.exams}:</h1>
-			<ui:repeat var="row" value="#{examsBean.examData}">
-				<div class="center exams">
-					<div class="card-body ">
-						<h5 class="card-title">#{row.examName}</h5>
-						<p class="card-text">Description.</p>
-						<h:outputLink value="examDetails.xhtml" outcome="/exam/examDetails">
-     #{msgs.enter_exam}
-            <f:param name="id" value="#{row.examID}" />
-						</h:outputLink>
-					</div>
-				</div>
+			<h1>#{msgs.examResult}:</h1>
+			<table id="ExamDetails" border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
+  <tbody>
 
-			</ui:repeat>
+
+    <tr>
+      <th  width="15%" style="text-align: left">#{msgs.exam_duration}:</th>
+      <td width="20%" style="text-align: left">#{examResultBean.result}</td>
+    </tr>
+    <tr>
+      <th  width="15%" style="text-align: left">#{msgs.exam_department}:</th>
+      <td width="20%" style="text-align: left">#{examResultBean.result}</td>
+    </tr>
+    <tr>
+      <th width="15%" style="text-align: left">#{msgs.exam_level}:</th>
+      <td width="20%" style="text-align: left">#{examResultBean.result}</td>
+    </tr>
+   
+  </tbody>
+</table>
+			
 		</ui:decorate>
 	</h:form>
 

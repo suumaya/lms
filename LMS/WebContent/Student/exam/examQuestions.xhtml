@@ -29,7 +29,7 @@ border-radius: 5px;
        <h1> 
        #{exam_question}:
        </h1>
-   <ui:repeat var="row" value="#{examBean.examData}" varStatus="myVarStatus">
+   <ui:repeat var="row" value="#{examBean.examData.questions}" varStatus="myVarStatus">
    <div  class="center exams">
   <div class="card-body"  >
     <h5 class="card-title"> #{myVarStatus.index+1} EXAM QUESTION Refrence from BEAN</h5>

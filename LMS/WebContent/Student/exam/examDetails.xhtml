@@ -1,6 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:util="http://java.sun.com/jsf/composite/util">
+
+
+<f:metadata>
+    <f:viewParam name="id" value="#{examDetailsBean.exam}" 
+        converter="#{examConverter}" converterMessage="Unknown exam, please use a link from within the system."
+        required="true" requiredMessage="Bad request, please use a link from within the system."
+    />
+</f:metadata>
+
+
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<h:outputStylesheet library="css" name="styles.css" />
@@ -18,6 +28,10 @@
 	</style>
 </h:head>
 <h:body  >
+
+
+
+
 	<h:form>
 
 <ui:decorate template="../../Main/Template.xhtml">
@@ -30,15 +44,15 @@
 
     <tr>
       <th  width="15%" style="text-align: left">#{msgs.exam_duration}:</th>
-      <td width="20%" style="text-align: left">Reference</td>
+      <td width="20%" style="text-align: left">#{examDetailsBean.exam.examTime}</td>
     </tr>
     <tr>
       <th  width="15%" style="text-align: left">#{msgs.exam_department}:</th>
-      <td width="20%" style="text-align: left">Reference</td>
+      <td width="20%" style="text-align: left">#{examDetailsBean.exam.examName}</td>
     </tr>
     <tr>
       <th width="15%" style="text-align: left">#{msgs.exam_level}:</th>
-      <td width="20%" style="text-align: left">Reference</td>
+      <td width="20%" style="text-align: left">#{examDetailsBean.exam.examTime}</td>
     </tr>
     <tr>
       <th> <button class="btn btn-success"> #{msgs.exam_start}</button> </th>

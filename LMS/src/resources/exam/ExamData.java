@@ -33,12 +33,26 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "exam")
 public class ExamData implements Serializable {
+	private int examID; 
 	private boolean started; 
 	private Time examTime; 
 	private Date examDate; 
 	private String examName;
 	private ExamData examData;
-	
+	private List<question> questions; 
+
+	public ExamData getExamData() {
+		return examData;
+	}
+	public void setExamData(ExamData examData) {
+		this.examData = examData;
+	}
+	public List<question> getQuestions() {
+		return questions;
+	}
+	public void setQuestions(List<question> questions) {
+		this.questions = questions;
+	}
 	public ExamData() {
 		//this.examData = new ExamData(); 
 	}
@@ -65,6 +79,12 @@ public class ExamData implements Serializable {
 	}
 	public void setExamName(String examName) {
 		this.examName = examName;
+	}
+	public int getExamID() {
+		return examID;
+	}
+	public void setExamID(int examID) {
+		this.examID = examID;
 	}
 	
 

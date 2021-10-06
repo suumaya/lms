@@ -39,7 +39,6 @@ public class ExamData implements Serializable {
 	private Date examDate; 
 	private String examName;
 	private ExamData examData;
-	private List<question> questions; 
 
 	public ExamData getExamData() {
 		return examData;
@@ -47,12 +46,7 @@ public class ExamData implements Serializable {
 	public void setExamData(ExamData examData) {
 		this.examData = examData;
 	}
-	public List<question> getQuestions() {
-		return questions;
-	}
-	public void setQuestions(List<question> questions) {
-		this.questions = questions;
-	}
+
 	public ExamData() {
 		//this.examData = new ExamData(); 
 	}

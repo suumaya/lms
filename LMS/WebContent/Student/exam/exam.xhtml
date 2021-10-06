@@ -29,18 +29,18 @@ div.exams:hover {
 </style>
 </h:head>
 <h:body>
-	<h:form>
+	<h:form dir="#{msgs.dir}">
 
 		<ui:decorate template="../../Main/Template.xhtml">
 			<h1>#{msgs.exams}:</h1>
 			<ui:repeat var="row" value="#{examsBean.examData}">
 				<div class="center exams">
 					<div class="card-body ">
-						<h5 class="card-title">#{row.examName}</h5>
+						<h5 class="card-title">#{row.exam.examName}</h5>
 						<p class="card-text">Description.</p>
 						<h:outputLink value="examDetails.xhtml" outcome="/exam/examDetails">
      #{msgs.enter_exam}
-            <f:param name="id" value="#{row.examID}" />
+            <f:param name="id" value="#{row.exam.examID}" />
 						</h:outputLink>
 					</div>
 				</div>

@@ -13,11 +13,11 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean(name = "examsBean")
 @SessionScoped
 public class exams implements Serializable{
-	private List<ExamData> examData;
+	private List<exam> examData;
 
-	public List<ExamData> getExamData() {
+	public List<exam> getExamData() {
 		//Create data just to check. 
-		examData = new ArrayList<ExamData>();
+		examData = new ArrayList<exam>();
 		ExamData obj= new ExamData(); 
 		obj.setExamName("CSC122");
 		obj.setExamTime(new Time(0));
@@ -27,7 +27,9 @@ public class exams implements Serializable{
 		qobj.setAnswers(null);
 		List<question> questions = new ArrayList<question>();
 		questions.add(qobj);
-		obj.setQuestions(questions);
+		exam e =new exam(); 
+		e.setExam(obj);
+		e.setQuestions(questions);
 		answer aobj = new answer(); 
 		aobj.setAnswer("r1");
 		List<answer> ans = new ArrayList<answer>();
@@ -35,16 +37,16 @@ public class exams implements Serializable{
 		ans.add(aobj);
 		ans.add(aobj);
 		qobj.setAnswers(ans);
-		examData.add(obj);
-		examData.add(obj);
-		examData.add(obj);
-		examData.add(obj);
-		examData.add(obj);
-		examData.add(obj);
-		examData.add(obj);
+		examData.add(e);
+		examData.add(e);
+		examData.add(e);
+		examData.add(e);
+		examData.add(e);
+		examData.add(e);
+		examData.add(e);
 		return examData;
 	}
-	public void setExamData(List<ExamData> examData) {
+	public void setExamData(List<exam> examData) {
 		this.examData = examData;
 	}
 

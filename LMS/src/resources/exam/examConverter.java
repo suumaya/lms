@@ -38,7 +38,7 @@ public class examConverter implements Converter {
         }
 
         if (value instanceof exam) {
-            Long id = (long) ((exam) value).getExamID();
+            Long id = (long) ((exam) value).getExam().getExamID();
             return (id != null) ? String.valueOf(id) : null;
         } else {
            // throw new ConverterException("The value is not a valid exam instance: " + value);

@@ -12,17 +12,14 @@ xmlns:ui="http://java.sun.com/jsf/facelets"
 <h:body>
  
  	<ui:composition> 
-<h:outputStylesheet library="css" name="nav.css" />
 
-<ul>
+<ul >
   <li><a href="#">#{msgs.website_name}</a></li>
   <li><a href="#">#{msgs.Home}</a></li>
   <li><a href="#">#{msgs.Contact}</a></li>
   <li><a href="#">#{msgs.About}</a></li>
   <li> <h:commandButton action="#{language.changeLanguage()}" value="#{msgs.language}" /></li>
 </ul>
-
-
 
 </ui:composition>
  

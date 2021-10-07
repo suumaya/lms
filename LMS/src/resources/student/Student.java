@@ -9,6 +9,9 @@ public class Student {
 	   private String level;
 	   private String password;
 
+	   public Student() {
+		   
+	   }
 	   
 	   public Student (String name,String username,String email,String department,String level,String password) {
 		      this.name = name;

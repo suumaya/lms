@@ -1,61 +1,82 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
- xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:h="http://java.sun.com/jsf/html" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+ xmlns:prime="http://primefaces.org/ui" 
+ xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-	<h:outputStylesheet rendered="#{msgs.dir == 'rtl'}" library="css" name="toggleMenu.css" target="head" />
-	<h:outputStylesheet rendered="#{msgs.dir == 'ltr'}" library="css" name="EnglishToggleMenu.css" target="head" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
 
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
 </h:head>
 <h:body>
-	<ui:composition>
-		<h:outputStylesheet rendered="#{msgs.dir == 'rtl'}" library="css" name="toggleMenu.css" target="head" />
-		<h:outputStylesheet rendered="#{msgs.dir == 'ltr'}" library="css" name="EnglishToggleMenu.css" target="head" />
-		<h:outputText value="" style="display:none;">
-		
-		</h:outputText>
-		<h:outputScript>
-			jQuery(document).ready(function() {
-            // Collapsing all
-            $('.ui-panelmenu-panel h3.ui-state-active a').click();
-            $('.ui-panelmenu-panel .ui-panelmenu-content ul li a:not([href]) span.ui-icon-triangle-1-s').parents('a').click();
-            $('.ui-panelmenu-panel h3.ui-state-hover').removeClass('ui-state-hover');
-           
-            // Expanding selected
-            var windowhref = window.location.href;
-            var context = '/' + window.location.pathname.split('/')[1];
-            windowhref = windowhref.substring(windowhref.indexOf(context, 0), windowhref.length);
-            var selector ="a[href='"+windowhref + "']";
-            if(selector.indexOf("Welcome") == -1){
-           
-                var rootLink = $(selector).parents('.ui-panelmenu-panel').find('a')[0];
-                if(rootLink !== undefined)
-                	rootLink.click();
-                     
-                var link = $(selector).parent('li').parent('ul').parent('li');
-                while (link !== undefined &amp;&amp; link.length !== 0) {
-					var anchorLink = link.find('a')[0];
-                    if(anchorLink !== undefined)
-						anchorLink.click();
-                    link = link.parent('ul').parent('li');
-                }
-               	// Changing selected link's color
-                $(selector).addClass('selected-menu');
-            }
-        });			
-		</h:outputScript>
-			
-		<div class="new-list">
-			
-		</div>
+<ui:composition> 
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
 
+<h2>Right-sided Navigation</h2>
+<p>Click on the element below to open the right-sided navigation menu.</p>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
 
-		<div>
-			<h1>Welcome User!</h1>	
-   <h3>Explore the future with us.<br></br> 
-What do you want to do?</h3><br></br>
-		</div>
+<script  type="text/javascript">
+//<![CDATA[
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
 
-	</ui:composition>
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+//]]>
+</script>
+ </ui:composition>  
 </h:body>
-</html>
+</html> 

@@ -1,6 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:util="http://java.sun.com/jsf/composite/util">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:util="http://java.sun.com/jsf/composite/util">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<h:outputStylesheet library="css" name="styles.css" />
@@ -10,39 +15,39 @@
 	<h:outputScript name="utilities.js" library="javascript" target="head" />
 	<style>
 .center {
-border-radius: 5px;
-  margin: auto;
-  width: 95%;
-  border: 1px solid #ececec;
-  padding: 10px;
-  margin-bottom: 5px;
-  
-}
-div.exams:hover{
-background-color: #ececec;
+	border-radius: 5px;
+	margin: auto;
+	width: 95%;
+	border: 1px solid #ececec;
+	padding: 10px;
+	margin-bottom: 5px;
 }
 
+div.exams:hover {
+	background-color: #ececec;
+}
 </style>
 </h:head>
-<h:body  >
-	<h:form>
+<h:body>
+	<h:form dir="#{msgs.dir}">
 
-<ui:decorate template="../../Main/Template.xhtml">
-       <h1> 
-       #{msgs.exams}:
-       </h1>
-   <ui:repeat var="row" value="#{examBean.examData}">
-   <div  class="center exams">
-  <div class="card-body "  >
-    <h5 class="card-title">#{row.examName}</h5>
-    <p class="card-text">Description.</p>
-    <a href="#" class="btn btn-success" >#{msgs.enter_exam}</a>
-  </div>
-  </div>  
-  
-  </ui:repeat>
-		</ui:decorate> 
-			</h:form>
-		
+		<ui:decorate template="../../Main/Template.xhtml">
+			<h1>#{msgs.exams}:</h1>
+			<ui:repeat var="row" value="#{examsBean.examData}">
+				<div class="center exams">
+					<div class="card-body ">
+						<h5 class="card-title">#{row.exam.examName}</h5>
+						<p class="card-text">Description.</p>
+						<h:outputLink value="examDetails.xhtml" outcome="/exam/examDetails">
+     #{msgs.enter_exam}
+            <f:param name="id" value="#{row.exam.examID}" />
+						</h:outputLink>
+					</div>
+				</div>
+
+			</ui:repeat>
+		</ui:decorate>
+	</h:form>
+
 </h:body>
 </html>

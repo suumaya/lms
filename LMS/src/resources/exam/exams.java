@@ -55,14 +55,15 @@ public class exams implements Serializable{
 		SSLSocket socket = (SSLSocket)factory.createSocket();
 		String[] protocols = socket.getEnabledProtocols();
 		*/
-		String pass = "Admin_SYS@online-examination-system";
-		String user = " WelcomeToServerJSF#12July";
+		String user = "Admin_SYS@online-examination-system";
+		String pass = "WelcomeToServerJSF#12July";
 		String connString = "jdbc:mysql://online-examination-system.mysql.database.azure.com:3306/examinationsys?useSSL=true&requireSSL=false";
 		Class.forName("com.mysql.jdbc.Driver");
 		//DriverManager.getConnection(connString,user,pass);
 
 		//Connection con = DriverManager.getConnection(connString,user,pass);
-		Connection con=DriverManager.getConnection(connString, user, pass);
+		
+		Connection con=DriverManager.getConnection(connString,user, pass );
 
 
 

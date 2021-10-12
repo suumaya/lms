@@ -85,6 +85,9 @@ public class exams implements Serializable{
 
 		return examData;
 		}catch(Exception ee) {
+			obj.setExamName(ee.toString());
+			e.setExam(obj);
+			examData.add(e);examData.add(e);examData.add(e);
 		return examData;
 		}
 		}

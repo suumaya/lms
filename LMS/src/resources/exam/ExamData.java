@@ -5,7 +5,9 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -33,10 +35,19 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "exam")
 public class ExamData implements Serializable {
+	@Id
+	@Column(name="ID")
 	private int examID; 
+	@Column(name="answer_ID")
+	private int answer_ID; 
+	@Column(name="question_ID")
+	private int question_ID; 
 	private boolean started; 
+	@Column(name="time")
 	private Time examTime; 
+	//@Column(name="examDate")
 	private Date examDate; 
+//	@Column(name="examName")
 	private String examName;
 	private ExamData examData;
 
@@ -79,6 +90,18 @@ public class ExamData implements Serializable {
 	}
 	public void setExamID(int examID) {
 		this.examID = examID;
+	}
+	public int getAnswer_ID() {
+		return answer_ID;
+	}
+	public void setAnswer_ID(int answer_ID) {
+		this.answer_ID = answer_ID;
+	}
+	public int getQuestion_ID() {
+		return question_ID;
+	}
+	public void setQuestion_ID(int question_ID) {
+		this.question_ID = question_ID;
 	}
 	
 

@@ -16,7 +16,7 @@
 		width: 340px;
     	margin: 200px auto;
 	}
-    .login-form form {
+    .login-form .form {
     	margin-bottom: 15px;
         background: #f7f7f7;
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
@@ -35,10 +35,21 @@
         font-weight: bold;
     }
 </style>
+
+<script type="text/javascript">
+function IsEmpty() {
+  if (document.forms['frm'].username_input.value === ""||document.forms['frm'].password_input.value === "") {
+    alert("Please Fill All Required Field");
+    return false;
+  }
+  return true;
+}
+</script>
+
   </h:head>
-  <body>
+  <h:body>
     <div class="login-form">
-      <form action="/examples/actions/confirmation.php" method="post">
+      <form  name="frm" action="/examples/actions/confirmation.php" method="post" >
         <h2 class="text-center">
           Log in
         </h2>
@@ -46,16 +57,16 @@
           <label>Username</label> 
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" />
+          <input type="text" class="form-control" name="username_input" id="username"/>
         </div>
         <div class="form-group"> 
           <label>Password</label> 
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" />
+          <input type="password" class="form-control"  name="password_input" id="password"/>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block">Log in</button>
+          <input id="insert" onclick="return IsEmpty();" type="submit" value="Login" name="login" />
         </div>
        <!-- <div class="clearfix">
           <label class="pull-left checkbox-inline"><input type="checkbox" />
@@ -67,5 +78,5 @@
         <a href="register.xhtml">Create an Account</a>
       </p>
     </div>
-  </body>
+  </h:body>
 </html>

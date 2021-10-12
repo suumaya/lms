@@ -12,7 +12,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
  
  
- 
 @ManagedBean(name = "userData")
 @SessionScoped
 public class UserData implements Serializable {
@@ -23,71 +22,23 @@ public class UserData implements Serializable {
    private String department;
    private String level;
    private String password;
-   
+   private boolean tableEnabled = false;
    private ArrayList<Student> students;	
    
-   public UserData() {
-   students = new ArrayList<Student>();
-   Student std1 = new Student("John","joh1" ,"jogn@gmail.com","Finance","level1","12345j");
-   Student std2 = new Student("Lama","lamaM" ,"lama@gmail.com","IT","level1","pass1234");
-   Student std3 = new Student("Ahmed","aa12" ,"ahmed@gmail.com","Finance","level2","ahmed12");
-   Student std4 = new Student("Sultan","sultang" ,"sultan@gmail.com","IT","level1","sultansultan");
-   Student std5 = new Student("Sara","saraQ" ,"sara@gmail.com","Finance","level2","qqss4545");
-
-   students.add(std1);
-   students.add(std2);
-   students.add(std3);
-   students.add(std4);
-   students.add(std5);
-   }
-   
-   
-   public List<Student> getStudentss() throws ClassNotFoundException, SQLException {
-
-		Connection connect = null;
-
-		String url = "jdbc:mysql://online-examination-system.mysql.database.azure.com:3306"; 
-
-		String username = "Admin_SYS";
-		String password = "WelcomeToServerJSF#12July";
-
-		try {
-
-			Class.forName("com.mysql.jdbc.Driver");
-
-			connect = DriverManager.getConnection(url, username, password);
-			 System.out.println("########################Connection established"+connect);
-
-		} catch (SQLException ex) {
-			System.out.println("##################in exec");
-			System.out.println(ex.getMessage());
-		}
-
-		List<Student> students = new ArrayList<Student>();
-		PreparedStatement pstmt = connect
-				.prepareStatement("select * from Student");
-		ResultSet rs = pstmt.executeQuery();
-
-		while (rs.next()) {
-
-			Student student = new Student();
-			student.setName(rs.getString(1));
-			student.setDepartment(rs.getString(1));
-			students.add(student);
-
-		}
-
-		// close resources
-		rs.close();
-		pstmt.close();
-		connect.close();
-
-		return students;
-
-	}
-   
+   public List<Student> getDepartmentStudents(String Department) throws ClassNotFoundException, SQLException{
+	   
+	   ArrayList<Student> departmentStudents = new ArrayList<>();
+	   Student std1 = new Student("Lama","lamaM" ,"lama@gmail.com","IT","level1","pass1234");
+	   Student std2 = new Student("Sultan","sultang" ,"sultan@gmail.com","IT","level1","sultansultan");
+	  
+	   students.add(std1);
+	   students.add(std2); 
+	   
+	   return departmentStudents;
+	   }
    
  
+   
    public List<Student> getStudents() throws ClassNotFoundException, SQLException{
 	   students = new ArrayList<>();
 	   Student std1 = new Student("John","joh1" ,"jogn@gmail.com","Finance","level1","12345j");
@@ -101,8 +52,8 @@ public class UserData implements Serializable {
 	   students.add(std3);
 	   students.add(std4);
 	   students.add(std5);
-	   for(int i=0;i<students.size();i++) System.out.println("****"+students.get(i).getName()); 
-	   System.out.println("*************************************************"+students.size());
+//	   for(int i=0;i<students.size();i++) System.out.println("****"+students.get(i).getName()); 
+//	   System.out.println("*************************************************"+students.size());
 	      return students;
 	   }
 
@@ -112,7 +63,7 @@ public class UserData implements Serializable {
 	      return null;
 	   }
 
-	   public String deleteStudent(Student student) {
+	   public String removeStudent(Student student) {
 	      students.remove(student);		
 	      return null;
 	   }
@@ -168,6 +119,17 @@ public class UserData implements Serializable {
 							   public void setPassword(String password) {
 							      this.password = password;
 							   }
+
+
+							public boolean isTableEnabled() {
+								System.out.println("#### Is enabled =" + tableEnabled);
+								return tableEnabled;
+							}
+
+
+							public void setTableEnabled(boolean tableEnabled) {
+								this.tableEnabled = tableEnabled;
+							}
 	
    
    

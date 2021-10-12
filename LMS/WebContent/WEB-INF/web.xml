@@ -13,7 +13,7 @@
   </servlet>
   
   	<welcome-file-list>
-		<welcome-file>LMS/faces/Student/homeStudent.xhtml</welcome-file>
+		<welcome-file>Main/login.xhtml</welcome-file>
 	</welcome-file-list>
 	
   <servlet-mapping>

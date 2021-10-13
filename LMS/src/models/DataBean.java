@@ -28,7 +28,7 @@ public class DataBean implements Serializable {
 		String username = "Admin_SYS@online-examination-system";
 		String password = "WelcomeToServerJSF#12July";
 		String url = "jdbc:mysql://online-examination-system.mysql.database.azure.com:3306/examinationsys?useSSL=true&requireSSL=false";
-	 
+		List<Student> students = new ArrayList<Student>();
  
 		try {
 
@@ -36,40 +36,48 @@ public class DataBean implements Serializable {
 
 			connect = DriverManager.getConnection(url, username, password);
 			System.out.println("############################# success #############################");
+			
+		
+			PreparedStatement pstmt = connect
+					.prepareStatement("select firstName,lastName,userName,department,level,email from student");
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+
+				Student std = new Student();
+				std.setName(rs.getString("firstName"));
+				std.setLname(rs.getString("lastName"));
+				std.setUsername(rs.getString("userName"));
+//				std.setPassword(rs.getString("password"));
+				std.setDepartment(rs.getString("department"));
+				std.setLevel(rs.getString("level"));
+				std.setEmail(rs.getString("email"));
+
+				students.add(std);
  
-		} catch (SQLException ex) {
+		}
+			
+			rs.close();
+			pstmt.close();
+			connect.close();
+			} catch (SQLException ex) {
 			System.out.println("in exec");
 			System.out.println(ex.getMessage());
 			System.out.println("############################# failed #############################");
-		}
+			Student std1 = new Student("John","aa","joh1" ,"jogn@gmail.com","Finance","level1","12345j");
+			students.add(std1);
+			return students;
+			
+			 
+ 		}
 
-		List<Student> students = new ArrayList<Student>();
-		PreparedStatement pstmt = connect
-				.prepareStatement("select firstName,userName,department,level from student");
-		ResultSet rs = pstmt.executeQuery();
 
-		while (rs.next()) {
-
-			Student std = new Student();
-			std.setName(rs.getString("firstName"));
-			std.setLname(rs.getString("lastName"));
-			std.setUsername(rs.getString("userName"));
-			std.setPassword(rs.getString("password"));
-			std.setDepartment(rs.getString("department"));
-			std.setLevel(rs.getString("level"));
-			std.setEmail(rs.getString("email"));
-
-			students.add(std);
-
-		}
-
-		// close resources
-		rs.close();
-		pstmt.close();
-		connect.close();
-
+		
 		return students;
+
+	
 
 	}
 
 }
+

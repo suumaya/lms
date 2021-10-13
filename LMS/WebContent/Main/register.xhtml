@@ -155,34 +155,38 @@ function IsEmpty() {
         <label>Username</label>
          <!--   <input class="form-control" name="username" />-->
          <h:inputText placeholder="#{msgs.label_userName}"  value="#{register.student.username}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
+       
         </div>
         <div class="col-xs-6">
         <label>Email</label>
          <h:inputText placeholder="#{msgs.label_email}"  value="#{register.student.email}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
-        </div>
+       </div>
 		<div class="col-xs-6">
         <label>Department</label>
          <h:inputText placeholder="#{msgs.label_department}"  value="#{register.student.department}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
+       
          <div class="col-xs-6">
         <label>Level</label>
          <h:inputText placeholder="#{msgs.label_department}"  value="#{register.student.level}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
+    
         </div>
         </div>
         <div class="col-xs-6">
         <label>Password</label>
         <!--  
+=======
+        <label>#{msgs.label_password}</label>
+>>>>>>> branch 'master' of git@github.com:suumaya/lms.git
           <input type="password" class="form-control" name="password" />
           -->
 		<h:inputSecret placeholder="#{msgs.label_password}"  value="#{register.student.password}" styleClass="input-login placeholder-password-username" type="text placeholder" />
         </div>
         <div class="col-xs-6">
-        <label>Confirm Password</label>
+        <label>#{msgs.label_confirmPassword}</label>
          <h:inputSecret placeholder="#{msgs.label_password}"  value="#{register.student.password}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
         </div>
         <div class="col-xs-6">
-        <label>
-        <input type="checkbox" id="chk" name="chk" value=""/>
-         I accept the Terms of Use and Privacy Policy
+        <label>#{msgs.checkbox_acceptTerms}<input type="checkbox" id="chk" name="chk" value="#{msgs.checkbox_acceptTerms}"/>
         </label>
           
         </div>
@@ -191,12 +195,12 @@ function IsEmpty() {
         <h:commandButton onclick="return IsEmpty();" action="#{register.Register}" value="#{msgs.label_register}" styleClass="btn">
 			<f:ajax execute="@form" />
 		</h:commandButton>
- <!--         <input id="insert" onclick="return IsEmpty();" type="submit" value="Register Now" name="register" class="btn"/>-->
         </div>
         </h:form>
       </form>
       <div class="text-center">
-        Already have an account? <a href="#">Log in</a>
+      #{msgs.label_haveAccount}
+       <a href="#">#{msgs.label_login}</a>
       </div>
     </div>
     </h:form>

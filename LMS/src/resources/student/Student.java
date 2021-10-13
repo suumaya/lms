@@ -1,43 +1,78 @@
 package resources.student;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+import resources.exam.ExamData;
+import resources.exam.question;
+
+
+@NamedQueries({
+	 @NamedQuery(name  = "userData_searchStudents", 
+         	 	query = " select c " +
+         	 		 " from student c " +
+         			 " where (:P_ID = -1 or c.id = :P_ID )" +
+         			 " and (:P_username = '-1' or c.username = :P_username ) " +
+         			 " order by c.username desc , c.id "
+			 	)
+}) 
+
+@SuppressWarnings("serial")
+@Entity
+
+@Table(name = "student")
 public class Student {
 
+ 	 private static final long serialVersionUID = 6081417964063918994L;
 	   private String name;
+	   private String lname;
 	   private String username;
 	   private String email;
 	   private String department;
 	   private String level;
 	   private String password;
-
-	   public Student() {
+ 	
+	   
+	   
+	   public Student() {}
+	   public Student(String name,String lname, String username, String email, String department, String level, String password) {
 		   
+		this.name = name;
+		this.lname = lname;
+		this.username = username;
+		this.email=email;
+		this.department = department;
+		this.level=level;
+		this.password = password;
+		
 	   }
 	   
-	   public Student (String name,String username,String email,String department,String level,String password) {
-		      this.name = name;
-		      this.username = username;
-		      this.name = name;
-		      this.email = email;
-		      this.department = department;
-		      this.level = level;
-		      this.password = password;
-		   }
-	   
-	   
+
 	   public String getName() {
 		      return name;
 		   }
 
-		   public void setName(String name) {
-		      this.name = name;
+		   public void setName(String lname) {
+		      this.lname = lname;
 		   }
+		   
+		   public String getLname() {
+			      return lname;
+			   }
+
+			   public void setLname(String name) {
+			      this.name = name;
+			   }
 		   
 		   
 		   public String getUsername() {
 			      return username;
 			   }
 
-			   public void setUserame(String username) {
+			   public void setUsername(String username) {
 			      this.username = username;
 			   }
 			   
@@ -74,7 +109,6 @@ public class Student {
 							   public void setPassword(String password) {
 							      this.password = password;
 							   }
-	
-	
+
 	
 }

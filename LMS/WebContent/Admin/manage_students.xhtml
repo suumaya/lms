@@ -56,7 +56,7 @@ background-color: #ececec;
        </h1>
  
  
- <h:dataTable value = "#{userData.students}" var = "student"
+ <h:dataTable value = "#{dataBean.students}" var = "student"
   styleClass = "center"
    headerClass = "studentTableHeader"
    rowClasses = "studentTableOddRow,studentTableEvenRow">
@@ -82,7 +82,7 @@ background-color: #ececec;
     <h:commandButton id = "addNewStudent" value="Add New Student" type="submit"  class="btn btn-success" action="#{userData.setTableEnabled(true)}" />
   
   
- <h:dataTable id = "addStudentTable" value ="#{userData.students}" var = "student" rendered ="#{userData.isTableEnabled()}"
+ <h:dataTable id = "addStudentTable" value ="#{dataBean.students}" var = "student" rendered ="#{userData.isTableEnabled()}">
   styleClass = "center"
    headerClass = "studentTableHeader"
    rowClasses = "studentTableOddRow,studentTableEvenRow">

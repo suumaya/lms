@@ -63,7 +63,7 @@ background-color: #ececec;
    
    <h:column>    				
       <f:facet name = "header">Name</f:facet>    				
-      #{student.name}	
+      #{student.getName()}	
    </h:column>
    
       <h:column>    				
@@ -73,16 +73,16 @@ background-color: #ececec;
   
      <h:column>    				
       <f:facet name = "header"> Action </f:facet>    				
-        <h:commandButton value="Remove" type="submit" action="#{userData.removeStudent(student)}" class="btn btn-fail" /> 
+        <h:commandButton value="Remove" type="submit" action="#{studentsBean.removeStudent(student)}" class="btn btn-fail" /> 
    </h:column>
   
    
 </h:dataTable>
     
-    <h:commandButton id = "addNewStudent" value="Add New Student" type="submit"  class="btn btn-success" action="#{userData.setTableEnabled(true)}" />
+    <h:commandButton id = "addNewStudent" value="Add New Student" type="submit"  class="btn btn-success" action="#{studentsBean.setTableEnabled(true)}" />
   
   
- <h:dataTable id = "addStudentTable" value ="#{dataBean.students}" var = "student" rendered ="#{userData.isTableEnabled()}">
+ <h:dataTable id = "addStudentTable" value ="#{dataBean.students}" var = "student" >
   styleClass = "center"
    headerClass = "studentTableHeader"
    rowClasses = "studentTableOddRow,studentTableEvenRow">

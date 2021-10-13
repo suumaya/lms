@@ -14,7 +14,7 @@ import javax.faces.bean.SessionScoped;
 import resources.exam.exam;
  
  
-@ManagedBean(name = "userData")
+@ManagedBean(name = "studentsBean")
 @SessionScoped
 public class students implements Serializable {
    private static final long serialVersionUID = 6081417964063918994L;
@@ -68,12 +68,13 @@ public class students implements Serializable {
  
 
 	 public boolean isTableEnabled() {
-								System.out.println("#### Is enabled =" + tableEnabled);
+								System.out.println("############## Is enabled =" + tableEnabled);
 								return tableEnabled;
 							}
 
 
 	 public void setTableEnabled(boolean tableEnabled) {
+		 System.out.println("############# This time Is enabled =" + tableEnabled);
 								this.tableEnabled = tableEnabled;
 							}
 	

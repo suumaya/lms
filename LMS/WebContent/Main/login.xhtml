@@ -51,22 +51,22 @@ function IsEmpty() {
     <div class="login-form">
       <form  name="frm" action="/examples/actions/confirmation.php" method="post" >
         <h2 class="text-center">
-          Log in
+          #{msgs.label_login}
         </h2>
         <div class="form-group"> 
-          <label>Username</label> 
+          <label>#{msgs.label_userName}</label> 
         </div>
         <div class="form-group">
           <input type="text" class="form-control" name="username_input" id="username"/>
         </div>
         <div class="form-group"> 
-          <label>Password</label> 
+          <label>#{msgs.label_password}</label> 
         </div>
         <div class="form-group">
           <input type="password" class="form-control"  name="password_input" id="password"/>
         </div>
         <div class="form-group">
-          <input id="insert" onclick="return IsEmpty();" type="submit" value="Login" name="login" />
+          <input id="insert" onclick="return IsEmpty();" type="submit" value="#{msgs.label_login}" name="login" />
         </div>
        <!-- <div class="clearfix">
           <label class="pull-left checkbox-inline"><input type="checkbox" />
@@ -75,7 +75,9 @@ function IsEmpty() {
         </div> -->
       </form>
       <p class="text-center">
-        <a href="register.xhtml">Create an Account</a>
+        <a href="register.xhtml">
+        
+        Create a new account</a>
       </p>
     </div>
   </h:body>

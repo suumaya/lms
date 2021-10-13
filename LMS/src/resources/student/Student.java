@@ -1,6 +1,7 @@
 package resources.student;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -22,17 +23,24 @@ import resources.exam.question;
 
 @SuppressWarnings("serial")
 @Entity
-
 @Table(name = "student")
 public class Student {
-
+	//What is This? 
  	 private static final long serialVersionUID = 6081417964063918994L;
+
+ 	@Column(name="firstName")
 	   private String name;
+ 	@Column(name="lastName")
 	   private String lname;
+ 	@Column(name="userName")
 	   private String username;
+ 	@Column(name="email")
 	   private String email;
+ 	@Column(name="department")
 	   private String department;
+ 	@Column(name="level")
 	   private String level;
+ 	@Column(name="password")
 	   private String password;
  	
 	   

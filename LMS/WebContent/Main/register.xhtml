@@ -133,13 +133,15 @@ function IsEmpty() {
         <h2>
           Register
         </h2>
-
+<h:form>
         <div class="form-group">
           <div class="row">
 
             <div class="col-xs-6">
-            <label>Full Name</label>
-              <input type="text" class="form-control" name="first_name"/>
+            <label>Full Name</label> 
+ <!--              <input type="text" class="form-control" name="first_name"/>-->
+          <h:inputText placeholder="#{msgs.label_userName}"  value="#{register.student.name}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+ 
             </div>
 <!--  
             <div class="col-xs-6">
@@ -151,27 +153,31 @@ function IsEmpty() {
         </div>
 		<div class="col-xs-6">
         <label>Username</label>
-          <input class="form-control" name="username" />
+         <!--   <input class="form-control" name="username" />-->
+         <h:inputText placeholder="#{msgs.label_userName}"  value="#{register.student.username}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
         </div>
         <div class="col-xs-6">
         <label>Email</label>
-          <input class="form-control" name="email" />
+         <h:inputText placeholder="#{msgs.label_email}"  value="#{register.student.email}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
         </div>
 		<div class="col-xs-6">
         <label>Department</label>
-          <input class="form-control" name="department" />
+         <h:inputText placeholder="#{msgs.label_department}"  value="#{register.student.department}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
          <div class="col-xs-6">
         <label>Level</label>
-          <input class="form-control" name="level" />
+         <h:inputText placeholder="#{msgs.label_department}"  value="#{register.student.level}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
         </div>
         </div>
         <div class="col-xs-6">
         <label>Password</label>
+        <!--  
           <input type="password" class="form-control" name="password" />
+          -->
+		<h:inputSecret placeholder="#{msgs.label_password}"  value="#{register.student.password}" styleClass="input-login placeholder-password-username" type="text placeholder" />
         </div>
         <div class="col-xs-6">
         <label>Confirm Password</label>
-          <input type="password" class="form-control" name="confirm_password" />
+         <h:inputSecret placeholder="#{msgs.label_password}"  value="#{register.student.password}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
         </div>
         <div class="col-xs-6">
         <label>
@@ -180,9 +186,14 @@ function IsEmpty() {
         </label>
           
         </div>
+        
         <div class="col-xs-6">
-        <input id="insert" onclick="return IsEmpty();" type="submit" value="Register Now" name="register" class="btn"/>
+        <h:commandButton onclick="return IsEmpty();" action="#{register.Register}" value="#{msgs.label_register}" styleClass="btn">
+			<f:ajax execute="@form" />
+		</h:commandButton>
+ <!--         <input id="insert" onclick="return IsEmpty();" type="submit" value="Register Now" name="register" class="btn"/>-->
         </div>
+        </h:form>
       </form>
       <div class="text-center">
         Already have an account? <a href="#">Log in</a>

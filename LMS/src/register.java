@@ -16,7 +16,7 @@ import javax.faces.bean.*;
 @SessionScoped
 public class register implements Serializable{
 //	private String username;
-//	private String password;
+	private String confirmPassword;
 	private String user = "Admin_SYS@online-examination-system";
 	private String pass = "WelcomeToServerJSF#12July";
 	private String connString = "jdbc:mysql://online-examination-system.mysql.database.azure.com:3306/examinationsys?useSSL=true&requireSSL=false";
@@ -24,33 +24,23 @@ public class register implements Serializable{
 	public register() {
 		student = new Student(); 
 	}
-	public void Register() {
-//int n=0;
-//n=n+1; 
-////Session 
-//		SessionFactory factory = new Configuration()
-//				.configure()
-//				.addAnnotatedClass(Student.class)//instead of exam.class we will put the user (admin, student )
-//				.buildSessionFactory(); 
-//		Session session = factory.getCurrentSession(); 
-//		//Example of saving java object 
-//		try {
-//			//1. Create user object 
-////			temp = new user(); 
-//			Student temp = new Student();
-//			//2.Start transaction 
-//			session.beginTransaction(); 
-//			
-//			//3. save the user 
-//			session.save(temp); 
-//			
-//			//4. commit transaction 
-//			session.getTransaction().commit();
-//			
-//		}finally {
-//			factory.close();
-//		}
-		//Connection 
+	public String Register() {
+		String result= "FAIL"; 
+		//Check passwords 
+		if(!student.getPassword().equals(confirmPassword)) {
+			return result; 
+		}
+		String[] name = student.getName().split("\\s"); 
+		String fName = name[0]; 
+		String lName; 
+		if(name.length>1) {
+		lName =name[1]; 
+		for(int i=2;i<name.length;i++) {
+			lName+=" "+name[i]; 
+		}
+		}else {
+			lName = ""; 	
+		}
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn=DriverManager.getConnection(connString,user, pass );
@@ -58,16 +48,17 @@ public class register implements Serializable{
 			+student.getUsername()+"','"
 			+student.getPassword()+"','"
 			+student.getEmail()+"','"
-			+student.getName()+"','"
-			+student.getName()+"','"
+			+fName+"','"
+			+lName+"','"
 			+student.getDepartment()+"','"
 			+student.getLevel()+"');";
 			Statement stmt = conn.createStatement();
 			stmt.executeUpdate(sql);
+			result = "SUCCESS";
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-//return null; 
+		return result;
 	}
 	public Student getStudent() {
 		return student;
@@ -75,21 +66,12 @@ public class register implements Serializable{
 	public void setStudent(Student student) {
 		this.student = student;
 	}
-
-//	public String getUsername() {
-//		return username;
-//	}
-//
-//	public void setUsername(String username) {
-//		this.username = username;
-//	}
-//
-//	public String getPassword() {
-//		return password;
-//	}
-//
-//	public void setPassword(String password) {
-//		this.password = password;
-//	}
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+	
 	
 }

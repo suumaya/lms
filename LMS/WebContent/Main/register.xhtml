@@ -183,10 +183,11 @@ function IsEmpty() {
         </div>
         <div class="col-xs-6">
         <label>#{msgs.label_confirmPassword}</label>
-         <h:inputSecret placeholder="#{msgs.label_password}"  value="#{register.student.password}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
+         <h:inputSecret placeholder="#{msgs.label_password}"  value="#{register.confirmPassword}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
         </div>
         <div class="col-xs-6">
-        <label>#{msgs.checkbox_acceptTerms}<input type="checkbox" id="chk" name="chk" value="#{msgs.checkbox_acceptTerms}"/>
+        <label>#{msgs.checkbox_acceptTerms}
+        <input type="checkbox" id="chk" name="chk" value="#{msgs.checkbox_acceptTerms}"/>
         </label>
           
         </div>

@@ -7,8 +7,13 @@ import javax.faces.bean.ManagedBean;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
+import com.code.hibernate.ExamDatabaseOperations;
+
 //import resources.exam.exam;
 import resources.student.Student;
+import tables.Exam;
+
 import javax.faces.bean.*;
 
 @SuppressWarnings("serial")
@@ -21,6 +26,9 @@ public class register implements Serializable{
 	private String pass = "WelcomeToServerJSF#12July";
 	private String connString = "jdbc:mysql://online-examination-system.mysql.database.azure.com:3306/examinationsys?useSSL=true&requireSSL=false";
 	private Student student; 
+    public static DatabaseOperations dbObj;
+    public static ExamDatabaseOperations dbObjExam;
+
 	public register() {
 		student = new Student(); 
 	}
@@ -41,23 +49,27 @@ public class register implements Serializable{
 		}else {
 			lName = ""; 	
 		}
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn=DriverManager.getConnection(connString,user, pass );
-			String sql = "Insert into examinationsys.student values ('"
-			+student.getUsername()+"','"
-			+student.getPassword()+"','"
-			+student.getEmail()+"','"
-			+fName+"','"
-			+lName+"','"
-			+student.getDepartment()+"','"
-			+student.getLevel()+"');";
-			Statement stmt = conn.createStatement();
-			stmt.executeUpdate(sql);
-			result = "SUCCESS";
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			Class.forName("com.mysql.jdbc.Driver");
+//			Connection conn=DriverManager.getConnection(connString,user, pass );
+//			String sql = "Insert into examinationsys.student values ('"
+//			+student.getUsername()+"','"
+//			+student.getPassword()+"','"
+//			+student.getEmail()+"','"
+//			+fName+"','"
+//			+lName+"','"
+//			+student.getDepartment()+"','"
+//			+student.getLevel()+"');";
+//			Statement stmt = conn.createStatement();
+//			stmt.executeUpdate(sql);
+//			result = "SUCCESS";
+//		}catch(Exception e) {
+//			e.printStackTrace();
+//		}
+//		dbObj = new DatabaseOperations();
+//        dbObj.addStudentInDb(student);
+		dbObjExam = new ExamDatabaseOperations(); 
+		dbObjExam.addingExam(new Exam());
 		return result;
 	}
 	public Student getStudent() {

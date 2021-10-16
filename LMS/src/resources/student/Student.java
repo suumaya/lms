@@ -1,4 +1,9 @@
 package resources.student;
+import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,7 +14,8 @@ import javax.persistence.Table;
 
 import resources.exam.ExamData;
 import resources.exam.question;
-
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 @NamedQueries({
 	 @NamedQuery(name  = "userData_searchStudents", 
@@ -21,10 +27,12 @@ import resources.exam.question;
 			 	)
 }) 
 
-@SuppressWarnings("serial")
 @Entity
 @Table(name = "student")
-public class Student {
+@SuppressWarnings("serial")
+@ManagedBean(name = "student")
+@SessionScoped
+public class Student implements Serializable{
 	//What is This? 
  	 private static final long serialVersionUID = 6081417964063918994L;
 
@@ -42,10 +50,10 @@ public class Student {
 	   private String level;
  	@Column(name="password")
 	   private String password;
- 	
+  
 	   
+	    public Student() {}
 	   
-	   public Student() {}
 	   public Student(String name,String lname, String username, String email, String department, String level, String password) {
 		   
 		this.name = name;
@@ -72,7 +80,7 @@ public class Student {
 			   }
 
 			   public void setLname(String name) {
-			      this.name = name;
+			      this.lname = name;
 			   }
 		   
 		   
@@ -118,5 +126,5 @@ public class Student {
 							      this.password = password;
 							   }
 
-	
+							  			
 }

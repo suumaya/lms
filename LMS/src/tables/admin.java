@@ -29,29 +29,22 @@ import javax.persistence.NamedQuery;
 @Entity
 @Table(name = "admin")
 public class admin implements Serializable {
-
-	private String userName;
-	private String passowrd;
-	
-	public String getUserName() {
-		return userName;
+	private String id;
+	private String password;
+	public String getId() {
+		return id;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getPassowrd() {
-		return passowrd;
+	public String getPassword() {
+		return password;
 	}
-	public void setPassowrd(String passowrd) {
-		this.passowrd = passowrd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	
-	
-	
 	
 	
 }
-
-
 
 

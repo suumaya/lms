@@ -1,22 +1,10 @@
-package com.code.DBAccess;
 import java.sql.*;
 import org.hibernate.*;
 //import org.json.*;
 import java.util.*;
-import java.util.concurrent.Semaphore;
-
-import javax.servlet.ServletContext;
 
 public class databaseAccess {
-//	protected static SessionFactory sessionFactory;
-//	protected static final Semaphore DB_CONNECTION_SEMAPHORE = new Semaphore(100, true);
-//	public static final ResourceBundle configuration = ResourceBundle.getBundle("com/code/resources/config.properties");
-//	public static String dbEngineName;
 	
-	
-	
-	
-	// basic connection with no operation. 
 	public Connection get_connection() throws Exception{
         Connection connection=null;
         final String url = "jdbc:mysql://online-examination-system.mysql.database.azure.com:3306/examinationsys?useSSL=true&requireSSL=false";
@@ -31,8 +19,6 @@ public class databaseAccess {
         }
         return connection;
     }
-	
-	
 	
 	
 	

@@ -6,13 +6,21 @@
     
 <hibernate-configuration>
 	<session-factory>
-		<property name="hibernate.enable_lazy_load_no_trans">true</property>
-		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.password">WelcomeToServerJSF#12July</property>
-		<property name="hibernate.connection.url">jdbc:mysql://online-examination-system.mysql.database.azure.com:3306	</property>
-		<property name="hibernate.connection.username">Admin_SYS</property>
-		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-		<property name="hibernate.current_session_context_class">thread</property>
-		<mapping class="com.entities.Product" />
+		<!-- DB connection settings -->
+		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://online-examination-system.mysql.database.azure.com:3306/examinationsys?useSSL=false&amp;</property>
+        <property name="connection.username">Admin_SYS@online-examination-system</property>
+        <property name="connection.password">WelcomeToServerJSF#12July</property>
+        
+        
+        <property name="connection.pool_size">1</property>
+        
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        
+        <property name="show_sql">true</property>
+
+		
+		<property name="current_session_context_class">thread</property>
 	</session-factory>
 </hibernate-configuration>

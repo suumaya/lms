@@ -1,0 +1,15 @@
+   <jboss-deployment-structure>
+        <deployment>
+            <!-- ADDED -->
+            <exclusions>
+                <module name="org.hibernate" /> <!-- Escludo l'Hibernate integrato in jboss e uso quello interno -->
+                <module name="org.jboss.logging" /> <!-- Escludo li logger integrato in jboss -->
+            </exclusions>
+            <!-- FINE ADDED -->
+            <dependencies>
+            </dependencies>
+        </deployment>
+    </jboss-deployment-structure>
+    
+    
+   

@@ -4,6 +4,7 @@
             <exclusions>
                 <module name="org.hibernate" /> <!-- Escludo l'Hibernate integrato in jboss e uso quello interno -->
                 <module name="org.jboss.logging" /> <!-- Escludo li logger integrato in jboss -->
+                <module name="org.javassist" />
             </exclusions>
             <!-- FINE ADDED -->
             <dependencies>

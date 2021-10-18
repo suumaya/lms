@@ -9,6 +9,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 //import resources.exam.exam;
 import resources.student.Student;
+import tables.Exam;
+
 import javax.faces.bean.*;
 
 @SuppressWarnings("serial")
@@ -41,22 +43,48 @@ public class register implements Serializable{
 		}else {
 			lName = ""; 	
 		}
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn=DriverManager.getConnection(connString,user, pass );
-			String sql = "Insert into examinationsys.student values ('"
-			+student.getUsername()+"','"
-			+student.getPassword()+"','"
-			+student.getEmail()+"','"
-			+fName+"','"
-			+lName+"','"
-			+student.getDepartment()+"','"
-			+student.getLevel()+"');";
-			Statement stmt = conn.createStatement();
-			stmt.executeUpdate(sql);
+//		try {
+//			Class.forName("com.mysql.jdbc.Driver");
+//			Connection conn=DriverManager.getConnection(connString,user, pass );
+//			String sql = "Insert into examinationsys.student values ('"
+//			+student.getUsername()+"','"
+//			+student.getPassword()+"','"
+//			+student.getEmail()+"','"
+//			+fName+"','"
+//			+lName+"','"
+//			+student.getDepartment()+"','"
+//			+student.getLevel()+"');";
+//			Statement stmt = conn.createStatement();
+//			stmt.executeUpdate(sql);
+//			result = "SUCCESS";
+//		}catch(Exception e) {
+//			e.printStackTrace();
+//		}
+		// create session factory
+		SessionFactory factory = new Configuration()
+								.configure("hibernate.cfg.xml")
+								.addAnnotatedClass(Student.class)
+								.buildSessionFactory();
+		
+		// create session
+		Session session = factory.getCurrentSession();
+		
+		try {			
+			//student object
+			student.setName(fName);
+			student.setLname(lName);
+			// start a transaction
+			session.beginTransaction();
+			// save the exam object
+//			System.out.println("Saving the student...");
+			session.save(student);
+			// commit transaction
+			session.getTransaction().commit();
+//			System.out.println("Done!");
 			result = "SUCCESS";
-		}catch(Exception e) {
-			e.printStackTrace();
+		}
+		finally {
+			factory.close();
 		}
 		return result;
 	}

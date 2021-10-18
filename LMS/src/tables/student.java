@@ -25,9 +25,9 @@ import javax.persistence.NamedQuery;
 			 	)
 })
 
-@SuppressWarnings("serial")
-@Entity
-@Table(name = "student")
+//@SuppressWarnings("serial")
+//@Entity
+//@Table(name = "student")
 public class student implements Serializable {
 	private String userName;
 	private String password;

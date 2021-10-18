@@ -3,6 +3,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -26,7 +27,7 @@ import resources.exam.question;
 @Table(name = "student")
 public class Student {
 	//What is This? 
- 	 private static final long serialVersionUID = 6081417964063918994L;
+// 	 private static final long serialVersionUID = 6081417964063918994L;
 
  	@Column(name="firstName")
 	   private String name;
@@ -34,6 +35,7 @@ public class Student {
 	   private String lname;
  	@Column(name="userName")
 	   private String username;
+ 	@Id 
  	@Column(name="email")
 	   private String email;
  	@Column(name="department")

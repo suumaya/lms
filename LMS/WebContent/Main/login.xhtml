@@ -12,34 +12,35 @@
 
 	<h:outputScript name="utilities.js" library="javascript" target="head" />
     <style type="text/css" xml:space="preserve">
+    
 	.login-form {
 		width: 340px;
     	margin: 200px auto;
+    	position: static;
+
 	}
-    .login-form .form {
-    	margin-bottom: 15px;
-        background: #f7f7f7;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-        padding: 30px;
+
+.login-form .form-control  {
+		margin-bottom: 30px;
+		min-height: 38px;
+}
+    .login-form h2 {
+        margin: 0 0 60px;
+        text-align: center;
     }
 
-    .login-form h2 {
-        margin: 0 0 15px;
-    }
-    .form-control, .btn {
-        min-height: 38px;
-        border-radius: 2px;
-    }
-    .btn {        
+    input {   
+    	height: 38px; 
+    	min-width: 340px;    
         font-size: 15px;
-        font-weight: bold;
+        font-weight: bold;        
     }
 </style>
 
 <script type="text/javascript">
 function IsEmpty() {
   if (document.forms['frm'].username_input.value === ""||document.forms['frm'].password_input.value === "") {
-    alert("Please Fill All Required Field");
+    alert("Please Fill All Required Fields");
     return false;
   }
   return true;
@@ -65,9 +66,9 @@ function IsEmpty() {
         <div class="form-group">
           <input type="password" class="form-control"  name="password_input" id="password"/>
         </div>
-        <div class="form-group">
+
           <input id="insert" onclick="return IsEmpty();" type="submit" value="#{msgs.label_login}" name="login" />
-        </div>
+
        <!-- <div class="clearfix">
           <label class="pull-left checkbox-inline"><input type="checkbox" />
           Remember me</label> <a href="#" class="pull-right">Forgot
@@ -75,7 +76,7 @@ function IsEmpty() {
         </div> -->
       </form>
       <p class="text-center">
-        <a href="register.xhtml">
+        <a href="Main/register.xhtml">
         
         Create a new account</a>
       </p>

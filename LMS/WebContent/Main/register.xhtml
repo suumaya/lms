@@ -1,25 +1,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:util="http://java.sun.com/jsf/composite/util">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:prime="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	    <title>
+	
+	<title>
       LMS - Register
     </title>
+    
 	<h:outputStylesheet library="css" name="styles.css" />
 	<h:outputStylesheet library="css" name="grid.css" />
 	<h:outputStylesheet library="css" name="bootstrap.css" />
-
 	<h:outputScript name="utilities.js" library="javascript" target="head" />
     <style type="text/css" xml:space="preserve">
 
 	.signup-form {
 		width: 340px;;
-		padding-top:80px;
-    	padding-left: 400px;
-  
+    	margin: 60px auto;  
 	}
-
    
 
 .signup-form .form-control  {
@@ -28,36 +26,47 @@
 
 }
     .signup-form h2 {
-        margin: 0 0 60px;
+        margin: 0 0 35px 0;
         text-align: center;
+        position: static;
     }
 
-    input {   
+    input , .col-xs-6{   
     	height: 38px; 
     	min-width: 340px;    
         font-size: 15px;
-        font-weight: bold;        
+        font-weight: bold; 
+  		margin-bottom: 30px;    
     }
+    
 	.signup-form input[type="checkbox"]{
-		margin-top: 3px;
-		min-width: 30px;
+		margin-right: 3px;
+		min-width: 18px;
+		padding-left: 3px;
 	}
 
+select#level_list, select#deparment_list {
+  		background-color: #ffffff !important;
+}
 
-
-	
-
-	 
 </style>
 
 
 <script type="text/javascript">
 function IsEmpty() {
+var name = document.getElementById('loginForm:nameId').value;
+var userName = document.getElementById('loginForm:userNameId').value;
+var email = document.getElementById('loginForm:emailId').value;
+var password = document.getElementById('loginForm:passwordId').value;
+var confirmPassword = document.getElementById('loginForm:confirmPasswordId').value;
 
-  if (document.forms['frm'].name.value === ""||document.forms['frm'].username.value === ""||document.forms['frm'].email.value === ""||document.forms['frm'].department.value === ""||document.forms['frm'].level.value === ""||document.forms['frm'].password.value === ""||document.forms['frm'].confirm_password.value === "") {
-    alert("Please Fill All Required Field");
-    return false;
-  } else{
+				if (userName == null || userName == "" || password == null|| password == ""
+					|| name= null || name =="" || email == null || email == ""
+					|| confrimPassword == null || confirmPassword == "") {
+					 alert("Please Fill All Required Field");
+					return true;
+					}
+					 else{
   if(document.forms['frm'].password.value != document.forms['frm'].confirm_password.value)
       alert("Passwords did not match");
     return false;
@@ -76,29 +85,28 @@ function IsEmpty() {
 
   </h:head>
   <h:body>
-  <h:form>
-    <div class="signup-form">
-      <form name="frm" action="/examples/actions/confirmation.php" method="post">
+
+      <div class="signup-form">
+      <h:form id="loginForm"  >
         <h2>
-          Register
+          #{msgs.label_register}
         </h2>
-<h:form>
+
         <div class="form-group">
             <div class="col-xs-6">
             <label>Full Name</label> 
-         <h:inputText placeholder="#{msgs.label_name}"  value="#{register.student.name}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
-
+         <h:inputText id="nameId" placeholder="#{msgs.label_name}"  styleClass="input-login placeholder-password-username" type="text placeholder" /> 
           </div>
        
 		<div class="col-xs-6">
         <label>Username</label>
          <!--   <input class="form-control" name="username" />-->
-         <h:inputText placeholder="#{msgs.label_userName}"  value="#{register.student.username}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
+         <h:inputText id="userNameId" placeholder="#{msgs.label_userName}"  value="#{register.student.username}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
        
         </div>
         <div class="col-xs-6">
         <label>Email</label>
-         <h:inputText placeholder="#{msgs.label_email}"  value="#{register.student.email}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
+         <h:inputText id="emailId" placeholder="#{msgs.label_email}"  value="#{register.student.email}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
        </div>
 		<div class="col-xs-6">
         <label>Department</label>
@@ -126,30 +134,30 @@ function IsEmpty() {
 >>>>>>> branch 'master' of git@github.com:suumaya/lms.git
           <input type="password" class="form-control" name="password" />
           -->
-		<h:inputSecret placeholder="#{msgs.label_password}"  value="#{register.student.password}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+		<h:inputSecret id="passwordId" placeholder="#{msgs.label_password}"  value="#{register.student.password}" styleClass="input-login placeholder-password-username" type="text placeholder" />
         </div>
         <div class="col-xs-6">
         <label>#{msgs.label_confirmPassword}</label>
-         <h:inputSecret placeholder="#{msgs.label_password}"  value="#{register.confirmPassword}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
+         <h:inputSecret id="confirmPasswordId" placeholder="#{msgs.label_password}"  value="#{register.confirmPassword}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
         </div>
         <div class="col-xs-6">
-        <label>#{msgs.checkbox_acceptTerms}
+        <label>
         <input type="checkbox" id="chk" name="chk" value="#{msgs.checkbox_acceptTerms}"/>
+        #{msgs.checkbox_acceptTerms}
         </label>
           
         </div>
          </div>
-        <div class="col-xs-6">
-          <input id="insert" onclick="return IsEmpty();" type="submit" value="#{msgs.label_register}" name="register" />
-
-        </div>
-        </h:form>
-      </form>
-      <div class="col-xs-6">
+           <div class="col-xs-6">
+       <input id="insert" onclick="return IsEmpty();" type="submit" value="#{msgs.label_register}" name="register" />
+</div>
+                 </h:form>
+         <div class="col-xs-6">
       #{msgs.label_haveAccount}
-       <a href="#">#{msgs.label_login}</a>
+       <a href="#" onclick="history.go(-1)">#{msgs.label_login}</a>
       </div>
-    </div>
-    </h:form>
+             </div>
+     
+
   </h:body>
 </html>

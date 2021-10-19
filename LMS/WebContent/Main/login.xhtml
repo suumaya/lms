@@ -1,29 +1,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:util="http://java.sun.com/jsf/composite/util">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:prime="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	    <title>
+	
+	<title>
       LMS - Login
     </title>
+    
 	<h:outputStylesheet library="css" name="styles.css" />
 	<h:outputStylesheet library="css" name="grid.css" />
 	<h:outputStylesheet library="css" name="bootstrap.css" />
-
 	<h:outputScript name="utilities.js" library="javascript" target="head" />
     <style type="text/css" xml:space="preserve">
     
 	.login-form {
 		width: 340px;
     	margin: 200px auto;
-    	position: static;
-
 	}
 
 .login-form .form-control  {
 		margin-bottom: 30px;
 		min-height: 38px;
 }
+
     .login-form h2 {
         margin: 0 0 60px;
         text-align: center;
@@ -35,14 +35,30 @@
         font-size: 15px;
         font-weight: bold;        
     }
+    
+    .form-group {
+    padding-bottom: 10px;
+    }
+    
 </style>
 
 <script type="text/javascript">
-function IsEmpty() {
-  if (document.forms['frm'].username_input.value === ""||document.forms['frm'].password_input.value === "") {
+function validateData() {
+
+var userName = document.getElementById('loginForm:userNameId').value;
+var password = document.getElementById('loginForm:passwordId').value;
+				if (userName == null || userName == '' || password == null
+						|| password == '') {
+					showErrorMessage(document
+							.getElementById('namePasswordMandatoryId').value);
+					return true;
+
+/*
+  if (document.forms['frm'].us.value === "") {
     alert("Please Fill All Required Fields");
     return false;
   }
+  */
   return true;
 }
 </script>
@@ -50,36 +66,42 @@ function IsEmpty() {
   </h:head>
   <h:body>
     <div class="login-form">
-      <form  name="frm" action="/examples/actions/confirmation.php" method="post" >
+      <h:form id="loginForm" name="frm" >
+      
         <h2 class="text-center">
           #{msgs.label_login}
         </h2>
+        <div class="errorMessage">
+						<h:outputText id="errorMessageId"  />
+					</div>
         <div class="form-group"> 
           <label>#{msgs.label_userName}</label> 
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" name="username_input" id="username"/>
+        <h:inputText  placeholder="#{msgs.label_userName}" id="userNameId" onkeypress="loginEnter(event);"  styleClass="input-login placeholder-password-username" type="text placeholder" />
+
         </div>
         <div class="form-group"> 
           <label>#{msgs.label_password}</label> 
         </div>
         <div class="form-group">
-          <input type="password" class="form-control"  name="password_input" id="password"/>
+		<h:inputSecret id="passwordId" onkeypress="loginEnter(event);" styleClass="input-login placeholder-password-username" type="text placeholder"></h:inputSecret>
         </div>
 
-          <input id="insert" onclick="return IsEmpty();" type="submit" value="#{msgs.label_login}" name="login" />
-
-       <!-- <div class="clearfix">
-          <label class="pull-left checkbox-inline"><input type="checkbox" />
-          Remember me</label> <a href="#" class="pull-right">Forgot
-          Password?</a>
-        </div> -->
-      </form>
+          <!--   <input id="insert" onclick="return IsEmpty();" type="submit" value="#{msgs.label_login}" name="login" />
+-->
+							<h:commandButton onclick="return validateData();" id="loginButton" value="  #{msgs.label_login}" styleClass="btn">
+							 <f:ajax render="errorMessageId @form" execute="@form" />
+								
+							</h:commandButton>
+      </h:form>
       <p class="text-center">
         <a href="Main/register.xhtml">
         
         Create a new account</a>
       </p>
+      	<h:inputHidden id="namePasswordMandatoryId" value="#{msgs.error_userNameAndPasswordMandatory}" />
+      
     </div>
   </h:body>
 </html>

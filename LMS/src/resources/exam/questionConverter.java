@@ -1,3 +1,4 @@
+
 package resources.exam;
 
 import javax.ejb.EJB;
@@ -9,7 +10,7 @@ import javax.inject.Named;
 
 @Named
 @RequestScoped
-public class examConverter implements Converter {
+public class questionConverter implements Converter {
 
     @EJB
     private examService examService;
@@ -22,7 +23,7 @@ public class examConverter implements Converter {
 
         try {
             int id = Integer.valueOf(value);
-            return examService.find(id);
+            return examService.getExamQuestions(id);
         } catch (NumberFormatException e) {
             //throw new ConverterException("The value is not a valid exam ID: " + value, e);
         	//exam e = new exam();

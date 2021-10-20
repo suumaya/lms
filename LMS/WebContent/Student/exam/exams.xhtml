@@ -37,7 +37,7 @@ div.exams:hover {
 				<div class="center exams">
 					<div class="card-body ">
 						<h5 class="card-title">#{row.exam.examName}</h5>
-						<p class="card-text">Description.</p>
+						<p class="card-text">#{row.exam.description}</p>
 						<h:outputLink value="examDetails.xhtml" outcome="/exam/examDetails">
      #{msgs.enter_exam}
             <f:param name="id" value="#{row.exam.examID}" />

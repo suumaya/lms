@@ -15,79 +15,103 @@ import javax.persistence.PersistenceContext;
 
 @Stateless
 public class examService {
-	// @PersistenceContext
-	//   private EntityManager em;
+	private static List<exam> examData = new ArrayList<exam>();
+	private static Connection con; 
+	private static String user = "Admin_SYS@online-examination-system";
+	private static String pass = "WelcomeToServerJSF#12July";
+	private static String connString = "jdbc:mysql://online-examination-system.mysql.database.azure.com:3306/examinationsys?useSSL=true&requireSSL=false";
+	
 
-	    public exam find(Long id) {
-	     //   return em.find(exam.class, id);
+	    public static exam find(int id) {
+	    	for (exam e : examData){
+	            if (e.getExam().getExamID()==id) {
+	            	questions qList = getExamQuestions(e.getExam().getQuestion_ID()); 
+	            	e.setQuestions(qList.getQuestionsList());
+	            	 return e; 
+	            }
+	                 
+	            }
 		 return new exam();
 	    }
-
-	    public List<exam> list() {
-	        //return em.createQuery("SELECT p FROM Product p", Product.class).getResultList();
-			//Create data just to check.
-	    	List<exam> examData = new ArrayList<exam>();
-			ExamData obj= new ExamData();
-			obj.setExamName("CSC122");
-			obj.setExamTime(new Time(0));
-			obj.setExamDate(new Date(0));
-			question qobj = new question();
-			qobj.setQuestion("one");
-			qobj.setAnswers(null);
+	    public static questions getExamQuestions(int questionId) {
+	    	 
+//	    	exam e = find(examId); 
+//	    	int questionId = e.getExam().getQuestion_ID(); 
+	    	questions qList = new questions(); 
 			List<question> questions = new ArrayList<question>();
-			questions.add(qobj);
-			exam e =new exam();
-			e.setExam(obj);
-			e.setQuestions(questions);
-			answer aobj = new answer();
-			aobj.setAnswer("r1");
+
+	    	try {
+	    		Class.forName("com.mysql.jdbc.Driver");
+	    		con=DriverManager.getConnection(connString,user, pass );
+				String sql = "select * from question where ID="+questionId+";"; 
+				Statement s = con.prepareStatement(sql); 
+				ResultSet re = s.executeQuery(sql);
+				List<answer> ansList = new ArrayList<answer>();
+				while(re.next()) {
+					question qobj = new question();
+					int ansID = Integer.parseInt(re.getString(3)); //answer_ID					
+					qobj.setQuestion(re.getString(2));//Question
+					qobj.setId(Integer.parseInt(re.getString(1)));//Id
+					ansList = getQuestionAnswers(ansID); 
+					qobj.setAnswers(ansList);
+					questions.add(qobj);
+				}
+				}catch(Exception ee) {
+
+				}
+	    	qList.setQuestionsList(questions);
+	    	return qList; 
+	    }
+	    
+	    public static List<answer> getQuestionAnswers(int ansID){
 			List<answer> ans = new ArrayList<answer>();
-			ans.add(aobj);
-			ans.add(aobj);
-			ans.add(aobj);
-			qobj.setAnswers(ans);
-			try {
-			String user = "Admin_SYS@online-examination-system";
-			String pass = "WelcomeToServerJSF#12July";
-			String connString = "jdbc:mysql://online-examination-system.mysql.database.azure.com:3306/examinationsys?useSSL=true&requireSSL=false";
+			 
+	    	try {
+	    		Class.forName("com.mysql.jdbc.Driver");
+	    		con=DriverManager.getConnection(connString,user, pass );
+				String sql = "select * from answer where id = "+ansID+";"; 
+				Statement s = con.prepareStatement(sql); 
+				ResultSet re = s.executeQuery(sql);
+				while(re.next()) {				
+					answer aobj = new answer();
+					aobj.setId(Integer.parseInt(re.getString(1)));//Id
+			    	aobj.setAnswer(re.getString(2));
+			    	aobj.setCorrect(Boolean.getBoolean(re.getString(3)));
+					ans.add(aobj);
+				}
+				}catch(Exception ee) {
+
+				}
+
+	    	return ans; 
+	    }
+
+	    public static List<exam> list() {
+	    	
+		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con=DriverManager.getConnection(connString,user, pass );
+			con=DriverManager.getConnection(connString,user, pass );
 			String sql = "select * from exam; "; 
 			Statement s = con.prepareStatement(sql); 
 			ResultSet re = s.executeQuery(sql);
 			while(re.next()) {
-				obj.setExamName(re.getString(1));
-				e.setExam(obj);
-			}
-
-			examData.add(e);
-			examData.add(e);
-			examData.add(e);
-			examData.add(e);
-			examData.add(e);
-			examData.add(e);
-			examData.add(e);
-			return examData;
-			}catch(Exception ee) {
-				obj.setExamName(ee.toString());
+				ExamData obj= new ExamData();
+				exam e =new exam();
+				obj.setExamID(Integer.parseInt(re.getString(1)));
+				obj.setQuestion_ID(Integer.parseInt(re.getString(2)));
+				obj.setAnswer_ID(Integer.parseInt(re.getString(3)));
+				obj.setExamTime(new Time(0));
+				obj.setExamDate(new Date(0));
+				obj.setExamName(re.getString(5));
+				obj.setDescription(re.getString(6));
 				e.setExam(obj);
 				examData.add(e);
-				examData.add(e);
-				examData.add(e);
-			return examData;
 			}
-	    }
-
-	    public void create(exam e) {
-	   //     em.persist(e);
-	    }
-
-	    public void update(exam e) {
-	//        em.merge(e);
-	    }
-
-	    public void delete(exam e) {
-	//        em.remove(em.contains(e) ? e : em.merge(e));
+			
+		}catch(Exception ee) {
+			
+			}
+		return examData;
 	    }
 
 }

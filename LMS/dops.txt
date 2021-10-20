@@ -1,0 +1,44 @@
+  public void createStudent() {
+								   System.out.println("*************************** Calling saveStudentRecord() Method To Save Student Record");
+								   Student std = new Student("tamer","tamer","tamer","l1","l2","l3","l4");
+								   SessionFactory sessionFactory = null;
+
+								    Transaction transObj = null;
+								     Session sessionObj = HibernateUtil.getSessionFactory().openSession();
+							        try {
+							             transObj = sessionObj.beginTransaction();
+							            sessionObj.save(std);
+							            System.out.println("******** Student Record With Id: " + std.getName() + " Is Successfully Created In Database");
+							 
+							            // XHTML Response Text
+							            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("createdStudentId",  std.getName());
+							             sessionFactory = new Configuration()
+												.configure("hibernate.cfg.xml")
+												.addAnnotatedClass(Student.class)
+												.buildSessionFactory();
+
+										Session session = sessionFactory.getCurrentSession();
+										session.beginTransaction();
+										
+										// save the exam object
+										System.out.println("Saving the student...");
+										session.save(std);
+										
+										// commit transaction
+										session.getTransaction().commit();
+										
+										System.out.println("Done!");
+							       
+							        } 
+							        
+							        
+							        catch (Exception exceptionObj) {
+							        	 System.out.println("********************* In catch;((( !! ");
+							            exceptionObj.printStackTrace();
+							        } finally {
+							            transObj.commit();
+							            sessionFactory.close();
+							        }
+								   
+								   
+								 

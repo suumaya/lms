@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" 
+xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets" 
+xmlns:f="http://java.sun.com/jsf/core" xmlns:util="http://java.sun.com/jsf/composite/util">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<h:outputStylesheet library="css" name="styles.css" />
+	<h:outputStylesheet library="css" name="grid.css" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+
+	<h:outputScript name="utilities.js" library="javascript" target="head" />
+	<style>
+.center {
+border-radius: 5px;
+  margin: auto;
+  width: 95%;
+  border: 1px solid #ececec;
+  padding: 10px;
+  margin-bottom: 5px;
+  
+}
+div.students:hover{
+background-color: #ececec;
+}
+
+.studentTable {   
+   border-collapse:collapse;
+   border:1px solid #000000;
+}
+
+.studentTableHeader {
+   text-align:center;
+   background:none repeat scroll 0 0 #B5B5B5;
+   border-bottom:1px solid #000000;  
+   padding:2px;
+}
+
+.studentTableOddRow {
+   text-align:center;
+   background:none repeat scroll 0 0 #FFFFFFF;	
+}
+
+.studentTableEvenRow {
+   text-align:center;
+   background:none repeat scroll 0 0 #D3D3D3;
+}
+
+</style>
+</h:head>
+<h:body  >
+
+
+<ui:decorate template="../Main/admin_Template.xhtml">
+   
+       <h1> 
+      Add New Student:
+       </h1>
+
+			
+		 <h:form>
+		 
+	
+   <h:outputLabel for="username">User Name</h:outputLabel>  
+<h:inputText id="username" value="#{student.username}" required="true" requiredMessage="Username is required"/><br/>  
+
+
+   <h:outputLabel for="name">First Name</h:outputLabel>  
+<h:inputText id="name" value="#{student.name}" required="true" requiredMessage="first name is required"/><br/>  
+
+
+   <h:outputLabel for="lname">Last Name</h:outputLabel>  
+<h:inputText id="lname" value="#{student.lname}" required="true" requiredMessage="last name is required"/><br/>  
+
+
+   <h:outputLabel for="email">Email </h:outputLabel>  
+<h:inputText id="email" value="#{student.email}" required="true" requiredMessage="email is required"/><br/>  
+
+
+   <h:outputLabel for="department">Department</h:outputLabel>  
+<h:inputText id="department" value="#{student.department}" required="true" requiredMessage="department is required"/><br/>  
+
+
+   <h:outputLabel for="level">Level</h:outputLabel>  
+<h:inputText id="level" value="#{student.level}" required="true" requiredMessage="level is required"/><br/>  
+
+
+   <h:outputLabel for="password">Password</h:outputLabel>  
+<h:inputText id="password" value="#{student.password}" required="true" requiredMessage="password is required"/><br/>  
+
+
+ <h:commandLink id = "submit-button"  value="Add" class="btn btn-success" actionListener	="#{dataBean.addStudent(student)}" action= "manage_students?faces-redirect=true"/>
+
+ 		 	 </h:form>
+		 
+		 </ui:decorate> 
+		
+</h:body>
+</html>

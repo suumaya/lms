@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" 
+xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets" 
+xmlns:f="http://java.sun.com/jsf/core" xmlns:util="http://java.sun.com/jsf/composite/util">
+<h:head>
+<title>
+      LMS - Exam History
+    </title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<h:outputStylesheet library="css" name="styles.css" />
+	<h:outputStylesheet library="css" name="grid.css" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+
+	<h:outputScript name="utilities.js" library="javascript" target="head" />
+	
+	    <style type="text/css" xml:space="preserve">
+    table.table thead tr:first-child td{
+     background-color: #c6c6c6;
+     align-content: center;
+    }
+     table.table td:nth-child(1){
+     padding: 10px;
+    }
+    table.table td:nth-child(2){
+     padding-left: 100px;
+     padding-right: 100px;
+    }
+    table.table td:nth-child(3){
+     padding-left: 150px;
+     padding-right: 50px;
+    }
+   
+    .table-wrapper {
+        padding: 20px;      
+  		margin: auto;
+  		border-style: ridge;
+  		    margin-top: 15px; 		    
+    }
+    
+    .container{
+    padding: 20px;
+    }
+
+</style>
+	
+</h:head>
+<h:body  >
+ 
+
+<ui:decorate template="../Main/Template.xhtml">
+	   	
+     
+  
+		</ui:decorate> 
+	     <div class="container">
+	      <h1> 
+       My Exams History
+       </h1>
+      <div class="table-wrapper">
+        <table class="table">
+          <thead>
+            <tr>
+
+                <td>
+                <label>Exam Name</label>
+              </td>
+              <td>
+                  <label>Time</label>
+              </td>
+              <td>
+                  <label>Result</label>
+              </td>  
+                   
+            </tr>
+          </thead>
+          <tbody>
+            <tr>       
+              <td>
+                  <a href="#" class="page-link">Exam 4</a>
+              </td>
+              <td>
+                  <label>02:09</label>
+              </td>
+              <td>
+                  <label>40/100</label>
+              </td>
+              </tr>
+                     <tr>       
+              <td>
+                  <a href="#" class="page-link">Exam 3</a>
+              </td>
+              <td>
+                  <label>10:17</label>
+              </td>
+              <td>
+                  <label>87/100</label>
+              </td>
+              </tr>
+                     <tr>       
+              <td>
+                  <a href="#" class="page-link">Exam 2</a>
+              </td>
+              <td>
+                  <label>13:00</label>
+              </td>
+              <td>
+                  <label>65/100</label>
+              </td>
+              </tr>
+                     <tr>       
+              <td>
+                  <a href="#" class="page-link">Exam 1</a>
+              </td>
+              <td>
+                  <label>21:04</label>
+              </td>
+              <td>
+                  <label>91/100</label>
+              </td>
+              </tr>
+          </tbody>
+        </table>       
+      </div>
+       
+      
+    </div>
+	 
+		
+</h:body>
+</html>

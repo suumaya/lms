@@ -13,7 +13,7 @@ import tables.Exam;
 
 public class ExamDatabaseOperations {
 	private static Transaction transaction;
-    private static Session session = hibernateUtil.getSessionFactory().openSession();
+    private static Session session = HibernateUtil.getSessionFactory().openSession();
  
    
     public void addingExam(Exam exam) {        

@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:cc="http://java.sun.com/jsf/composite">
+<cc:interface componentType="advancedHijriDateNew">
+	<cc:attribute name="value" />
+	<cc:attribute name="rendered" default="true" />
+	<cc:attribute name="birthDateRange" default="false"/>
+	<cc:attribute name="showDay" default="true" />
+	<cc:attribute name="showMonth" default="true" />
+	<cc:attribute name="showYear" default="true" />
+	<cc:attribute name="generatedId" default="#{cc.clientId}" />
+	<cc:attribute name="listener" method-signature="void listener(javax.faces.event.AjaxBehaviorEvent)" />
+	<cc:attribute name="renderIds" />
+	<cc:attribute name="disable" default="false" />
+
+</cc:interface>
+<cc:implementation>
+	<h:outputStylesheet library="css" name="calendar.css" />
+	<h:outputScript name="advancedHijriDate.js" library="javascript" target="head" />
+	<h:panelGroup id="dataId" rendered="#{cc.attrs.rendered == true}">
+
+		<h:inputText id="dateValueIdDay" value="#{cc.selectedValueDay}" disabled="#{cc.attrs.disable}" style="width:30px;" maxlength="2" styleClass="form-control custom_text_calendar_New" onblur="dayHandler(event,this.value,'#{cc.attrs.generatedId}');">
+			<f:ajax event="change" execute="dateValueId visibleCalendarId" render="visibleCalendarId"/>
+		</h:inputText>
+
+		<h:inputText id="dateValueIdMonth" value="#{cc.selectedValueMonth}" disabled="#{cc.attrs.disable}" style="width:30px;" maxlength="2" styleClass="form-control custom_text_calendar_New" onblur="monthHandler(event,this.value,'#{cc.attrs.generatedId}');">
+			<f:ajax event="change" execute="dateValueId visibleCalendarId" render="visibleCalendarId"/>
+		</h:inputText>
+
+		<h:inputText style="width:40px" id="dateValueIdYear" value="#{cc.selectedValueYear}" maxlength="4" disabled="#{cc.attrs.disable}" styleClass="form-control custom_text_calendar_New" onblur="yearHandler(event,this.value,'#{cc.attrs.generatedId}',#{cc.attrs.birthDateRange});">
+			<f:ajax event="change" execute="dateValueId visibleCalendarId" render="visibleCalendarId"/>
+		</h:inputText>
+
+		<h:inputHidden id="dateValueId" value="#{cc.selectedValue}" styleClass="custom_text_calendar" onkeypress="return isValidDate(event, this.value);">
+		</h:inputHidden>
+
+
+		<h:graphicImage id="advancedHijriImageIconId" value="#{resource['images:calendarIcon.png']}" alt="image" styleClass="custom_image_calendar">
+			<f:ajax event="click" disabled="#{cc.attrs.disable}" listener="#{cc.changeCalendarVisibility()}" execute="dateValueId" render="dateValueId  visibleCalendarId" />
+		</h:graphicImage>
+		<h:outputText value=" هـ  " />
+		<h:outputText id="hijriDateError" styleClass="hijriError" value="#{cc.hijriError}" />
+
+		<h:panelGroup id="visibleCalendarId">
+			<h:panelGroup id="visibleCalendarRenderId" rendered="#{cc.visibleCalendar == true}" layout="block">
+				<table border="0" cellspacing="0" cellpadding="0" class="custom_calendar_table">
+
+					<tr>
+						<td class="custom_calendar_header_section">
+							<h:commandButton style="float: left;" action="#{cc.setVisibleCalendar(false)}" value="#{msgs.label_close}" image="/resources/images/close.png" title="#{msgs.label_close}">
+								<f:ajax render="visibleCalendarId" />
+							</h:commandButton>
+						</td>
+					</tr>
+
+					<tr>
+						<td align="center" class="custom_calendar_header_section">
+							<table border="0" cellspacing="0" cellpadding="0" class="custom_calendar_header_table">
+								<tr>
+									<h:panelGroup rendered="#{cc.currentYear == cc.startYear}">
+										<td align="center" class="custom_calendar_btn_disabled">&lt;&lt;</td>
+									</h:panelGroup>
+									<h:panelGroup rendered="#{cc.currentYear gt cc.startYear}">
+										<td align="center" class="custom_calendar_btn" onclick="customHijriBtnsAction('previousYear','#{cc.attrs.generatedId}');">&lt;&lt;</td>
+									</h:panelGroup>
+
+									<h:panelGroup rendered="#{cc.currentMonth == 1 and cc.currentYear == cc.startYear}">
+										<td align="center" class="custom_calendar_btn_disabled">&lt;</td>
+									</h:panelGroup>
+									<h:panelGroup rendered="#{(cc.currentMonth gt 1 and cc.currentYear == cc.startYear) or cc.currentYear gt cc.startYear}">
+										<td align="center" class="custom_calendar_btn" onclick="customHijriBtnsAction('previousMonth','#{cc.attrs.generatedId}');">&lt;</td>
+									</h:panelGroup>
+
+									<td align="center" class="custom_calendar_title_btn">
+										<h:selectOneMenu id="monthId" value="#{cc.currentMonth}" styleClass="custom_calendar_title_month_select_option">
+											<f:selectItems value="#{cc.monthsItem}" />
+											<f:ajax listener="#{cc.changeYearOrMonth()}" render="visibleCalendarId currentMonthId currentYearId dateValueIdMonth" />
+										</h:selectOneMenu>
+										&nbsp;
+										<h:selectOneMenu id="yearId" value="#{cc.currentYear}" styleClass="custom_calendar_title_year_select_option">
+											<f:selectItems value="#{cc.yearsItem}" />
+											<f:ajax listener="#{cc.changeYearOrMonth()}" render="visibleCalendarId currentMonthId currentYearId dateValueIdYear" />
+										</h:selectOneMenu>
+									</td>
+
+									<h:panelGroup rendered="#{cc.currentMonth == 12 and cc.currentYear == cc.endYear}">
+										<td align="center" class="custom_calendar_btn_disabled">&gt;</td>
+									</h:panelGroup>
+									<h:panelGroup rendered="#{(cc.currentMonth lt 12 and cc.currentYear == cc.endYear) or cc.currentYear lt cc.endYear}">
+										<td align="center" class="custom_calendar_btn" onclick="customHijriBtnsAction('nextMonth','#{cc.attrs.generatedId}');">&gt;</td>
+									</h:panelGroup>
+
+									<h:panelGroup rendered="#{cc.currentYear == cc.endYear}">
+										<td align="center" class="custom_calendar_btn_disabled">&gt;&gt;</td>
+									</h:panelGroup>
+									<h:panelGroup rendered="#{cc.currentYear lt cc.endYear}">
+										<td align="center" class="custom_calendar_btn" onclick="customHijriBtnsAction('nextYear','#{cc.attrs.generatedId}');">&gt;&gt;</td>
+									</h:panelGroup>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td class="custom_calendar_body_section">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="custom_calendar_body_table">
+
+								<tr>
+									<td align="center" class="custom_calendar_label_values">
+										<h:outputText value="الأحــد" />
+									</td>
+									<td align="center" class="custom_calendar_label_values">
+										<h:outputText value="الإثنيـن" />
+									</td>
+									<td align="center" class="custom_calendar_label_values">
+										<h:outputText value="الثلاثاء" />
+									</td>
+									<td align="center" class="custom_calendar_label_values">
+										<h:outputText value="الأربعاء" />
+									</td>
+									<td align="center" class="custom_calendar_label_values">
+										<h:outputText value="الخميس" />
+									</td>
+									<td align="center" class="custom_calendar_label_values">
+										<h:outputText value="الجمعة" />
+									</td>
+									<td align="center" class="custom_calendar_label_values">
+										<h:outputText value="السبت" />
+									</td>
+								</tr>
+								<ui:repeat value="#{cc.drawingDays}" var="row" varStatus="rowStatus">
+									<tr>
+										<ui:repeat value="#{row}" var="value" varStatus="colStatus">
+											<h:panelGroup rendered="#{cc.styles[rowStatus.index][colStatus.index] != 'custom_calendar_date_not_used'}">
+												<td id="value_#{rowStatus.index * 7 + colStatus.index}" width="34px" align="center" class="#{cc.styles[rowStatus.index][colStatus.index]}" onclick="customHijriBtnsAction('selectDateValue','#{cc.attrs.generatedId}', '#{value}');">#{value}</td>
+											</h:panelGroup>
+											<h:panelGroup rendered="#{cc.styles[rowStatus.index][colStatus.index] == 'custom_calendar_date_not_used'}">
+												<td width="34px" align="center" class="#{cc.styles[rowStatus.index][colStatus.index]}">#{value}</td>
+											</h:panelGroup>
+										</ui:repeat>
+									</tr>
+								</ui:repeat>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td class="custom_calendar_footer_section">
+							<table cellspacing="0" cellpadding="0" class="custom_calendar_footer_table">
+								<tr>
+									<td width="100%" align="center" class="custom_calendar_title_btn custom_calendar_btn" onclick="customHijriBtnsAction('today','#{cc.attrs.generatedId}');">
+										<h:outputText value="الـيـــــــوم" />
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</h:panelGroup>
+		</h:panelGroup>
+
+		<f:ajax execute="dateValueId" listener="#{cc.attrs.listener}" render="visibleCalendarId currentMonthId currentYearId hijriDateError #{cc.attrs.renderIds}">
+			<h:commandButton id="customHijriBtnPreviousYearId" style="display: none;" action="#{cc.previousYear}" />
+			<h:commandButton id="customHijriBtnPreviousMonthId" style="display: none;" action="#{cc.previousMonth}" />
+			<h:commandButton id="customHijriBtnNextMonthId" style="display: none;" action="#{cc.nextMonth}" />
+			<h:commandButton id="customHijriBtnNextYearId" style="display: none;" action="#{cc.nextYear}" />
+			<h:commandButton id="customHijriBtnTodayId" style="display: none;" action="#{cc.today}" />
+			<h:commandButton id="customHijriBtnSelectDateId" style="display: none;" action="#{cc.selectDateValue()}" />
+			<h:commandButton id="customHijriBtnHideCalendarId" style="display: none;" action="#{cc.setVisibleCalendar(false)}" />
+		</f:ajax>
+
+		<h:inputHidden id="currentMonthId" value="#{cc.currentMonth}" />
+		<h:inputHidden id="currentYearId" value="#{cc.currentYear}" />
+
+		<h:outputScript id="scriptId">
+                //<![CDATA[
+                            
+                //]]>
+		</h:outputScript>
+	</h:panelGroup>
+</cc:implementation>
+</html>

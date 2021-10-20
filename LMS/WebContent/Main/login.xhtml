@@ -1,6 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:util="http://java.sun.com/jsf/composite/util">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" 
+xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets" 
+xmlns:f="http://java.sun.com/jsf/core"
+ xmlns:util="http://java.sun.com/jsf/composite/util">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	    <title>
@@ -47,33 +50,27 @@ function IsEmpty() {
 </script>
 
   </h:head>
+  
   <h:body>
     <div class="login-form">
-      <form  name="frm" action="/examples/actions/confirmation.php" method="post" >
-        <h2 class="text-center">
-          #{msgs.label_login}
-        </h2>
-        <div class="form-group"> 
-          <label>#{msgs.label_userName}</label> 
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" name="username_input" id="username"/>
-        </div>
-        <div class="form-group"> 
-          <label>#{msgs.label_password}</label> 
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control"  name="password_input" id="password"/>
-        </div>
-        <div class="form-group">
-          <input id="insert" onclick="return IsEmpty();" type="submit" value="#{msgs.label_login}" name="login" />
-        </div>
-       <!-- <div class="clearfix">
-          <label class="pull-left checkbox-inline"><input type="checkbox" />
-          Remember me</label> <a href="#" class="pull-right">Forgot
-          Password?</a>
-        </div> -->
-      </form>
+       
+       <h:form>
+		<h3>Student Login </h3>
+		<h:outputText value="Username" />
+		<h:inputText id="username" value="#{student.username}"></h:inputText>
+		<h:message for="username"></h:message>
+		<br></br><br></br>
+		
+		<h:outputText value="Password" />
+		<h:inputSecret id="password" value="#{student.password}"></h:inputSecret>
+		<h:message for="password"></h:message>
+		<br></br><br></br>
+		
+		<h:commandButton action="#{student.validateUsernamePassword}"
+			value="Login"></h:commandButton>
+	</h:form>
+      
+      
       <p class="text-center">
         <a href="register.xhtml">
         

@@ -1,0 +1,234 @@
+#container {
+  margin-top: 58px;
+}
+.bg-Drark{
+
+     margin: 0px 0px;
+    padding: side-values(0px  10px  49px  0px);
+    position: relative;
+
+    height: 100%;
+    /*overflow: hidden;*/
+   	/*background:$background-bg-Drark ;*/
+    /*@include box-shadow(0, -3px, 2px, rgba(165, 165, 165, 1));*/
+
+	.w-left-top-icon  
+  {
+
+		a,.ar-btn,.en-btn
+    {
+			color:$topiconlink
+		}
+  }
+
+
+
+    #body
+    {
+
+        /*width: 77.5%;*/
+        /*float:$f-left;*/
+       min-height: 600px;
+       /*padding: side-values( 0px 0px 10px 10px);*/
+        @include border-none;
+         @include transition(all 0.4s ,ease,0.5s);
+         margin-top: 10px !important;
+         height: 100%;
+       background-color: #fff;
+          padding: 10px 10px 14px 10px;
+           border: 1px solid #e5e5e5;
+               box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+        /* .inner-background{
+
+          background-color: #fff;
+          padding: 14px 10px;
+          border: 1px solid #e5e5e5;
+          margin-top: 10px;
+              float: $f-left;
+    width: 98%;
+
+
+         }*/
+
+         position: relative;
+         margin-#{$f-right}: 245px;
+         margin-top: 28px !important;
+    position: relative;
+   
+
+
+    }
+
+
+
+    #sidebar-wrapper
+    {
+       /* width: 20.2%;
+        float:$f-right;*/
+        margin-top: -16px;
+         @include transition(all 0.4s ,ease, 0.5s);
+         background-color: $table-background;
+         /*padding-#{$f-right}: 2px;*/
+           min-height: 100%;
+         height: 100%;
+         padding:0px 0px 30px 0px;
+            box-shadow: 0 2px 8px 0 rgba(0,0,0,.1);
+            margin-bottom: 4px;
+            position:fixed; 
+                z-index: 4;
+               /* position: relative;*/
+               
+                width: 230px;
+
+   
+      
+
+    }
+ 
+
+
+}
+
+  #wrapper {
+  padding-#{$f-right}: 0px;
+ @include transition(all 0.4s ,ease,0.5s);
+ overflow:hidden;
+  position: relative;
+  height: 100%;
+
+
+}
+
+  .pos-change:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.75);
+    z-index: 400;
+    opacity: 1;
+    visibility: hidden;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;} 
+
+#wrapper.active {
+	padding-#{$f-right}: 0;
+}
+
+#wrapper.active #body {
+
+  @include transition(all 0.4s ,ease,0.5s);
+  
+  margin-#{$f-right}: 110px
+}
+
+#wrapper.active #sidebar-wrapper {
+	#{$f-right}: 0;
+  margin-top: -17px !important;
+  width: 95px;
+}
+
+#bodyMiniSearch{
+
+  background:#fff;
+
+     margin: 0px 7px 10px 0px;
+    padding: 0px 10px 30px 10px;
+
+  }
+
+ #wrapper.active #sidebar-wrapper .status-text-n{display:none}
+ #wrapper.active #sidebar-wrapper .box-status{overflow: hidden;padding: 2px; } 
+ #wrapper.active #sidebar-wrapper .box-date{display: none}
+#wrapper.active #sidebar-wrapper   .r-st {
+    text-align: right;
+    width: 16px;
+    padding-right: 9px;}
+
+.col-div{padding:0px;  border: 1px solid #e5e5e5;margin:5px }
+
+.preloader {
+    width: 100% !important;
+    left: 0px !important;
+    top: 0px !important;
+    height: 100% !important;
+    z-index: 99;
+    background: rgba(255, 255, 255, 0.88);
+   
+   
+
+
+.ui-dialog-content { text-align: center;
+height:100% !important;top: 40%; position: absolute;
+ img{ width:5% 
+
+
+    }
+
+  }
+
+}
+
+.ui-widget-overlay {
+  background: #000000  !important ;
+  opacity: .60  !important;
+  background-image: none !important
+
+}
+
+
+.mCustomScrollbar {
+  -ms-touch-action: pinch-zoom;
+  touch-action: pinch-zoom;
+}
+
+.mCustomScrollbar.mCS_no_scrollbar, .mCustomScrollbar.mCS_touch_action {
+  -ms-touch-action: auto;
+  touch-action: auto;
+}
+
+.mCustomScrollbar>.mCustomScrollBox>.mCSB_scrollTools.mCSB_scrollTools_onDrag,
+.mCustomScrollbar>.mCustomScrollBox ~ .mCSB_scrollTools.mCSB_scrollTools_onDrag,
+.mCustomScrollBox:hover>.mCSB_scrollTools, .mCustomScrollBox:hover ~
+.mCSB_scrollTools, .mCS-autoHide:hover>.mCustomScrollBox>.mCSB_scrollTools,
+.mCS-autoHide:hover>.mCustomScrollBox ~ .mCSB_scrollTools {
+opacity: 1;
+filter: "alpha(opacity=100)";
+-ms-filter: "alpha(opacity=100)"
+}
+
+
+#wrapper.active #sidebar-wrapper .mCustomScrollBox, #wrapper.active #sidebar-wrapper .mCSB_container {
+  overflow: visible !important;
+}
+
+.mCustomScrollBox {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  max-width: 100%;
+  outline: none;
+  direction: ltr;
+}
+#wrapper.active #sidebar-wrapper .mCustomScrollBox, #wrapper.active #sidebar-wrapper .mCSB_container {
+  overflow: visible !important;
+}
+#wrapper.active #sidebar-wrapper .mCustomScrollBox, #wrapper.active #sidebar-wrapper .mCSB_container {
+  overflow: visible !important;
+}
+div#mCSB_1_container {
+}
+.mCSB_container.mCS_no_scrollbar_y.mCS_y_hidden {
+  margin-right: 0;
+}
+.mCSB_container {
+  overflow: hidden;
+  width: auto;
+  height: auto;
+}
+#wrapper.active #sidebar-wrapper .nav-collapse.collapse {
+  overflow: visible !important;
+}

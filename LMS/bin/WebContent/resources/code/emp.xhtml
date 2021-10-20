@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"      
+      xmlns:composite="http://java.sun.com/jsf/composite">
+	  
+    <composite:interface>
+        <composite:attribute name="value" required="true"/>
+    </composite:interface>
+	
+    <composite:implementation>
+        <h:panelGroup id="data">
+            <table class="sectionContent" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th width="15%">#{msgs.label_empNo}</th>
+                    <td width="25%"><h:outputText value="#{cc.attrs.value.categoryId == 1 ? cc.attrs.value.militaryNumber : cc.attrs.value.jobCode}"/></td>
+                    
+                    <th width="15%">#{msgs.label_socialId}</th>
+                    <td width="45%"><h:outputText value="#{cc.attrs.value.socialID}"/></td>
+                </tr>
+                <tr>
+                	<th width="15%">#{msgs.label_name}</th>
+                    <td width="85%" colspan="3"><h:outputText value="#{cc.attrs.value.name}"/></td>
+                </tr>
+                <tr>
+                    <th width="15%">
+                        <h:outputText value="#{(cc.attrs.value.categoryId == 1 or cc.attrs.value.categoryId == 2)?(msgs.label_rank):(msgs.label_personRank)}" />
+                    </th>
+                    <td width="25%"><h:outputText value="#{cc.attrs.value.rankDesc}"/></td>
+                    
+                    <th width="15%">#{msgs.label_job}</th>
+                    <td width="45%"><h:outputText value="#{cc.attrs.value.jobDesc}"/></td>
+                </tr>
+                <tr>
+                    <th width="15%">#{msgs.label_unit}</th>
+                    <td width="85%" colspan="3"><h:outputText value="#{cc.attrs.value.physicalUnitFullName}"/></td>                
+                </tr>
+                <tr>
+                    <th width="15%">#{msgs.label_manager}</th>
+                    <td width="85%" colspan="3"><h:outputText value="#{cc.attrs.value.managerName}"/></td>                
+                </tr>
+            </table>			
+        </h:panelGroup>
+    </composite:implementation>  
+</html>	  

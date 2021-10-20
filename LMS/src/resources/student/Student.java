@@ -1,4 +1,9 @@
 package resources.student;
+import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -6,9 +11,27 @@ import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.servlet.http.HttpSession;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 
 import resources.exam.ExamData;
 import resources.exam.question;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+
+import com.code.hibernate.*;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.jboss.logging.BasicLogger;
 
 
 @NamedQueries({
@@ -21,10 +44,12 @@ import resources.exam.question;
 			 	)
 }) 
 
-@SuppressWarnings("serial")
 @Entity
-@Table(name = "student")
-public class Student {
+@Table(name = "student", schema = "examinationsys")
+@SuppressWarnings("serial")
+@ManagedBean(name = "student")
+@SessionScoped
+public class Student implements Serializable{
 	//What is This? 
  	 private static final long serialVersionUID = 6081417964063918994L;
 
@@ -42,10 +67,10 @@ public class Student {
 	   private String level;
  	@Column(name="password")
 	   private String password;
- 	
+  
 	   
+	    public Student() {}
 	   
-	   public Student() {}
 	   public Student(String name,String lname, String username, String email, String department, String level, String password) {
 		   
 		this.name = name;
@@ -72,7 +97,7 @@ public class Student {
 			   }
 
 			   public void setLname(String name) {
-			      this.name = name;
+			      this.lname = name;
 			   }
 		   
 		   
@@ -118,5 +143,23 @@ public class Student {
 							      this.password = password;
 							   }
 
-	
+							 //validate login
+								public String validateUsernamePassword() {
+									boolean valid = LoginDAO.validate(username, password);
+									if (valid) {
+										System.out.println("************ LoginDAO result VALID!!");
+										HttpSession session = SessionUtils.getSession();
+										session.setAttribute("username", username);
+										return "admin";
+									} else {
+										System.out.println("************ LoginDAO result NOT VALID!!");
+										FacesContext.getCurrentInstance().addMessage(
+												null,
+												new FacesMessage(FacesMessage.SEVERITY_WARN,
+														"Incorrect Username and Passowrd",
+														"Please enter correct username and Password"));
+										return "login";
+									}
+								}
+							  			
 }

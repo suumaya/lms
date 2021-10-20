@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:composite="http://java.sun.com/jsf/composite" xmlns:p="http://primefaces.org/ui">
+
+<composite:interface>
+	<composite:attribute name="value" required="true" />
+	<composite:attribute name="refuseRoles" />
+</composite:interface>
+
+<composite:implementation>
+	<tr>
+		<td width="100%" height="15" />
+	</tr>
+
+	<tr>
+		<td width="100%">
+			<p:accordionPanel activeIndex="-1">
+				<p:tab title="#{msgs.label_prevTasks}">
+					<h:panelGroup>
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<ui:repeat value="#{cc.attrs.value}" var="task" varStatus="loopStatus">
+								<tr>
+									<td width="100%" height="15" />
+								</tr>
+
+								<tr>
+									<td width="100%">
+										<table style="table-layout: fixed;" class="sectionContent" border="0" cellpadding="0" cellspacing="0">
+											<tr>
+												<th width="15%">#{msgs.label_militaryNumber}</th>
+												<td width="25%">
+													<h:outputText value="#{task.originalNumber}" />
+													<input type="hidden" id="prevTasks:taskRoleId:#{loopStatus.index}" name="prevTasks:taskRoleId:#{loopStatus.index}" value="#{task.assigneeWfRole}" />
+												</td>
+
+												<th width="15%">#{msgs.label_name}</th>
+												<td width="45%">
+													<h:outputText value="#{task.originalName}" />
+												</td>
+											</tr>
+
+
+											<tr>
+												<th width="15%">#{msgs.label_comment}</th>
+												<td width="85%" colspan="3">
+													<h:outputText style="word-break: break-word;" value="#{task.notes}" />
+												</td>
+											</tr>
+											<tr id="prevTasks:refuseReasonsId:#{loopStatus.index}">
+												<th width="15%">#{msgs.label_refuseReasons}</th>
+												<td width="85%" colspan="3">
+													<h:outputText value="#{task.refuseReasons}" />
+												</td>
+											</tr>
+											<tr>
+												<th width="15%">#{msgs.label_taskAction}</th>
+												<td width="25%">
+													<h:outputText value="#{task.action}" />
+												</td>
+
+												<th width="15%">#{msgs.label_taskActionDate}</th>
+												<td width="45%">
+													<h:outputText value="#{task.hijriActionDateString}" />
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</ui:repeat>
+						</table>
+					</h:panelGroup>
+				</p:tab>
+			</p:accordionPanel>
+		</td>
+	</tr>
+
+	<script type="text/javascript">         
+            controlPrevTasks('#{cc.attrs.refuseRoles}');         
+        </script>
+</composite:implementation>
+</html>

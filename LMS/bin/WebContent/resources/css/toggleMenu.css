@@ -1,0 +1,275 @@
+.menuDiv {
+	background-color: #fafafa;
+    border: 1px solid #3fcb68;
+    border-radius: 10px;
+    color: #000000;
+    margin: -517px -3px 0 0;
+    padding: 5px;
+	
+}
+.img1{
+	background: url("../resources/images/orders.png") !important;
+	background-repeat:no-repeat;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-right: 20px;
+    vertical-align: baseline;
+    width: 55px;
+}
+
+.img1:hover {
+	background: url(../resources/images/orders_hover.png) !important;
+	background-repeat: no-repeat;
+}
+
+.img2{
+	background: url("../resources/images/yard.png") repeat scroll 0 0 transparent !important;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-right: 20px;
+    vertical-align: baseline;
+    width: 55px;
+    margin-top:-3px;
+}
+
+.img2:hover {
+	background: url(../resources/images/yard_hover.png) !important;
+	background-repeat: no-repeat;
+}
+.img3{
+	background: url("../resources/images/warehouses.png") repeat scroll 0 0 transparent !important;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-right: 20px;
+    vertical-align: baseline;
+    width: 55px;
+    margin-top:-3px;
+}
+
+.img3:hover {
+	background: url(../resources/images/warehouses_hover.png) !important;
+	background-repeat: no-repeat;
+}
+
+.img4{
+	background: url("../resources/images/aramco.png") repeat scroll 0 0 transparent !important;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-right: 20px;
+    vertical-align: baseline;
+    width: 55px;
+    margin-top:-3px;
+}
+
+.img4:hover {
+	background: url(../resources/images/aramco_hover.png) !important;
+	background-repeat: no-repeat;
+}
+
+.img5{
+	background: url("../resources/images/contracts.png") repeat scroll 0 0 transparent !important;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-right: 20px;
+    vertical-align: baseline;
+    width: 55px;
+    margin-top:-3px;
+}
+
+.img5:hover {
+	background: url(../resources/images/contracts_hover.png) !important;
+	background-repeat: no-repeat;
+}
+
+.img6{
+	background: url("../resources/images/returns.png") repeat scroll 0 0 transparent !important;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-right: 20px;
+    vertical-align: baseline;
+    width: 55px;
+    margin-top:-3px;
+}
+
+.img6:hover {
+	background: url(../resources/images/returns_hover.png) !important;
+	background-repeat: no-repeat;
+}
+
+.img7{
+	background: url("../resources/images/custody.png") repeat scroll 0 0 transparent !important;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-right: 20px;
+    vertical-align: baseline;
+    width: 55px;
+    margin-top:-3px;
+}
+
+.img7:hover {
+	background: url(../resources/images/custody_hover.png) !important;
+	background-repeat: no-repeat;
+}
+
+.img8{
+	background: url("../resources/images/management.png") repeat scroll 0 0 transparent !important;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-right: 20px;
+    vertical-align: baseline;
+    width: 55px;
+    margin-top:-3px;
+}
+
+.img8:hover {
+	background: url(../resources/images/management_hover.png) !important;
+	background-repeat: no-repeat;
+}
+.img9{
+	background: url("../resources/images/reports.png") repeat scroll 0 0 transparent !important;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-right: 20px;
+    vertical-align: baseline;
+    width: 55px;
+    margin-top:-3px;
+}
+
+.img9:hover {
+	background: url(../resources/images/reports_hover.png) !important;
+	background-repeat: no-repeat;
+}
+
+.img10{
+	background: url("../resources/images/setup.png") repeat scroll 0 0 transparent !important;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-right: 20px;
+    vertical-align: baseline;
+    width: 55px;
+    margin-top:-3px;
+}
+.img10:hover {
+	background: url(../resources/images/setup_hover.png) !important;
+	background-repeat: no-repeat;
+}
+#showDiv {
+	position: relative;
+	float: right;
+	z-index: 1000;
+	margin-right: 8px;
+}
+
+
+.menuStyle{
+	width:200px;
+}
+.menuDiv {
+	position: relative;
+	float: right;
+	display: none;
+	z-index: 999;
+}
+
+.toggleMenuCloseBtn {
+    float: left;
+    height: 18px;
+    margin-top: -3px;
+    width: 17px;
+    background-image: url(../resources/images/exit.png) !important;
+    background-repeat:no-repeat;
+    background-position: center;
+    border:none;
+}
+.toggleMenuCloseBtn:hover {
+	background-image: url(../resources/images/exit_hover.png) !important;
+}
+
+div.container1 {
+	font-family:Arial, Helvetica, sans-serif;
+	border-bottom: 1px #d3d3d3 solid;
+	border-left: 1px #d3d3d3 solid;
+	border-right: 1px #d3d3d3 solid;
+	border-top: 1px white solid;
+	border-radius: 6px;
+	font-size: 16px;
+	margin-bottom: 2px;
+	/*width: 470px;*/
+	/*height:280px;*/
+	/*margin-top: 6px;*/
+}
+
+div.title {
+	padding: 4px;
+	font-weight: bold;
+	color:#fff !important;
+	text-align: center;
+	margin: 0;
+	background-image: url("../resources/images/cell.png");
+    background-repeat: repeat-x;
+	font-size: 15px;
+	font-family:GE Dinar One Medium;
+	border-bottom: 2px #b7b7b7 solid;
+}
+
+div.container div.content 
+{
+	padding: 8px;
+	font-family:tahoma;
+	background-color:#f7f7f7;
+}
+
+div.content a.menu {
+	font-size: 15px;
+	text-decoration: none;
+	color: #6f6f6f;
+	margin: 3px;
+	font-family: tahoma;
+	font-weight: normal;
+}
+
+div.content a.menu:hover {
+	text-decoration: none;
+	font-size: 15px;
+	color: #2298ca;
+}
+
+div.content a.selectedMenu {
+	font-size: 15px !important;
+	text-decoration: none;
+	color: #fca901 !important;
+	margin: 1px;
+}
+/*****************************odd and even color******************************************/
+.menuOdd{
+    background-color: #f7f7f7 !important;
+    display: inline-block;
+    width:100%; 
+    color: #C4C0B9 !important;
+}
+
+.menuEven{
+    background-color: #ececec !important;
+    display: inline-block;
+    width:100%; 
+}

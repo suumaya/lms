@@ -1,0 +1,102 @@
+/***********************mixin border radius*******************************/
+@mixin new-radius($radius:4px) {
+-moz-border-radius: $radius;
+-webkit-border-radius: $radius;
+border-radius: $radius;
+}
+%box-shadow{box-shadow: none}
+@mixin box-shadow($top, $left, $blur, $color, $inset:"") {
+
+      -webkit-box-shadow:$top $left $blur $color #{$inset};
+      -moz-box-shadow:$top $left $blur $color #{$inset};
+      box-shadow:$top $left $blur $color #{$inset};
+    }
+
+@mixin border($width,$top,$right,$bottom,$left,$style,$color){
+         border-width:$width;
+         border-top:$top;
+         border-right:$right;
+         border-bottom:$bottom;
+         border-left:$left;
+         border-style:$style;
+         border-color:$color;
+
+}
+
+@mixin border-none{
+       border:0px solid #fff;
+
+}
+
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+
+
+@mixin transition-property($property...) {
+    -moz-transition-property:    $property;
+    -o-transition-property:      $property;
+    -webkit-transition-property: $property;
+    transition-property:         $property;
+}
+@mixin transition-duration($duration...) {
+    -moz-transition-property:    $duration;
+    -o-transition-property:      $duration;
+    -webkit-transition-property: $duration;
+    transition-property:         $duration;
+}
+@mixin transition-timing-function($timing...) {
+    -moz-transition-timing-function:    $timing;
+    -o-transition-timing-function:      $timing;
+    -webkit-transition-timing-function: $timing;
+    transition-timing-function:         $timing;
+}
+@mixin transition-delay($delay...) {
+    -moz-transition-delay:    $delay;
+    -o-transition-delay:      $delay;
+    -webkit-transition-delay: $delay;
+    transition-delay:         $delay;
+}
+
+
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model;
+  -moz-box-sizing: $box-model; 
+  box-sizing: $box-model;
+  -ms-box-sizing:$box-model;
+}
+
+
+
+$form-input-buttons:'input[type="submit"], input[type="reset"], input[type="button"], button';
+
+#{form-input-buttons}, input[type="submit"],input[type="button"], {
+   
+  font-family:$font-family-arabic;
+  color:$font-white;
+  @include border-none;
+  background:$default-btn;
+  @include new-radius(4px) ;
+  padding:5px 10px; 
+  margin:4px;
+  input[type="submit"]:hover,input[type="button"]:hover,button:hover{
+  	background:$hover-default-btn;
+ @include transition(background-color 0.7s .2s, color 2s);  
+  }
+}
+
+$form-input-field:'input[type="text"], input[type="password"]';
+
+  #{form-input-field},input[type="text"],input[type="password"] 
+
+   {
+	  font-family:$font-family-arabic;
+	  margin-top: 0px;
+	  @include new-radius(3px 0px 0px 3px !important);
+   }
+
+/************************************************************************/

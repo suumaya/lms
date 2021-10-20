@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" xmlns:f="http://java.sun.com/jsf/core" xmlns:composite="http://java.sun.com/jsf/composite" >
+
+<composite:interface componentType="com.code.ui.components.util.UIAttachments">
+	<composite:attribute name="loginEmpId" required="true" />
+	<composite:attribute name="attachmentId" required="true" />
+	<composite:attribute name="addEnableFlag" default="false" type="java.lang.Boolean" />
+	<composite:attribute name="viewEnableFlag" default="false" type="java.lang.Boolean" />
+	<composite:attribute name="deleteEnableFlag" default="false" type="java.lang.Boolean" />
+</composite:interface>
+
+<composite:implementation>
+
+	<script type="text/javascript">
+        function openAddAttachmentsUrl(){
+            var attachmentsIdHiddenInputId = '#{cc.clientId}'+':attachmentsId';
+            var attachmentId = document.getElementById(attachmentsIdHiddenInputId).value;
+            
+            if (attachmentId == null || attachmentId == '')
+                return true;
+            else {
+                addAttachment(attachmentId, '#{cc.attrs.loginEmpId}', '#{cc.attachmentsAddURL}');
+                return false;
+            }
+        }
+
+        function openViewAttachmentsUrl(){
+            var attachmentsIdHiddenInputId = '#{cc.clientId}'+':attachmentsId';
+            var attachmentId = document.getElementById(attachmentsIdHiddenInputId).value;
+
+            var securityKeyHiddenInputId = '#{cc.clientId}'+':securityKeyId';
+            var securityKey = document.getElementById(securityKeyHiddenInputId).value;
+            
+            viewAttachment(attachmentId, '#{cc.attrs.loginEmpId}', '#{cc.attachmentsViewURL}', securityKey, #{cc.attrs.viewEnableFlag}, #{cc.attrs.deleteEnableFlag});
+        }
+    </script>
+
+	<h:commandButton rendered="#{cc.attrs.addEnableFlag}" value="#{msgs.label_addAttachment}" styleClass="btn_M_normal" onclick="return openAddAttachmentsUrl();" action="#{cc.calculateAttachmentsId()}">
+		<f:ajax render="attachmentsId showAttachmentPanelId" onevent="function(data) { if (data.status == 'success') openAddAttachmentsUrl(); }" />
+	</h:commandButton>
+	<h:panelGroup id="showAttachmentPanelId">
+		<h:commandButton rendered="#{(cc.attrs.attachmentId != null) and (cc.attrs.viewEnableFlag or cc.attrs.deleteEnableFlag)}" value="#{msgs.label_showAttachment}" styleClass="btn_M_normal" action="#{cc.calculateAttachmentsSecurityKey()}">
+			<f:ajax render="securityKeyId" onevent="function(data) { if (data.status == 'success') openViewAttachmentsUrl(); }" />
+		</h:commandButton>
+	</h:panelGroup>
+	<h:inputHidden id="attachmentsId" value="#{cc.attrs.attachmentId}" />
+	<h:inputHidden id="securityKeyId" value="#{cc.securityKey}" />
+
+</composite:implementation>
+</html>

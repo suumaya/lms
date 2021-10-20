@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" xmlns:f="http://java.sun.com/jsf/core" xmlns:composite="http://java.sun.com/jsf/composite">
+<composite:interface componentType="com.code.ui.components.util.UIDecisionCopies">
+	<composite:attribute name="internal" required="true" type="java.util.List" />
+	<composite:attribute name="external" required="true" />
+	<composite:attribute name="viewOnly" default="false" type="java.lang.Boolean" />
+</composite:interface>
+<composite:implementation>
+	<script type="text/javascript">
+		function getInternalCopyEmployee(){
+			ret=openEmpsMiniSearch('#{request.contextPath}', 1, -1, -1, -1, -1, -1, -1);
+			if(ret!=null){
+				var selectedEmpId='#{cc.clientId}'+':selectedEmpIDId';
+				document.getElementById(selectedEmpId).value=ret[0];
+				return true; 
+			}
+			return false;
+		}
+	</script>
+	<rich:collapsiblePanel switchType="client" expanded="false" header="#{msgs.label_decisionCopies}">
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td width="49%">
+					<table class="sectionTitle" border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="100%">
+								#{msgs.label_insideFrontierGurads}
+								<h:outputText value=" " />
+								<h:commandButton rendered="#{not cc.attrs.viewOnly}" value="#{msgs.label_add}" styleClass="btn_L_normal" action="#{cc.addInternalCopy()}" onclick="return getInternalCopyEmployee();">
+									<f:ajax execute="#{cc.clientId}:selectedEmpIDId" render="internalCopiesTableId" />
+								</h:commandButton>
+								<h:inputHidden id="selectedEmpIDId" value="#{cc.selectedEmpId}" />
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td width="2%"></td>
+				<td width="49%">
+					<table class="sectionTitle" border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="100%">#{msgs.label_outsideFrontierGuards}</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td width="49%">
+					<table class="sectionContent" border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="100%">
+								<rich:dataTable id="internalCopiesTableId" value="#{cc.attrs.internal}" rowKeyVar="index" var="emp" onrowmouseover="changeRowOverStyle(this);" onrowmouseout="resetRowOverStyle(this);" rowClasses="gridRowOdd,gridRowEven" styleClass="gridMaster">
+									<rich:column>
+										<f:facet name="header">#{msgs.label_name}</f:facet>
+										<h:outputText value="#{emp.name}" />
+									</rich:column>
+									<rich:column>
+										<f:facet name="header">#{msgs.label_rank}</f:facet>
+										<h:outputText value="#{emp.rankDesc}" />
+									</rich:column>
+									<rich:column>
+										<f:facet name="header">#{msgs.label_job}</f:facet>
+										<h:outputText value="#{emp.jobDesc}" />
+									</rich:column>
+									<rich:column>
+										<f:facet name="header">#{msgs.label_unit}</f:facet>
+										<h:outputText value="#{emp.physicalUnitFullName}" />
+									</rich:column>
+									<rich:column rendered="#{not cc.attrs.viewOnly}">
+										<h:commandButton action="#{cc.deleteInternalCopy(emp)}" title="#{msgs.label_delete}" image="/resources/images/delete.png" onclick="return confirm('#{msgs.q_delete}');">
+											<f:ajax render="internalCopiesTableId" onevent="function(e){if(e.status == 'complete') #{rich:component('reload')}.hide();}" />
+										</h:commandButton>
+									</rich:column>
+								</rich:dataTable>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td width="2%"></td>
+				<td width="49%">
+					<h:inputTextarea value="#{cc.attrs.external}" readonly="#{cc.attrs.viewOnly}" rows="5" styleClass="inputDataSuperLarge" />
+				</td>
+			</tr>
+		</table>
+	</rich:collapsiblePanel>
+</composite:implementation>
+</html>

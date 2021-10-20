@@ -7,7 +7,7 @@ import javax.faces.bean.ManagedBean;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
+import com.code.hibernate.DatabaseOperations;
 import com.code.hibernate.ExamDatabaseOperations;
 
 //import resources.exam.exam;

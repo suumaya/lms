@@ -21,6 +21,40 @@
 			<from-outcome>SUCCESS</from-outcome>
 			<to-view-id>/Main/login.xhtml</to-view-id>
 		</navigation-case>
+ 	
+	 </navigation-rule>
+	 
+	 
+	 <navigation-rule>
+		<from-view-id>/Main/login.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>admin</from-outcome>
+			<to-view-id>/Main/index.xhtml</to-view-id>
+		</navigation-case>
+ 	
+	 </navigation-rule>
+	 
+	 
+	 
+	 
+	 <navigation-rule>
+	 
+	<from-view-id>/Admin/manage_students.xhtml</from-view-id>
+	  
+				<navigation-case>
+				<from-outcome>SUCCESS</from-outcome>
+			<to-view-id> /Admin/addStudent.xhtml</to-view-id>
+		</navigation-case>
+	 
 	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/login.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>admin</from-outcome>
+			<to-view-id>/admin.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
 
 </faces-config>

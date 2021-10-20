@@ -1,0 +1,396 @@
+body{
+	background:#fff  url(../resources/images/flag-body.jpg) no-repeat 0px top  !important;
+
+  @include if-ltr {
+
+  background:#fff  url(../resources/images/flag-body-en.jpg) no-repeat right top  !important;
+
+
+  }
+}
+
+.topHeader {
+	background-image: url(../resources/img-green/headerBG_x.png);
+}
+
+#body {  
+  background: #fff url("../resources/img-green/strip-table.png") repeat-x 0px -14px;  
+}
+ .bg-login{  background:#fff url(../resources/img-green/bg-login.png) no-repeat top center !important;} 
+
+
+.divLogo  {
+
+		@include if-rtl {
+	background: url(../resources/img-green/logo_FG.jpg) no-repeat center center ;
+       }
+
+	@include if-ltr {
+    background: url(../resources/img-green/logo_FG.-en.png) no-repeat center center ;
+
+	}
+}
+
+.titleSection  {
+	color: white;
+	background-color:#335d45;;
+}
+
+/*-----------------header--------------------------*/
+
+$Title-bule: #00692D;
+
+/*------------center-body----------------*/
+$background-bg-Drark:#003c1a;
+/*---------------------------*/
+
+/*----------------color button---------------------*/
+$default-btn:#0dbf77;
+
+
+$default-color-btn:#0dbf77!important;
+$hover-default-btn:#00692D ;
+
+$danger-color-btn:#f44236 !important;
+$hover-danger-btn:#ff574c !important;
+
+$add-color-btn:#18a38c !important;
+$hover-add-btn:#28ceb2 !important;
+
+$list-color-btn:#ff9801 !important;
+$hover-list-btn:#ffa31c !important;
+
+$btn-trans-icon:#00692d!important;
+
+$btn-background-trans:transparent !important;
+/*----------------end button---------------------*/
+
+$topiconlink:#E6F7FF !important;
+$back-trans:transparent !important;
+$Title-h1:#02679a;
+$font-white:#fff;
+$topiconlink-hover:#5DC6FF!important;
+
+
+/*------------------table------------------------*/
+$subTitle-background:#00692D;
+$table-background:#fff;
+$th-background:#d1f3e0;
+$border-table:#76dcb3;
+$table-background-hover:#bbecd1 !important;
+$gridMaster-th:#c2dceb;
+$grid-th_bor:#f7fff7;
+
+/*-------------------tree------------------*/
+ $back-color-tree:#ffcc66;
+ $font-white-tree:#fff;
+
+
+$tree-main-background:#00692D;
+$tree-main-background-sub1:#28b77d !important;
+
+$tree-main-background-sub1-hover:#ffcc66;
+$forecolor:#16905e;
+
+
+/*************************************************login page *********************************************************/
+ 
+ $login-background: #00692D;
+  
+$login-background-btn: #ff9933;
+$border-color-w:#fff;
+$login-back-lan:#00692D;
+$login-back-lan-massage:#035a29;
+$border-massage:#035a29;
+
+
+
+
+
+	
+
+/***************************************************Main tabs header *************************************************************/
+.header-main-menu-tabs li {
+	background: #437CB7;
+}
+
+.header-main-menu-tabs li:hover {
+	background: #00692D;
+}
+
+.header-main-menu-tabs li a {
+	color: #fff !important;
+}
+
+.header-main-menu-tabs li:hover i {
+	color: #fff;
+}
+
+.header-main-menu-tabs li:hover .ca-main {
+	color: #fff;
+}
+
+.header-main-menu-tabs li:hover .ca-sub {
+	color: #ccff00;
+}
+
+.header-main-menu-tabs .selected-1 {
+	background: url(../resources/images/curve-left.png) no-repeat -6px -3px
+		!important;
+}
+
+.header-main-menu-tabs .selected-1 a {
+	background: #004469;
+}
+
+.header-main-menu-tabs .selected-2 {
+	background: url(../resources/images/curve-right.png) no-repeat 102% -3px
+		!important;
+}
+
+.header-main-menu-tabs .selected-2 a {
+	background: #004469;
+}
+
+.header-main-menu-tabs .selected-2::before {
+	content: url(../resources/images/curve-left.png);
+}
+
+.header-main-menu-tabs .selected-3 {
+	background: url(../resources/images/curve-right.png) no-repeat 102% -3px
+		!important;
+}
+
+.header-main-menu-tabs .selected-3 a {
+	background: #004469;
+}
+
+.header-main-menu-tabs .selected-1  i,.selected-1  a,.selected-2  i,.selected-2  a,.selected-3  i,.selected-3  a
+	{
+	color: #fff !important;
+}
+
+.header-main-menu-tabs .fa-home,.header-main-menu-tabs .fa-cog,.header-main-menu-tabs .fa-print {
+	color: #fff !important;
+}
+
+.ca-sub {
+	color: #666;
+}
+.nav-collapse .ui-panelmenu .ui-menuitem-link {
+	color: #fff;
+	
+	}
+
+
+
+
+
+/**************************************************** Grid Master  ************************************************************/
+.gridRowOdd{
+    background-color: white;
+}
+
+.gridRowEven{
+    background-color: #ececf0;
+}
+
+.gridMaster {
+	border: 1px solid #E3E8EA;
+	background-color: #f7f7f7;
+}
+
+.high {
+	background: #f7e952;
+}
+
+.med {
+	background: #54D85C;
+}
+
+.immediate {
+	background: #FF654C;
+}
+
+.low {
+	background: white;
+}
+
+.redStyle {
+	color: #FF654C;
+}
+
+.blackStyle {
+	color: #000000;
+}
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+/************************************************* Control Input & select ************************************************************/
+
+input[type="text"],input[type="password"] {
+	border: 1px solid #C1CFDE !important;
+}
+
+textarea ,select {
+	border: 1px solid #C1CFDE !important;
+}
+
+textarea:focus,input[type="text"]:focus,input[type="password"]:focus {
+	border-color: #9ecaed;
+}
+
+input[readonly='readonly'] {
+	background-color: transparent !important;
+	background-image: none !important;
+}
+
+textarea[readonly='readonly'] {
+	background-color: transparent;
+}
+
+select {
+	background: url("../../resources/images/arrow-select.png") repeat 3px 0px
+		!important;
+}
+
+/************************************************* Command colors************************************************************/
+a {
+	color: #016fa7;
+}
+
+/************************************************* grid table ************************************************************/
+
+.ui-widget-header { 
+	border: 1px solid #3F95C7;
+}
+.selected{
+	background : #e4edff!important;
+}
+
+.ui-widget-content {
+	border: 1px solid #D9E4EC;
+}
+
+.ui-datatable-reflow .ui-widget-header {
+	border: 1px solid #b6cde4;
+	background: #d1f3e0  !important;
+}
+
+.ui-datatable-reflow .ui-paginator .ui-paginator-page  {
+	
+	border-top: 1px solid #038257;
+	
+	background-color: #a5debe;
+	
+	color: #004469
+}
+
+.ui-paginator .ui-paginator-page:hover {
+	background-color: #598fc6;
+	color: #fff
+}
+
+.ui-datatable-reflow .ui-state-active {
+	color: #8AB6A7 !important;
+	background: #9FF4D7;
+	border: none !important;
+	border-bottom: 1px solid #00692d !important;
+	color:#00692d !important
+}
+
+.ui-chkbox  .ui-state-active {
+	background: #00AD73 !important;
+	border: 1px solid #00AD73 !important;
+}
+
+.ui-state-active,.ui-widget-content .ui-state-active,.ui-widget-header .ui-state-active
+	{
+
+	background: #0078ae
+		url("/Purchasing/javax.faces.resource/images/ui-bg_glass_45_0078ae_1x400.png.jsf?ln=primefaces-start")
+		50% 50% repeat-x;
+}
+
+.ui-state-hover .ui-icon {
+	background-image:
+		url("/Budget/javax.faces.resource/images/ui-icons_e0fdff_256x240.png.jsf?ln=primefaces-start")
+		!important
+}
+
+.ui-datatable-reflow .ui-state-default .ui-icon {
+	background-image:
+		url("../resources/img-blue/ui-icons_0078ae_256x240_blue_png.png") !important;
+
+		    transform: rotate(180deg);
+}
+
+.ui-icon {
+	background-image:
+		url("../javax.faces.resource/images/ui-icons_0078ae_256x240.png.jsf?ln=primefaces-start")
+		!important;
+}
+
+.ui-datatable .ui-state-default .ui-icon-triangle-1-s {
+	background-image:
+		/*url("/InfoSys/javax.faces.resource/images/ui-icons_e0fdff_256x240.png.jsf?ln=primefaces-start")
+		!important;*/
+		url("/InfoSys/javax.faces.resource/images/ui-icons_0078ae_256x240.png.jsf?ln=primefaces-start")
+		!important;
+}
+
+.ui-state-default  .ui-icon-triangle-1-s {
+	background-image:
+		url("/InfoSys/javax.faces.resource/images/ui-icons_e0fdff_256x240.png.jsf?ln=primefaces-start")
+		!important;
+}
+
+
+
+
+  /* .ui-datatable-reflow .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    border: 1px solid #10A2F9;
+    background: #B6DCF3;
+    color: #ffffff!important;
+    background-color: #567A9E!important;
+}*/
+
+
+.ui-diagram-start {
+	background: url("../resources/images/ui-diagram-start.jpg") no-repeat
+		center bottom;
+	background-color: transparent;
+}
+
+.ui-diagram-with-action {
+	
+	background: url("../resources/images/ui-diagram-success.jpg") no-repeat
+		
+}
+
+.initiate {
+	background: url("../resources/images/initiate.jpg") no-repeat center
+		29px;
+}
+
+.ui-diagram-no-action {
+	background: url("../resources/images/notify.jpg") no-repeat center 35px;
+}
+
+.ui-diagram-notify-with-action {
+	background: url("../resources/images/notify-yes.jpg") no-repeat center
+		50px;
+	
+}
+
+.ui-diagram-notify-no-action {
+	background: url("../resources/images/notify-no.jpg") no-repeat center
+		34px;
+	
+}
+
+.ui-diagram-end {
+	background: url("../resources/images/end.jpg") no-repeat center 6px;
+}
+
+
+

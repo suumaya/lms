@@ -1,0 +1,296 @@
+@font-face {
+	font-family: 'myFirstFont';
+	src:url('../resources/fonts/georgia.eot');
+	src:url('../resources/fonts/georgia.eot?#iefix') format('embedded-opentype'),
+		url('../resources/fonts/georgia.woff') format('woff'),
+		url('../resources/fonts/georgia.ttf') format('truetype'),
+		url('../resources/fonts/georgia.svg#codropsicons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+.menuStyle{
+	width:200px;
+}
+.menuDiv {
+	background-color: #fafafa;
+    border: 1px solid #3fcb68;
+    border-radius: 10px;
+    color: #000000;
+    margin: -517px 0 0 -3px;
+    padding: 5px;
+}
+
+#showDiv {
+	position: relative;
+	float: left;
+	z-index: 1000;
+	margin-left: 10px;
+	
+}
+
+
+
+.menuDiv {
+	position: relative;
+	float: left;
+	display: none;
+	z-index: 999;
+}
+
+.toggleMenuCloseBtn {
+	float: right;
+    height: 18px;
+    margin-top: -3px;
+    width: 17px;
+    background-image: url(../resources/images/exit.png) !important;
+    background-repeat:no-repeat;
+    background-position: center;
+    border:none;
+}
+
+.toggleMenuCloseBtn:hover {
+	background-image: url(../resources/images/exit_hover.png) !important;
+}
+
+.container {
+	font-family:myFirstFont;
+	border-bottom: 1px #d3d3d3 solid;
+	border-left: 1px #d3d3d3 solid;
+	border-right: 1px #d3d3d3 solid;
+	border-top: 1px white solid;
+	border-radius: 6px;
+	margin-bottom: 2px;
+	/*width: 470px;*/
+	/*height:280px;*/
+	/*margin-top: 6px;*/
+}
+
+.container:nth-child(1) { width:422px !important; }
+.container:nth-child(2) { width:395px !important; }
+.container:nth-child(3) { width:612px !important; }
+.container:last-child { width:235px; }
+
+div.title {
+	padding: 4px;
+	font-weight: bold;
+	color:#fff !important;
+	text-align: center;
+	margin: 0;
+	background-image: url("../resources/images/cell.png");
+    background-repeat: repeat-x;
+	font-size: 15px;
+	font-family:verdana;
+	border-bottom: 2px #b7b7b7 solid;
+}
+
+div.container div.content {
+	padding: 8px;
+	background-color:#f7f7f7;
+	font-family:verdana;
+}
+
+div.content a.menu {
+	font-size: 14px;
+	text-decoration: none;
+	color: #6f6f6f;
+	margin: 3px;
+	font-weight: normal;
+	font-family:verdana;
+}
+
+div.content a.menu:hover {
+	color: #2298ca;
+}
+
+div.content a.selectedMenu {
+	text-decoration: none;
+	color: #fca901 !important;
+	margin: 1px;
+	font-size: 14px !important;
+}
+
+.img1{
+	background: url("../resources/images/orders_en.png");
+	background-repeat:no-repeat;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-left: 15px;
+    vertical-align: baseline;
+    width: 55px;
+    margin-top:-3px;
+}
+
+.img1:hover {
+	background: url("../resources/images/orders_en_hover.png");
+	background-repeat:no-repeat;
+}
+
+.img2{
+	background: url("../resources/images/yards_en.png");
+	background-repeat:no-repeat;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-left: 15px;
+    vertical-align: baseline;
+    width: 55px;
+    margin-top:-3px;
+}
+
+.img2:hover {
+	background: url("../resources/images/yards_en_hover.png");
+	background-repeat:no-repeat;
+}
+
+.img3{
+	background: url("../resources/images/warehouses_en.png");
+	background-repeat:no-repeat;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-left: 15px;
+    vertical-align: baseline;
+    width: 55px;
+    margin-top:-3px;
+}
+
+.img3:hover {
+	background: url("../resources/images/warehouses_en_hover.png");
+	background-repeat:no-repeat;
+}
+
+.img4{
+	background: url("../resources/images/aramco_en.png");
+	background-repeat:no-repeat;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-left: 15px;
+    vertical-align: baseline;
+    width: 55px;
+    margin-top:-3px;
+}
+
+.img4:hover {
+	background: url("../resources/images/aramco_en_hover.png");
+	background-repeat:no-repeat;
+}
+
+.img5{
+	background: url("../resources/images/contracts_en.png");
+	background-repeat:no-repeat;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-left: 15px;
+    vertical-align: baseline;
+    width: 55px;
+    margin-top:-3px;
+}
+.img5:hover {
+	background: url("../resources/images/contracts_en_hover.png");
+	background-repeat:no-repeat;
+}
+.img6{
+	background: url("../resources/images/returns_en_hover.png");
+	background-repeat:no-repeat;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-left: 15px;
+    vertical-align: baseline;
+    width: 55px;
+    margin-top:-3px;
+}
+.img6:hover {
+	background: url("../resources/images/returns_en.png");
+	background-repeat:no-repeat;
+}
+.img7{
+	background: url("../resources/images/custody_en.png");
+	background-repeat:no-repeat;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-left: 15px;
+    vertical-align: baseline;
+    width: 55px;
+    margin-top:-3px;
+}
+.img7:hover {
+	background: url("../resources/images/custody_en_hover.png");
+	background-repeat:no-repeat;
+}
+.img8{
+	background: url("../resources/images/management_en.png");
+	background-repeat:no-repeat;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-left: 15px;
+    vertical-align: baseline;
+    width: 55px;
+    margin-top:-3px;
+}
+.img8:hover {
+	background: url("../resources/images/management_en_hover.png");
+	background-repeat:no-repeat;
+}
+.img9{
+	background: url("../resources/images/reports_en.png");
+	background-repeat:no-repeat;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-left: 15px;
+    vertical-align: baseline;
+    width: 55px;
+    margin-top:-3px;
+}
+.img9:hover {
+	background: url("../resources/images/reports_en_hover.png");
+	background-repeat:no-repeat;
+}
+.img10{
+	background: url("../resources/images/setup_en.png");
+	background-repeat:no-repeat;
+    border: 0 none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 55px;
+    margin-left: 15px;
+    vertical-align: baseline;
+    width: 55px;
+    margin-top:-3px;
+}
+.img10:hover {
+	background: url("../resources/images/setup_en_hover.png");
+	background-repeat:no-repeat;
+}
+/*****************************odd and even color******************************************/
+.menuOdd{
+    background-color: #f7f7f7 !important;
+    display: inline-block;
+    width:100%; 
+    color: #C4C0B9 !important;
+}
+
+.menuEven{
+    background-color: #ececec !important;
+    display: inline-block;
+    width:100%; 
+}

@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:cc="http://java.sun.com/jsf/composite" xmlns:util="http://java.sun.com/jsf/composite/util" xmlns:p="http://primefaces.org/ui">
+<cc:interface componentType="dateRangePicker">
+	<cc:attribute name="dateFromValue" />
+	<cc:attribute name="dateToValue" />
+	<cc:attribute name="listener" method-signature="void listener()" />
+	<cc:attribute name="disabled" default="false" />
+	<cc:attribute name="render" />
+</cc:interface>
+<cc:implementation>
+	<h:outputStylesheet library="css" name="dateRangePicker.css" />
+
+	<h:panelGroup id="dateRangePickerContainer" layout="block" styleClass="dateRangePickerContainer">
+		<h:panelGroup layout="block" styleClass="dateRangePickerField">
+			<i class="fa fa-calendar fa-fw"></i>
+			<h:outputText value="#{cc.dateFromValueString} - #{cc.attrs.dateToValueString}" />
+			<h:commandButton value="&#xf0d7;" action="#{cc.toggleDateRangePickerDisplay()}" styleClass="dateRangePickerOpenButton btn" disabled="#{cc.attrs.disabled}">
+				<f:ajax execute="dateRangePickerContainer" render="dateRangePickerContainer" />
+			</h:commandButton>
+		</h:panelGroup>
+		<h:panelGroup layout="block" styleClass="dateRangePicker" rendered="#{cc.showDateRangePicker}">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td>
+						<h:panelGroup layout="block" styleClass="button-group">
+							<h:commandButton action="#{cc.changeSearchDateRange('today')}" value="Today" styleClass="#{cc.rangeType eq 'today' ? 'active' : ''}">
+								<f:ajax execute="dateRangePickerContainer" render="dateRangePickerContainer #{cc.attrs.render}" />
+							</h:commandButton>
+							<h:commandButton action="#{cc.changeSearchDateRange('yesterday')}" value="Yesterday" styleClass="#{cc.rangeType eq 'yesterday' ? 'active' : ''}">
+								<f:ajax execute="dateRangePickerContainer" render="dateRangePickerContainer #{cc.attrs.render}" />
+							</h:commandButton>
+							<h:commandButton action="#{cc.changeSearchDateRange('last-7-days')}" value="Last 7 days" styleClass="#{cc.rangeType eq 'last-7-days' ? 'active' : ''}">
+								<f:ajax execute="dateRangePickerContainer" render="dateRangePickerContainer #{cc.attrs.render}" />
+							</h:commandButton>
+							<h:commandButton action="#{cc.changeSearchDateRange('last-30-days')}" value="Last 30 days" styleClass="#{cc.rangeType eq 'last-30-days' ? 'active' : ''}">
+								<f:ajax execute="dateRangePickerContainer" render="dateRangePickerContainer #{cc.attrs.render}" />
+							</h:commandButton>
+							<h:commandButton action="#{cc.changeSearchDateRange('this-month')}" value="This Month" styleClass="#{cc.rangeType eq 'this-month' ? 'active' : ''}">
+								<f:ajax execute="dateRangePickerContainer" render="dateRangePickerContainer #{cc.attrs.render}" />
+							</h:commandButton>
+							<h:commandButton action="#{cc.changeSearchDateRange('last-month')}" value="Last Month" styleClass="#{cc.rangeType eq 'last-month' ? 'active' : ''}">
+								<f:ajax execute="dateRangePickerContainer" render="dateRangePickerContainer #{cc.attrs.render}" />
+							</h:commandButton>
+							<h:commandButton action="#{cc.changeSearchDateRange('custom')}" value="Custom" styleClass="#{cc.rangeType eq 'custom' ? 'active' : ''}">
+								<f:ajax execute="dateRangePickerContainer" render="dateRangePickerContainer" />
+							</h:commandButton>
+							<h:panelGrid columns="2">
+								<h:commandButton action="#{cc.apply()}" value="Apply">
+									<f:ajax execute="dateRangePickerContainer" render="dateRangePickerContainer #{cc.attrs.render}" />
+								</h:commandButton>
+								<h:commandButton action="#{cc.cancel()}" value="Cancel">
+									<f:ajax execute="dateRangePickerContainer" render="dateRangePickerContainer" />
+								</h:commandButton>
+							</h:panelGrid>
+						</h:panelGroup>
+					</td>
+					<h:panelGroup rendered="#{cc.rangeType eq 'custom'}">
+						<td>
+							<util:advancedHijriDate visible="true" value="#{cc.searchDateFrom}" />
+						</td>
+						<td>
+							<util:advancedHijriDate visible="true" value="#{cc.searchDateTo}" />
+						</td>
+					</h:panelGroup>
+				</tr>
+			</table>
+		</h:panelGroup>
+	</h:panelGroup>
+
+</cc:implementation>
+</html>

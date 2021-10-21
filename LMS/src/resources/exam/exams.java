@@ -16,10 +16,12 @@ import java.sql.*;
 @SessionScoped
 public class exams implements Serializable{
 	private List<exam> examData;
+	private List<String> answers;
 	private examService ex; 
 	
 	public exams() {
 		ex = new examService(); 
+		answers = new ArrayList<String>(); 
 	}
 	public List<exam> getExamData() {
 		examData = ex.list(); 
@@ -28,6 +30,12 @@ public class exams implements Serializable{
 
 	public void setExamData(List<exam> examData) {
 		this.examData = examData;
+	}
+	public List<String> getAnswers() {
+		return answers;
+	}
+	public void setAnswers(List<String> answers) {
+		this.answers = answers;
 	}
 	
 	

@@ -52,6 +52,8 @@ public class ExamData implements Serializable {
 	@Column(name="description")
 	private String description;
 	private ExamData examData;
+	
+	private int points; 
 
 	public ExamData getExamData() {
 		return examData;
@@ -110,6 +112,12 @@ public class ExamData implements Serializable {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public int getPoints() {
+		return points;
+	}
+	public void setPoints(int points) {
+		this.points = points;
 	}
 	
 

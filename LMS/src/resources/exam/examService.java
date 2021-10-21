@@ -76,7 +76,10 @@ public class examService {
 					answer aobj = new answer();
 					aobj.setId(Integer.parseInt(re.getString(1)));//Id
 			    	aobj.setAnswer(re.getString(2));
-			    	aobj.setCorrect(Boolean.getBoolean(re.getString(3)));
+			    	if(Integer.parseInt(re.getString(3))==1)
+			    	aobj.setCorrect(true);
+			    	else
+			    		aobj.setCorrect(false);
 					ans.add(aobj);
 				}
 				}catch(Exception ee) {

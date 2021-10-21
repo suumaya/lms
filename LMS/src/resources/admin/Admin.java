@@ -102,5 +102,15 @@ public class Admin implements Serializable{
 										return "login";
 									}
 								}
+								
+								
+
+								//logout event, invalidate session
+								public String logout() {
+									HttpSession session = SessionUtils.getSession();
+									session.invalidate();
+									System.out.println("*************** LOG OUT");
+									return "login";
+								}
 							  			
 }

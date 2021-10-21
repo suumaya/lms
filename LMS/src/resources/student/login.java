@@ -67,6 +67,7 @@ public class login implements Serializable {
 	public String logout() {
 		HttpSession session = SessionUtils.getSession();
 		session.invalidate();
+		System.out.println("*************** LOG OUT");
 		return "login";
 	}
 }

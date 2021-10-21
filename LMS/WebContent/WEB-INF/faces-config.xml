@@ -50,7 +50,7 @@
 	  
 				<navigation-case>
 				<from-outcome>SUCCESS</from-outcome>
-			<to-view-id> /Admin/addStudent.xhtml</to-view-id>
+			<to-view-id> /Main/addStudent.xhtml</to-view-id>
 		</navigation-case>
 	 
 	</navigation-rule>
@@ -59,13 +59,19 @@
 		<from-view-id>/login.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>admin</from-outcome>
-			<to-view-id>/admin.xhtml</to-view-id>
+			<to-view-id>/Main/admin.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<managed-bean>
  <managed-bean-name>admin</managed-bean-name>
  <managed-bean-class>resources.admin.Admin</managed-bean-class>
+ <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ 
+ 	<managed-bean>
+ <managed-bean-name>login</managed-bean-name>
+ <managed-bean-class>resources.student.login</managed-bean-class>
  <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
 

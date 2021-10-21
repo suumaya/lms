@@ -24,9 +24,9 @@
   SHAPE="240,481,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#Main#login.xhtml:0" NAME="item"
    PATH="/Main/login.xhtml" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="admin::#Main#index.xhtml" NAME="output"
+   <PROCESS-ITEM-OUTPUT ID="student::#Main#index.xhtml" NAME="output"
     PATH="/Main/index.xhtml" TARGET="rules:#Main#index.xhtml"
-    TITLE="admin" model-entity="JSFProcessItemOutput"/>
+    TITLE="student" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#login.xhtml" PATH="/login.xhtml"
@@ -41,4 +41,15 @@
   SHAPE="240,593,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#Main#index.xhtml" PATH="/Main/index.xhtml"
   SHAPE="448,465,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#Main#adminLogin.xhtml"
+  PATH="/Main/adminLogin.xhtml" SHAPE="32,689,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#Main#adminLogin.xhtml:0" NAME="item"
+   PATH="/Main/adminLogin.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="admin::#Main#admin_index.xhtml"
+    NAME="output" PATH="/Main/admin_index.xhtml"
+    TARGET="rules:#Main#admin_index.xhtml" TITLE="admin" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#Main#admin_index.xhtml"
+  PATH="/Main/admin_index.xhtml" SHAPE="240,705,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

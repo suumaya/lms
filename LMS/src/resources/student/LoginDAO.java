@@ -24,7 +24,7 @@ public class LoginDAO {
 		try {
 			System.out.println("*****************In validate try: LoginDAO");
 			con = DataConnect.getConnection();
-			ps = con.prepareStatement("Select username, password from student where username = ? and password = ?");
+			ps = con.prepareStatement("Select userName, password from student where username = ? and password = ?");
 			ps.setString(1, user);
 			ps.setString(2, password);
 
@@ -42,4 +42,33 @@ public class LoginDAO {
 		}
 		return false;
 	}
+	
+	
+	public static boolean validateAdmin(String user, String password) {
+		Connection con = null;
+		PreparedStatement ps = null;
+
+		try {
+			System.out.println("*****************In validate try: LoginDAO");
+			con = DataConnect.getConnection();
+			ps = con.prepareStatement("Select userName, password from admin where userName = ? and password = ?");
+			ps.setString(1, user);
+			ps.setString(2, password);
+
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				//result found, means valid inputs
+				return true;
+			}
+		} catch (SQLException ex) {
+			System.out.println("************Login error -->" + ex.getMessage());
+			return false;
+		} finally {
+			DataConnect.close(con);
+		}
+		return false;
+	}
+	
+	
 }

@@ -28,13 +28,20 @@
 	 <navigation-rule>
 		<from-view-id>/Main/login.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>admin</from-outcome>
+			<from-outcome>student</from-outcome>
 			<to-view-id>/Main/index.xhtml</to-view-id>
 		</navigation-case>
  	
 	 </navigation-rule>
 	 
-	 
+	  <navigation-rule>
+		<from-view-id>/Main/adminLogin.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>admin</from-outcome>
+			<to-view-id>/Main/admin_index.xhtml</to-view-id>
+		</navigation-case>
+ 	
+	 </navigation-rule>
 	 
 	 
 	 <navigation-rule>
@@ -56,5 +63,10 @@
 		</navigation-case>
 	</navigation-rule>
 	
+	<managed-bean>
+ <managed-bean-name>admin</managed-bean-name>
+ <managed-bean-class>resources.admin.Admin</managed-bean-class>
+ <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
 
 </faces-config>

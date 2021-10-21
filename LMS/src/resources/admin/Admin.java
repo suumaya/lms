@@ -1,4 +1,4 @@
-package resources.student;
+package resources.admin;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -33,11 +33,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.jboss.logging.BasicLogger;
 
-
+import resources.student.*;
 @NamedQueries({
 	 @NamedQuery(name  = "userData_searchStudents", 
          	 	query = " select c " +
-         	 		 " from student c " +
+         	 		 " from admin c " +
          			 " where (:P_ID = -1 or c.id = :P_ID )" +
          			 " and (:P_username = '-1' or c.username = :P_username ) " +
          			 " order by c.username desc , c.id "
@@ -45,61 +45,27 @@ import org.jboss.logging.BasicLogger;
 }) 
 
 @Entity
-@Table(name = "student", schema = "examinationsys")
+@Table(name = "admin", schema = "examinationsys")
 @SuppressWarnings("serial")
-@ManagedBean(name = "student")
+@ManagedBean(name = "admin")
 @SessionScoped
-public class Student implements Serializable{
+public class Admin implements Serializable{
 	//What is This? 
- 	 private static final long serialVersionUID = 6081417964063918994L;
-
- 	@Column(name="firstName")
-	   private String name;
- 	@Column(name="lastName")
-	   private String lname;
+ 	 private static final long serialVersionUID = 6081417964063918995L;
+ 
  	@Column(name="userName")
 	   private String username;
- 	@Column(name="email")
-	   private String email;
- 	@Column(name="department")
-	   private String department;
- 	@Column(name="level")
-	   private String level;
  	@Column(name="password")
 	   private String password;
   
 	   
-	    public Student() {}
+	    public Admin() {}
 	   
-	   public Student(String name,String lname, String username, String email, String department, String level, String password) {
-		   
-		this.name = name;
-		this.lname = lname;
+	   public Admin(String username, String password) { 
 		this.username = username;
-		this.email=email;
-		this.department = department;
-		this.level=level;
 		this.password = password;
-		
 	   }
-	   
-
-	   public String getName() {
-		      return name;
-		   }
-
-		   public void setName(String name) {
-		      this.name = name;
-		   }
-		   
-		   public String getLname() {
-			      return lname;
-			   }
-
-			   public void setLname(String name) {
-			      this.lname = name;
-			   }
-		   
+ 
 		   
 		   public String getUsername() {
 			      return username;
@@ -108,32 +74,7 @@ public class Student implements Serializable{
 			   public void setUsername(String username) {
 			      this.username = username;
 			   }
-			   
-			   
-			   public String getEmail() {
-				      return email;
-				   }
-
-				   public void setEmail(String email) {
-				      this.email = email;
-				   }
-				   
-				   public String getDepartment() {
-					      return department;
-					   }
-
-					   public void setDepartment(String department) {
-					      this.department = department;
-					   }
-					   
-					   
-					   public String getLevel() {
-						      return level;
-						   }
-
-						   public void setLevel(String level) {
-						      this.level = level;
-						   }
+			    
 						   
 						   public String getPassword() {
 							      return password;
@@ -145,12 +86,12 @@ public class Student implements Serializable{
 
 							 //validate login
 								public String validateUsernamePassword() {
-									boolean valid = LoginDAO.validate(username, password);
+									boolean valid = LoginDAO.validateAdmin(username, password);
 									if (valid) {
 										System.out.println("************ LoginDAO result VALID!!");
 										HttpSession session = SessionUtils.getSession();
 										session.setAttribute("username", username);
-										return "student";
+										return "admin";
 									} else {
 										System.out.println("************ LoginDAO result NOT VALID!!");
 										FacesContext.getCurrentInstance().addMessage(

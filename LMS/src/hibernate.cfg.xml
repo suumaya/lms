@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="">
+ 
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+  <property name="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property>
+  <!-- JTA transaction properties (begin) -->
+  <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</property>
+  <property name="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.JBossTransactionManagerLookup</property>
+  <!-- JTA transaction properties (end) 
+ CMT transaction properties (begin) -->
+ 
+  <property name="hbm2ddl.auto">create</property>
+  <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+  
+  <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+  <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+  <property name="hibernate.connection.url">jdbc:mysql://online-examination-system.mysql.database.azure.com:3306/examinationsys</property>
+  <property name="hibernate.connection.username">Admin_SYS@online-examination-system</property>
+  <property name="hibernate.connection.password">WelcomeToServerJSF#12July</property>
+  <property name="hibernate.connection.pool_size">1</property>
+  <property name="hibernate.default_entity_mode">dynamic-map</property>
+  
+  <mapping class="com.code.pojo.Student" resource="com/code/pojo/Student.hbm.xml"/>
+ </session-factory>
+</hibernate-configuration>

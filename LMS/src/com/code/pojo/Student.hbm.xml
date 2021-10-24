@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 23, 2021 3:15:23 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+ <class name="com.code.pojo.Student" table="student">
+  <id name="id" type="int">
+   <column name="id"/>
+   <generator class="assigned"/>
+  </id>
+  <property generated="never" lazy="false" name="name" type="java.lang.String">
+   <column name="name" not-null="true" sql-type="VARCHAR"/>
+  </property>
+  <property generated="never" lazy="false" name="firstName" type="java.lang.String">
+   <column name="firstName" not-null="false" sql-type="VARCHAR"/>
+  </property>
+  <property generated="never" lazy="false" name="lastName" type="java.lang.String">
+   <column name="lastName" not-null="false" sql-type="VARCHAR"/>
+  </property>
+  <property generated="never" lazy="false" name="username" type="java.lang.String">
+   <column name="username" sql-type="VARCHAR"/>
+  </property>
+  <property generated="never" lazy="false" name="password" type="java.lang.String">
+   <column name="password" not-null="true" sql-type="VARCHAR"/>
+  </property>
+  <property generated="never" lazy="false" name="confirmedPass" type="java.lang.String"/>
+  <property generated="never" lazy="false" name="email" type="java.lang.String">
+   <column name="email" sql-type="VARCHAR"/>
+  </property>
+  <property generated="never" lazy="false" name="department" type="java.lang.String">
+   <column name="department" not-null="false"/>
+  </property>
+  <property generated="never" lazy="false" name="level" type="java.lang.String">
+   <column name="LEVEL" not-null="false" sql-type="VARCHAR"/>
+  </property>
+ </class>
+</hibernate-mapping>

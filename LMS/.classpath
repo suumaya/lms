@@ -11,9 +11,9 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate 5.3 Library"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Mojarra 2.2"/>
 	<classpathentry kind="lib" path="C:/Users/aalaql/Downloads/mysql-connector-java-5.1.49/mysql-connector-java-5.1.49-bin.jar"/>
 	<classpathentry kind="lib" path="C:/Users/aalaql/Documents/GitHub/lms/LMS/lib/mysql-connector-java-8.0.26.jar"/>
 	<classpathentry kind="var" path="mysql-connector"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mojarra"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

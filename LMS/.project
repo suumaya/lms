@@ -48,6 +48,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>lib/mysql-connector-java-5.1.49-bin.jar</name>
+			<type>1</type>
+			<locationURI>PARENT-4-PROJECT_LOC/Downloads/mysql-connector-java-5.1.49-bin.jar</locationURI>
+		</link>
+		<link>
 			<name>WebContent/WEB-INF/lib/FastInfoset-1.2.15.jar</name>
 			<type>1</type>
 			<locationURI>PARENT-4-PROJECT_LOC/Downloads/hibernate-release-5.3.23.Final/lib/required/FastInfoset-1.2.15.jar</locationURI>

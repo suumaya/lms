@@ -20,7 +20,6 @@ import org.hibernate.cfg.Configuration;
 
 import resources.exam.ExamData;
 import resources.exam.question;
-<<<<<<< HEAD
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -34,10 +33,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.jboss.logging.BasicLogger;
 
-=======
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
->>>>>>> 68747b0ddf5f26b40216427ea744e3833e0532fa
 
 @NamedQueries({
 	 @NamedQuery(name  = "userData_searchStudents", 
@@ -50,11 +47,8 @@ import javax.faces.bean.SessionScoped;
 }) 
 
 @Entity
-<<<<<<< HEAD
 @Table(name = "student", schema = "examinationsys")
-=======
-@Table(name = "student")
->>>>>>> 68747b0ddf5f26b40216427ea744e3833e0532fa
+
 @SuppressWarnings("serial")
 @ManagedBean(name = "student")
 @SessionScoped
@@ -152,7 +146,6 @@ public class Student implements Serializable{
 							      this.password = password;
 							   }
 
-<<<<<<< HEAD
 							 //validate login
 								public String validateUsernamePassword() {
 									boolean valid = LoginDAO.validate(username, password);
@@ -171,7 +164,6 @@ public class Student implements Serializable{
 										return "login";
 									}
 								}
-=======
->>>>>>> 68747b0ddf5f26b40216427ea744e3833e0532fa
+
 							  			
 }

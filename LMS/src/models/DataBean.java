@@ -14,9 +14,13 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
 import resources.student.Student;
+<<<<<<< HEAD
 
 import com.code.hibernate.DatabaseOperations;
 
+=======
+ 
+>>>>>>> 68747b0ddf5f26b40216427ea744e3833e0532fa
 @SuppressWarnings("serial")
 @ManagedBean(name = "dataBean")
 @SessionScoped
@@ -39,8 +43,12 @@ public class DataBean implements Serializable {
     private static final String SQL_DELETE = "delete from student WHERE username=?";
     private static final String SQL_INSERT = "insert into student values (?,?,?,?,?,?,?)";
     private static final String SQL_SELECT ="select firstName,lastName,userName,department,level,email from student";
+<<<<<<< HEAD
     public static DatabaseOperations dbObj;
 
+=======
+	
+>>>>>>> 68747b0ddf5f26b40216427ea744e3833e0532fa
 
 	public List<Student> getStudents() throws ClassNotFoundException, SQLException {
 
@@ -107,6 +115,7 @@ public class DataBean implements Serializable {
 				std.setDepartment(rs.getString("department"));
 				std.setLevel(rs.getString("level"));
 				std.setEmail(rs.getString("email"));
+<<<<<<< HEAD
 
 				other_students.add(std);
  
@@ -127,6 +136,28 @@ public class DataBean implements Serializable {
 
 		return other_students;
 
+=======
+
+				other_students.add(std);
+ 
+		}
+			
+			rs.close();
+			pstmt.close();
+			connect.close();
+			} catch (SQLException ex) {
+			System.out.println("*** in exec:");
+			System.out.println("*** messafe: "+ex.getMessage());
+			
+			System.out.println("############################# failed #############################");
+			return other_students;
+			
+			 
+ 		}
+
+		return other_students;
+
+>>>>>>> 68747b0ddf5f26b40216427ea744e3833e0532fa
 	}
 	
 	
@@ -162,6 +193,7 @@ public class DataBean implements Serializable {
  
 	}
 	  
+<<<<<<< HEAD
 	  
 	 public void addStudent(Student student) throws ClassNotFoundException, SQLException {
 		 
@@ -172,6 +204,11 @@ public class DataBean implements Serializable {
 	
 	 
 	 public String addStudent1(Student student) throws ClassNotFoundException, SQLException {
+=======
+	
+	 
+	 public String addStudent(Student student) throws ClassNotFoundException, SQLException {
+>>>>>>> 68747b0ddf5f26b40216427ea744e3833e0532fa
 			
 		   System.out.println("#############################"+ student.getUsername()+" #############################");
 		   Connection connect = null;	
@@ -231,10 +268,13 @@ public class DataBean implements Serializable {
 								this.tableEnabled = true;
 								 System.out.println("############# This time Is enabled =" + tableEnabled);
 							}
+<<<<<<< HEAD
 	 
 	 public String goToAdd() {
 		 return "SUCCESS";
 	 }
+=======
+>>>>>>> 68747b0ddf5f26b40216427ea744e3833e0532fa
 
 	 
 

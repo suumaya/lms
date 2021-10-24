@@ -44,6 +44,9 @@ public class Student {
 	   private String level;
  	@Column(name="password")
 	   private String password;
+ 
+ 	
+ 	
  	
 	   
 	   
@@ -119,6 +122,8 @@ public class Student {
 							   public void setPassword(String password) {
 							      this.password = password;
 							   }
+							   
+							   
 
 	
 }

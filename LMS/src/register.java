@@ -43,49 +43,49 @@ public class register implements Serializable{
 		}else {
 			lName = ""; 	
 		}
-//		try {
-//			Class.forName("com.mysql.jdbc.Driver");
-//			Connection conn=DriverManager.getConnection(connString,user, pass );
-//			String sql = "Insert into examinationsys.student values ('"
-//			+student.getUsername()+"','"
-//			+student.getPassword()+"','"
-//			+student.getEmail()+"','"
-//			+fName+"','"
-//			+lName+"','"
-//			+student.getDepartment()+"','"
-//			+student.getLevel()+"');";
-//			Statement stmt = conn.createStatement();
-//			stmt.executeUpdate(sql);
-//			result = "SUCCESS";
-//		}catch(Exception e) {
-//			e.printStackTrace();
-//		}
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn=DriverManager.getConnection(connString,user, pass );
+			String sql = "Insert into examinationsys.student values ('"
+			+student.getUsername()+"','"
+			+student.getPassword()+"','"
+			+student.getEmail()+"','"
+			+fName+"','"
+			+lName+"','"
+			+student.getDepartment()+"','"
+			+student.getLevel()+"');";
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+			result = "SUCCESS";
+		}catch(Exception e) {
+		e.printStackTrace();
+		}
 		// create session factory
-		SessionFactory factory = new Configuration()
-								.configure("hibernate.cfg.xml")
-								.addAnnotatedClass(Student.class)
-								.buildSessionFactory();
+//		SessionFactory factory = new Configuration()
+//								.configure("hibernate.cfg.xml")
+//								.addAnnotatedClass(Student.class)
+//								.buildSessionFactory();
 		
 		// create session
-		Session session = factory.getCurrentSession();
+		//Session session = factory.getCurrentSession();
 		
-		try {			
+		//try {			
 			//student object
-			student.setName(fName);
-			student.setLname(lName);
+			//student.setName(fName);
+			//student.setLname(lName);
 			// start a transaction
-			session.beginTransaction();
+			//session.beginTransaction();
 			// save the exam object
 //			System.out.println("Saving the student...");
-			session.save(student);
+			//session.save(student);
 			// commit transaction
-			session.getTransaction().commit();
+			//session.getTransaction().commit();
 //			System.out.println("Done!");
-			result = "SUCCESS";
-		}
-		finally {
-			factory.close();
-		}
+			//result = "SUCCESS";
+//		}
+//		finally {
+//			factory.close();
+//		}
 		return result;
 	}
 	public Student getStudent() {

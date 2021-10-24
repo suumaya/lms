@@ -54,7 +54,7 @@
       <td width="20%" style="text-align: left">#{examDetailsBean.exam.exam.description}</td>
     </tr>
     <tr>
-      <th> <h:outputLink value="examQuestions.xhtml" outcome="/exam/examQuestions">
+      <th> <h:outputLink value="examQuestions.xhtml" outcome="/exam/examQuestions?faces-redirect=true">
      #{msgs.exam_start}
             <f:param name="examId" value="#{examDetailsBean.exam.exam.examID}" />
 						</h:outputLink> 

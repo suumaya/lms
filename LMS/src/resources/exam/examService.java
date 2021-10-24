@@ -112,7 +112,7 @@ public class examService {
 			}
 			
 		}catch(Exception ee) {
-			
+			ee=ee;
 			}
 		return examData;
 	    }

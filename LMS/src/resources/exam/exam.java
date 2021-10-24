@@ -9,6 +9,9 @@ public class exam {
 	private List<question> questions; 
 	private int points; 
 	
+	
+	public exam() {
+	}
 
 	public ExamData getExam() {
 		return exam;
@@ -58,9 +61,12 @@ public class exam {
 		FacesContext fc = FacesContext.getCurrentInstance();
 	      Map<String,String> params = 
 	         fc.getExternalContext().getRequestParameterMap();
-	      points =  Integer.parseInt(params.get("points")); 
+//	      points =  Integer.parseInt(params.get("points")); 
 	      return "examResult";
 	}
+
+
+
 	
 
 }

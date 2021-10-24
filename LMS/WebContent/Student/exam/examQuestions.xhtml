@@ -3,10 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:util="http://java.sun.com/jsf/composite/util">
 
 <f:metadata>
-    <f:viewParam name="examId" value="#{examDetailsBean.exam}"
-        converter="#{examConverter}" converterMessage="Unknown exam, please use a link from within the system."
-        required="true" requiredMessage="Bad request, please use a link from within the system."
-    />
+    <f:viewParam name="examId" value="#{examDetailsBean.exam}" converter="#{examConverter}" />
 </f:metadata>
 
 <h:head>
@@ -37,64 +34,30 @@ border-radius: 5px;
        <h1> 
        #{msgs.exam_question}
        </h1>
-       
-       
-       
+    <h:form>   
 <ui:repeat var="row" value="#{examDetailsBean.exam.questions}" varStatus="myVarStatus">
    <div  class="center exams">
   <div class="card-body"  >
     <h5 class="card-title"> #{myVarStatus.index+1} #{row.question}</h5>
-    <ui:repeat var="ansRow" value="#{row.answers}" >
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions"  value="#{ansRow.answer}" onclick = "clickeRadioButton('#{row.id}')">
-  <!--  onclick="calculateScore()" -->
-  #{ansRow.answer}</input>
-   <input type="hidden" id="answerFlag" value="#{ansRow.correct}"></input>
-   <input type="hidden" id="answersPoints" value="#{examResult.points}"></input>
-</div>
-  </ui:repeat>
+    <h:selectOneRadio value="#{examResult.answersArray[myVarStatus.index]}">
+   			<f:selectItems value="#{row.answers}" var="c"
+   			itemLabel="#{c.answer}" itemValue="#{c.correct}" />
+   			<br/>
+   		</h:selectOneRadio>
   </div>
   </div>  
   </ui:repeat>
-
-
-	  
-	     <h:commandButton  value = "#{msgs.submit}" action = "#{examResult.showPoints()}">
-            <f:param name = "points" value = "#{examResult.points}" />
-         </h:commandButton>
+    
+  <br/>
+   <h:commandButton action="#{examResult.showPoints}" value="#{msgs.enter_exam}" styleClass="btn" immediate="true">
+			<f:ajax execute="@form" />
+		</h:commandButton>
+		
+		   
+						
+  </h:form>		
 		</ui:decorate> 
 			</h:form>
-<script  type="text/javascript" language="JavaScript" src="http://www.kumquat.com/quatscript.js"></script>
-<script>
-var points=parseInt(document.getElementById("answersPoints").value) ;
-const ids = new Map(); 
-function clickeRadioButton(id){
-var flag = document.getElementById("answerFlag");
-console.log("id:"+id+" points:"+points); 
-
-console.log(flag.value); 
-
-if(flag.value==true || flag.value == '1' || flag.value == "true"){
-console.log("true"); 
-if(ids.get(id)!=null){
-console.log("not empty"); 
-if(ids.get(id)==false){
-console.log("ids.get(id)==false"); 
-ids.delete(id); 
-ids.set(id,true);
-points=parseInt(points)+1; }
-}
-else {
-points=parseInt(points)+1; 
-console.log("else"+ points); 
-ids.set(id,true); }
-}
-console.log("outside"+ points+"document"+document.getElementById("answersPoints").innerHTML); 
-
-document.getElementById("answersPoints").innerHTML = points; 
-}
-
-</script>
 </h:body>
 
 </html>

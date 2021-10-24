@@ -1,3 +1,4 @@
+
 package resources.exam;
 
 import javax.ejb.EJB;
@@ -9,39 +10,26 @@ import javax.inject.Named;
 
 @Named
 @RequestScoped
-public class examConverter implements Converter {
+public class questionConverter implements Converter {
 
     @EJB
     private examService examService;
-    private static boolean flag=true; 
 
-    public String  save() {
-    	 return "/exam/examQuestions?faces-redirect=true";
-    }
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
-    	if(flag) {
-    		
-    	
         if (value == null || value.isEmpty()) {
             return null;
         }
 
         try {
             int id = Integer.valueOf(value);
-//            flag = false; 
-
-            return examService.find(id);
-
+            return examService.getExamQuestions(id);
         } catch (NumberFormatException e) {
             //throw new ConverterException("The value is not a valid exam ID: " + value, e);
         	//exam e = new exam();
         
         	return new exam(); 
         }
-    	}
-    	else flag = true; 
-    	return null; 
     }
 
     @Override    

@@ -1,6 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:util="http://java.sun.com/jsf/composite/util">
+
+<f:metadata>
+    <f:viewParam name="examId" value="#{examDetailsBean.exam}" converter="#{examConverter}" />
+</f:metadata>
+
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<h:outputStylesheet library="css" name="styles.css" />
@@ -27,27 +32,32 @@ border-radius: 5px;
 
 <ui:decorate template="../../Main/Template.xhtml">
        <h1> 
-       #{exam_question}:
+       #{msgs.exam_question}
        </h1>
-   <ui:repeat var="row" value="#{examBean.examData.questions}" varStatus="myVarStatus">
+    <h:form>   
+<ui:repeat var="row" value="#{examDetailsBean.exam.questions}" varStatus="myVarStatus">
    <div  class="center exams">
   <div class="card-body"  >
-    <h5 class="card-title"> #{myVarStatus.index+1} EXAM QUESTION Refrence from BEAN</h5>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> ans1</input>
-</div>
-<div class="form-check form-check-inline">
-   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> ans2</input>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> ans3</input>
-</div>
+    <h5 class="card-title"> #{myVarStatus.index+1} #{row.question}</h5>
+    <h:selectOneRadio value="#{examResult.answersArray[myVarStatus.index]}">
+   			<f:selectItems value="#{row.answers}" var="c"
+   			itemLabel="#{c.answer}" itemValue="#{c.correct}" />
+   			<br/>
+   		</h:selectOneRadio>
   </div>
   </div>  
-  
   </ui:repeat>
+    
+  <br/>
+   <h:commandButton action="#{examResult.showPoints}" value="#{msgs.enter_exam}" styleClass="btn" immediate="true">
+			<f:ajax execute="@form" />
+		</h:commandButton>
+		
+		   
+						
+  </h:form>		
 		</ui:decorate> 
 			</h:form>
-		
 </h:body>
+
 </html>

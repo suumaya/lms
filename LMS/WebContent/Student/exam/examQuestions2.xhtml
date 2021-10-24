@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:util="http://java.sun.com/jsf/composite/util">
+
+<f:metadata>
+    <f:viewParam name="examId" value="#{examDetailsBean.exam}"
+        converter="#{examConverter}" converterMessage="Unknown exam, please use a link from within the system."
+        requiredMessage="Bad request, please use a link from within the system."
+    />
+</f:metadata>
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<h:outputStylesheet library="css" name="styles.css" />
+	<h:outputStylesheet library="css" name="grid.css" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+
+	<h:outputScript name="utilities.js" library="javascript" target="head" />
+	<style>
+.center {
+border-radius: 5px;
+  margin: auto;
+  width: 95%;
+  border: 1px solid #ececec;
+  padding: 10px;
+  margin-bottom: 5px;
+  
+}
+
+
+</style>
+</h:head>
+<h:body  >
+	<h:form>
+
+<ui:decorate template="../../Main/Template.xhtml">
+       <h1> 
+       #{msgs.exam_question}
+       </h1>
+       
+       
+       
+<ui:repeat var="row" value="#{examDetailsBean.exam.questions}" varStatus="myVarStatus">
+   <div  class="center exams">
+  <div class="card-body"  >
+    <h5 class="card-title"> #{myVarStatus.index+1} #{row.question}</h5>
+    <ui:repeat var="ansRow" value="#{row.answers}" >
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions"  value="#{ansRow.answer}" onclick = "clickeRadioButton('#{row.id}')">
+  <!--  onclick="calculateScore()" -->
+  #{ansRow.answer}</input>
+   <input type="hidden" id="answerFlag" value="#{ansRow.correct}"></input>
+   <input type="hidden" id="answersPoints" value="0"></input>
+</div>
+  </ui:repeat>
+  </div>
+  </div>  
+  </ui:repeat>
+	  
+	  	  
+	     <h:commandButton  value = "#{msgs.submit}" action = "#{examResult.showPoints()}">
+            <f:param id = "points" value = "#{examResult.points}" />
+         </h:commandButton>
+         <br/>
+         
+         <h:outputLink value="examResult.xhtml" outcome="/exam/examResult" onclick="getVars()">
+     #{msgs.enter_exam}
+     						   <f:param name = "param2" value = "#{examResult.points}" />
+						</h:outputLink>
+						
+						<h:form id="formId1">
+						   <input type="hidden" id="answersPoints2" value="#{examResult.points}"></input>
+						    <h:commandButton value="submit" onclick="getVars()" action="#{examResult.showPoints()}" />
+</h:form>
+						
+		</ui:decorate> 
+			</h:form>
+<script  type="text/javascript" language="JavaScript" src="http://www.kumquat.com/quatscript.js"></script>
+<script>
+var points=parseInt(document.getElementById("answersPoints").value) ;
+var points2=parseInt(document.getElementById("answersPoints2").value) ;
+var elem2 = document.getElementById("param2");
+
+const ids = new Map(); 
+function clickeRadioButton(id){
+var flag = document.getElementById("answerFlag");
+console.log("id:"+id+" points:"+points+"points2: "+points2); 
+
+console.log(flag.value); 
+
+if(flag.value==true || flag.value == '1' || flag.value == "true"){
+console.log("true"); 
+if(ids.get(id)!=null){
+console.log("not empty"); 
+if(ids.get(id)==false){
+console.log("ids.get(id)==false"); 
+ids.delete(id); 
+ids.set(id,true);
+points=parseInt(points)+1; }
+}
+else {
+points=parseInt(points)+1; 
+console.log("else"+ points); 
+ids.set(id,true); }
+}
+console.log("outside"+ points+"document"+document.getElementById("answersPoints").innerHTML); 
+
+document.getElementById("answersPoints").innerHTML = points;
+document.getElementById("param2").value = points;
+var elem = document.getElementById("param");
+
+ console.log(elem +"elem2 "+elem2);
+
+}
+
+
+function getVars() {
+    // ...
+    var x = points; 
+   console.log( document.getElementById("answersPoints2").value +" x "+ x + " points "+ points);
+
+    document.getElementById("answersPoints2").value = x;
+}
+
+
+</script>
+</h:body>
+
+</html>

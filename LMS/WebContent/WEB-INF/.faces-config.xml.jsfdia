@@ -47,10 +47,10 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#Main#index.xhtml" PATH="/Main/index.xhtml"
   SHAPE="448,465,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#Main#addStudent.xhtml"
+  PATH="/Main/addStudent.xhtml" SHAPE="240,817,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#Main#admin.xhtml" PATH="/Main/admin.xhtml"
   SHAPE="240,593,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#Main#admin_index.xhtml"
   PATH="/Main/admin_index.xhtml" SHAPE="240,705,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#Main#addStudent.xhtml"
-  PATH="/Main/addStudent.xhtml" SHAPE="240,817,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

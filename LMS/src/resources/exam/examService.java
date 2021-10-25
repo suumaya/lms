@@ -141,11 +141,11 @@ public class examService {
 				exam e =new exam();
 				obj.setExamID(Integer.parseInt(re.getString(1)));
 				obj.setQuestion_ID(Integer.parseInt(re.getString(2)));
-				obj.setAnswer_ID(Integer.parseInt(re.getString(3)));
-				obj.setExamTime(new Time(0));
-				obj.setExamDate(new Date(0));
-				obj.setExamName(re.getString(5));
-				obj.setDescription(re.getString(6));
+//				obj.setAnswer_ID(Integer.parseInt(re.getString(3)));
+//				obj.setExamTime(new Time(0));
+//				obj.setExamDate(new Date(0));
+				obj.setExamName(re.getString(4));
+				obj.setDescription(re.getString(5));
 				e.setExam(obj);
 				examData.add(e);
 			}

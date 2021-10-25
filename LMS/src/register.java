@@ -1,6 +1,7 @@
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.faces.bean.ManagedBean;
@@ -53,15 +54,15 @@ public class register implements Serializable{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn=DriverManager.getConnection(connString,user, pass );
 			String sql = "Insert into examinationsys.student values ('"
-			+student.getUsername()+"','"
-			+student.getPassword()+"','"
-			+student.getEmail()+"','"
-			+fName+"','"
-			+lName+"','"
-			+student.getDepartment()+"','"
-			+student.getLevel()+"');";
-			Statement stmt = conn.createStatement();
-			stmt.executeUpdate(sql);
+					+student.getUsername()+"','"
+					+student.getPassword()+"','"
+					+student.getEmail()+"','"
+					+fName+"','"
+					+lName+"','"
+					+student.getDepartment()+"','"
+					+student.getLevel()+"');";
+					Statement stmt = conn.createStatement();
+					stmt.executeUpdate(sql);
 			result = "SUCCESS";
 		}catch(Exception e) {
 			e.printStackTrace();

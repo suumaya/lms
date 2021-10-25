@@ -21,6 +21,30 @@ public class examService {
 	private static String pass = "WelcomeToServerJSF#12July";
 	private static String connString = "jdbc:mysql://online-examination-system.mysql.database.azure.com:3306/examinationsys?useSSL=true&requireSSL=false";
 	
+	
+	public static String addExam(exam e) {
+		String result= "FAIL"; 
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn=DriverManager.getConnection(connString,user, pass );
+			String sql = "Insert into examinationsys.exam values ('"
+			+e.getExam().getExamID()+"','"
+			+e.getExam().getExamID()+"','"
+			+e.getExam().getExamID()+"','"
+			+e.getExam().getExamID()+"','"
+			+e.getExam().getExamID()+"','"
+			+e.getExam().getExamID()+"','"
+			+e.getExam().getExamID()+"');";
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+			//Questions insert
+			//Answers insert 
+			result = "SUCCESS";
+		}catch(Exception ee) {
+			ee.printStackTrace();
+		}
+		return result;
+	}
 
 	    public static exam find(int id) {
 	    	for (exam e : examData){

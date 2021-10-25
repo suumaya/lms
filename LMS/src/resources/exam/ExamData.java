@@ -52,6 +52,7 @@ public class ExamData implements Serializable {
 	@Column(name="description")
 	private String description;
 	private ExamData examData;
+	private String examCode; 
 	
 	private int points; 
 
@@ -118,6 +119,12 @@ public class ExamData implements Serializable {
 	}
 	public void setPoints(int points) {
 		this.points = points;
+	}
+	public String getExamCode() {
+		return examCode;
+	}
+	public void setExamCode(String examCode) {
+		this.examCode = examCode;
 	}
 	
 

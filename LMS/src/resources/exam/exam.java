@@ -4,13 +4,17 @@ import java.util.Map;
 
 import javax.faces.context.FacesContext;
 
+import resources.admin.questionAnswers;
+
 public class exam {
 	private ExamData exam; 
 	private List<question> questions; 
 	private int points; 
+	List<questionAnswers> questionsAnswers;
 	
 	
 	public exam() {
+		exam = new ExamData(); 
 	}
 
 	public ExamData getExam() {
@@ -63,6 +67,11 @@ public class exam {
 	         fc.getExternalContext().getRequestParameterMap();
 //	      points =  Integer.parseInt(params.get("points")); 
 	      return "examResult";
+	}
+
+	public void addQuestionAndAnswers(List<questionAnswers> questions) {
+		// TODO Auto-generated method stub
+		questionsAnswers = questions; 
 	}
 
 

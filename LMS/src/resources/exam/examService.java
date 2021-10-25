@@ -13,6 +13,8 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import resources.admin.questionAnswers;
+
 @Stateless
 public class examService {
 	private static List<exam> examData = new ArrayList<exam>();
@@ -27,18 +29,31 @@ public class examService {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn=DriverManager.getConnection(connString,user, pass );
-			String sql = "Insert into examinationsys.exam values ('"
-			+e.getExam().getExamID()+"','"
-			+e.getExam().getExamID()+"','"
-			+e.getExam().getExamID()+"','"
-			+e.getExam().getExamID()+"','"
-			+e.getExam().getExamID()+"','"
-			+e.getExam().getExamID()+"','"
-			+e.getExam().getExamID()+"');";
-			Statement stmt = conn.createStatement();
+			String sql; 
+			Statement stmt; 
+			int qId=-1,aId; 
+			//Loop for the exams question 
+			for(questionAnswers qA: e.questionsAnswers) {
+				//Add question
+				sql = "INSERT INTO question (Question) VALUES ('"+qA.getQuestion()+"');"; 
+				stmt = conn.createStatement();
+				qId = stmt.executeUpdate(sql);
+				sql = "Insert into answer (Question_Id, answer, isCorrect) values ("+qId+", '"+qA.getAnswer1()+"',0);"; 
+				stmt = conn.createStatement();
+				aId = stmt.executeUpdate(sql);
+				sql = "Insert into answer (Question_Id, answer, isCorrect) values ("+qId+", '"+qA.getAnswer2()+"',0);"; 
+				stmt = conn.createStatement();
+				aId = stmt.executeUpdate(sql);
+				sql = "Insert into answer (Question_Id, answer, isCorrect) values ("+qId+", '"+qA.getAnswer3()+"',0);"; 
+				stmt = conn.createStatement();
+				aId = stmt.executeUpdate(sql);
+			}
+			//Add exam 
+			sql = "Insert into exam (question_ID, name, description) values ( "+qId+",'"+e.getExam().getExamName()+"','"+e.getExam().getDescription()+"');";
+			stmt = conn.createStatement();
 			stmt.executeUpdate(sql);
-			//Questions insert
-			//Answers insert 
+			
+			
 			result = "SUCCESS";
 		}catch(Exception ee) {
 			ee.printStackTrace();

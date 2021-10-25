@@ -46,10 +46,11 @@ import javax.faces.bean.SessionScoped;
 			 	)
 }) 
 
-@Entity
- @Table(name = "student", schema = "examinationsys")
-  @SuppressWarnings("serial")
-@ManagedBean(name = "student")
+@Entity 
+@Table(name = "student", schema = "examinationsys")
+
+@SuppressWarnings("serial")
+ @ManagedBean(name = "student")
 @SessionScoped
 public class Student implements Serializable{
 	//What is This? 
@@ -144,8 +145,7 @@ public class Student implements Serializable{
 							   public void setPassword(String password) {
 							      this.password = password;
 							   }
-
- 							 //validate login
+ 
 								public String validateUsernamePassword() {
 									boolean valid = LoginDAO.validate(username, password);
 									if (valid) {
@@ -163,5 +163,5 @@ public class Student implements Serializable{
 										return "login";
 									}
 								}
-  							  			
-}
+  
+ }

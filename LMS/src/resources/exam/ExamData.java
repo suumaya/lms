@@ -47,9 +47,14 @@ public class ExamData implements Serializable {
 	private Time examTime; 
 	//@Column(name="examDate")
 	private Date examDate; 
-//	@Column(name="examName")
-	private String examName;
+	@Column(name="name")
+	private String examName;	
+	@Column(name="description")
+	private String description;
 	private ExamData examData;
+	private String examCode; 
+	
+	private int points; 
 
 	public ExamData getExamData() {
 		return examData;
@@ -102,6 +107,24 @@ public class ExamData implements Serializable {
 	}
 	public void setQuestion_ID(int question_ID) {
 		this.question_ID = question_ID;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public int getPoints() {
+		return points;
+	}
+	public void setPoints(int points) {
+		this.points = points;
+	}
+	public String getExamCode() {
+		return examCode;
+	}
+	public void setExamCode(String examCode) {
+		this.examCode = examCode;
 	}
 	
 

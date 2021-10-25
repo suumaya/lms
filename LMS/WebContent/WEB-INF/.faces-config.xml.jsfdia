@@ -47,10 +47,21 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#Main#index.xhtml" PATH="/Main/index.xhtml"
   SHAPE="448,465,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#Main#addStudent.xhtml"
+  PATH="/Main/addStudent.xhtml" SHAPE="240,817,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#Main#admin.xhtml" PATH="/Main/admin.xhtml"
   SHAPE="240,593,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#Main#admin_index.xhtml"
   PATH="/Main/admin_index.xhtml" SHAPE="240,705,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#Main#addStudent.xhtml"
-  PATH="/Main/addStudent.xhtml" SHAPE="240,817,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#Admin#addExam.xhtml"
+  PATH="/Admin/addExam.xhtml" SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#Admin#addExam.xhtml:0" NAME="item"
+   PATH="/Admin/addExam.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="SUCCESS::#Main#homeStudent.xhtml"
+    NAME="output" PATH="/Main/homeStudent.xhtml"
+    TARGET="rules:#Main#homeStudent.xhtml" TITLE="SUCCESS" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#Main#homeStudent.xhtml"
+  PATH="/Main/homeStudent.xhtml" SHAPE="240,929,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

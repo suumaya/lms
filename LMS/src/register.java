@@ -49,27 +49,23 @@ public class register implements Serializable{
 		}else {
 			lName = ""; 	
 		}
-//		try {
-//			Class.forName("com.mysql.jdbc.Driver");
-//			Connection conn=DriverManager.getConnection(connString,user, pass );
-//			String sql = "Insert into examinationsys.student values ('"
-//			+student.getUsername()+"','"
-//			+student.getPassword()+"','"
-//			+student.getEmail()+"','"
-//			+fName+"','"
-//			+lName+"','"
-//			+student.getDepartment()+"','"
-//			+student.getLevel()+"');";
-//			Statement stmt = conn.createStatement();
-//			stmt.executeUpdate(sql);
-//			result = "SUCCESS";
-//		}catch(Exception e) {
-//			e.printStackTrace();
-//		}
-//		dbObj = new DatabaseOperations();
-//        dbObj.addStudentInDb(student);
-		dbObjExam = new ExamDatabaseOperations(); 
-		dbObjExam.addingExam(new Exam());
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn=DriverManager.getConnection(connString,user, pass );
+			String sql = "Insert into examinationsys.student values ('"
+			+student.getUsername()+"','"
+			+student.getPassword()+"','"
+			+student.getEmail()+"','"
+			+fName+"','"
+			+lName+"','"
+			+student.getDepartment()+"','"
+			+student.getLevel()+"');";
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+			result = "SUCCESS";
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		return result;
 	}
 	public Student getStudent() {

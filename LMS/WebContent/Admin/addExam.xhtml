@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:util="http://java.sun.com/jsf/composite/util">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <title>
+      LMS - Add Exam
+    </title>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<h:outputStylesheet library="css" name="grid.css" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+
+	<h:outputScript name="utilities.js" library="javascript" target="head" />
+    <style type="text/css" xml:space="preserve">
+    .form-control, select{
+		height: 30px;
+		box-shadow: none;
+		padding-right: 40px;
+		margin: 10px;
+		padding-right: 120px;
+		padding-left: 20px;	
+	
+	}   
+
+
+	  .question-btn, .exam-btn{        
+        font-size: 16px;
+        font-weight: bold;		
+		min-width: 140px;
+		text-align: center;
+        outline: none !important;
+        margin: 10px;
+		padding-right: 100px;
+		padding-left: 100px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+    }   
+    
+    .exam-btn{
+    margin-top: 40px;
+position: absolute;
+  right: 150px;
+    }	
+  
+ table.exam-info-table td label{
+     padding-left: 20px;
+     margin-right: 10px;
+    } 
+
+   table.set-question-table td label{
+     padding-left: 20px;
+     margin-right: 10px;
+    }   
+    select{
+    width: 280px;
+    margin-left:45px;
+    }
+
+</style>
+  </h:head>
+  <h:body>
+
+
+          <h:form>
+          		<ui:decorate template="../Main/Template.xhtml">
+          
+          <div class="container">
+    <div class="add-exam-form">
+
+       <div class="form-group">
+<div class="table-wrapper">
+        <table class="exam-info-table">
+        <thead>       
+        <tr>
+        <td>
+   <h1>
+          #{msgs.label_add_new_xam}
+        </h1> 
+        </td>
+        </tr>       
+        </thead>
+          <tbody>
+            <tr>
+                <td>
+            <div class="col-xs-6">
+            <label>#{msgs.label_exam_title}</label>
+            <h:inputText placeholder="#{label_exam_title}"  value="#{addExamBean.exam.exam.examName}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+                      </div>
+              </td>
+              <td>
+            <div class="col-xs-6">
+            <label>#{msgs.label_course_code}</label>
+              <h:inputText placeholder="#{msgs.label_course_code}"  value="#{addExamBean.exam.exam.examCode}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+              
+            </div>
+              </td>
+                  
+            </tr>
+            
+              
+            <tr>
+                <td>
+            <div class="col-xs-6">
+            <label>#{msgs.label_exam_time}</label>
+              <h:inputText placeholder="#{msgs.label_exam_time}"  value="#{addExamBean.exam.exam.examTime}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td>
+              <td>
+            <div class="col-xs-6">
+            <label>#{msgs.label_exam_date}</label>
+              <h:inputText placeholder="#{msgs.label_exam_date}"  value="#{addExamBean.exam.exam.examDate}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td>
+              
+            </tr>
+          </tbody>
+
+        </table>	
+    </div>
+        </div>
+        </div>
+        
+          <div class="set-question-form">
+
+       <div class="form-group">
+<div class="table-wrapper">
+        <table class="set-question-table">
+                <thead>       
+        <tr>
+        <td>
+   <h1>
+          #{msgs.Set_Questions}
+        </h1> 
+        </td>
+        </tr>       
+        </thead>
+          <tbody>
+          
+            <tr>
+                <td>
+            <div class="col-xs-6">
+            <label>#{msgs.label_question_text}</label>
+            
+           <h:inputText  value="#{addExamBean.question1.question}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+           
+            </div>
+              </td>       
+            </tr>
+                        <tr>
+                <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer} 1</label>
+             <h:inputText placeholder="#{msgs.Answer}"  value="#{addExamBean.question1.answer1}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td>
+              <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer} 2</label>
+           <h:inputText placeholder="#{msgs.Answer}"  value="#{addExamBean.question1.answer2}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td>
+              <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer} 3</label>
+            <h:inputText placeholder="#{msgs.Answer}"  value="#{addExamBean.question1.answer3}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td> 
+        
+            </tr>
+                        <tr>
+                <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer}</label>
+              <select name="answerList" id="answer_list">
+  <option value="answer1">1</option>
+  <option value="answer2">2</option>
+  <option value="answer3">3</option>
+</select>
+            </div>
+              </td>
+            </tr>
+            
+
+            <tr>
+                <td>
+            <div class="col-xs-6">
+            <label>#{msgs.label_question_text}</label>
+                       <h:inputText value="#{addExamBean.question2.question}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td>       
+            </tr>
+                        <tr>
+                <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer} 1</label>
+            <h:inputText placeholder="#{msgs.Answer}"  value="#{addExamBean.question2.answer1}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td>
+              <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer} 2</label>
+            <h:inputText placeholder="#{msgs.Answer}"  value="#{addExamBean.question2.answer2}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td>
+              <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer} 3</label>
+            <h:inputText placeholder="#{msgs.Answer}"  value="#{addExamBean.question2.answer3}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td> 
+        
+            </tr>
+                        <tr>
+                <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer}</label>
+              <select name="answerList" id="answer_list">
+  <option value="answer1">1</option>
+  <option value="answer2">2</option>
+  <option value="answer3">3</option>
+</select>
+            </div>
+              </td>
+            </tr>
+            
+            
+                        <tr>
+                <td>
+            <div class="col-xs-6">
+            <label>#{msgs.label_question_text}</label>
+           <h:inputText  value="#{addExamBean.question3.question}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td>       
+            </tr>
+                        <tr>
+                <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer} 1</label>
+            <h:inputText placeholder="#{msgs.Answer}"  value="#{addExamBean.question3.answer1}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td>
+              <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer} 2</label>
+            <h:inputText placeholder="#{msgs.Answer}"  value="#{addExamBean.question3.answer2}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td>
+              <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer} 3</label>
+            <h:inputText placeholder="#{msgs.Answer}"  value="#{addExamBean.question3.answer3}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td> 
+        
+            </tr>
+                        <tr>
+                <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer}</label>
+              <select name="answerList" id="answer_list">
+  <option value="answer1">1</option>
+  <option value="answer2">2</option>
+  <option value="answer3">3</option>
+</select>
+            </div>
+              </td>
+            </tr>
+            
+                        <tr>
+                <td>
+            <div class="col-xs-6">
+            <label>#{msgs.label_question_text}</label>
+           <h:inputText value="#{addExamBean.question4.question}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td>       
+            </tr>
+                        <tr>
+                <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer} 1</label>
+            <h:inputText placeholder="#{msgs.Answer}"  value="#{addExamBean.question4.answer1}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td>
+              <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer} 2</label>
+            <h:inputText placeholder="#{msgs.Answer}"  value="#{addExamBean.question4.answer2}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td>
+              <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer} 3</label>
+            <h:inputText placeholder="#{msgs.Answer}"  value="#{addExamBean.question4.answer3}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td> 
+        
+            </tr>
+                        <tr>
+                <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer}</label>
+              <select name="answerList" id="answer_list">
+  <option value="answer1">1</option>
+  <option value="answer2">2</option>
+  <option value="answer3">3</option>
+</select>
+            </div>
+              </td>
+            </tr>
+            
+                        <tr>
+                <td>
+            <div class="col-xs-6">
+            <label>#{msgs.label_question_text}</label>
+           <h:inputText  value="#{addExamBean.question5.question}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td>       
+            </tr>
+                        <tr>
+                <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer} 1</label>
+            <h:inputText placeholder="#{msgs.Answer}"  value="#{addExamBean.question5.answer1}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td>
+              <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer} 2</label>
+            <h:inputText placeholder="#{msgs.Answer}"  value="#{addExamBean.question5.answer2}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td>
+              <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer} 3</label>
+            <h:inputText placeholder="#{msgs.Answer}"  value="#{addExamBean.question5.answer3}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+            </div>
+              </td> 
+        
+            </tr>
+                        <tr>
+                <td>
+            <div class="col-xs-6">
+            <label>#{msgs.Answer}</label>
+              <select name="answerList" id="answer_list">
+  <option value="answer1">1</option>
+  <option value="answer2">2</option>
+  <option value="answer3">3</option>
+</select>
+            </div>
+              </td>
+            </tr>
+            
+          </tbody>
+
+        </table>	
+    </div>
+        </div>
+        </div>
+                             <h:commandButton type="submit" action="#{addExamBean.addExam}" value="#{msgs.Add_Exam}" styleClass="btn"/>
+                             </div>
+                             <br/>
+                             <br/>
+                             <br/>
+                             <br/>
+                             <br/>
+                             <br/>
+                             <br/>
+                             		</ui:decorate>
+                             
+    </h:form>
+
+  </h:body>
+</html>

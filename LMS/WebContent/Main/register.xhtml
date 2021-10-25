@@ -14,103 +14,56 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:util="http://java.sun.com/jsf/compo
 
 	<h:outputScript name="utilities.js" library="javascript" target="head" />
     <style type="text/css" xml:space="preserve">
-    .form-control{
-		height: 40px;
-		box-shadow: none;
-		color: #969fa4;	
-		padding-right: 40px;	
+   .signup-form {
+		width: 340px;;
+    	margin: 40px auto;  
 	}
-	.form-control:focus{
-		border-color: #5cb85c;
-	}
-    .form-control, .btn{        
-        border-radius: 3px;
-    }
-	.signup-form{	
-		width: 400px;
-		margin: 0 auto;
-		padding: 40px 0 ;		
-	}
-	.signup-form h2{
-        margin: 0 0 15px;
-		position: relative;
-		text-align: center;
+   
+
+.signup-form .form-control  {
+		margin-bottom: 30px;
+		min-height: 38px;
+
+}
+    .signup-form h2 {
+        margin: 0 0 35px 0;
+        text-align: center;
+        position: static;
     }
 
-	.signup-form h2:before{
-		left: 0;
-	}
-	.signup-form h2:after{
-		right: 0;
-	}
-    .signup-form .hint-text{
-		color: #999;
-		margin-bottom: 30px;
-		text-align: center;
-	}
-    .signup-form form{
-		border-radius: 3px;
-    	margin-bottom: 15px;
-        background: #f7f7f7;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-        padding: 30px;
+    input , .col-xs-6{   
+    	height: 38px; 
+    	min-width: 340px;    
+        font-size: 15px;
+        font-weight: bold; 
+  		margin-bottom: 30px;    
     }
-	h:.signup-form h:.form-group{
-		margin-bottom: 20px;
-	}
+    
 	.signup-form input[type="checkbox"]{
-		margin-top: 3px;
+		margin-right: 3px;
+		min-width: 18px;
+		padding-left: 3px;
 	}
-	 .signup-form .btn{        
-        font-size: 16px;
-        font-weight: bold;		
-		min-width: 140px;
-		text-align: center;
-        outline: none !important;
-        margin: 10px;
-		padding-right: 100px;
-		padding-left: 100px;
-		padding-top: 10px;
-		padding-bottom: 10px;
-		margin-top: 30px;
-    }
-	h: .signup-form .row div:first-child{
-		padding-right: 10px;
-		padding-top: 20px;
-	}
-	h: .signup-form .row div:last-child{
-		padding-left: 10px;
-		padding-top: 20px;
-	}    	
-    .signup-form a{
-		
-	}
-    .signup-form a:hover{
-		text-decoration: none;
-	}
-	.signup-form form a{
-		padding-right: 10px;
-		padding-top: 20px;
-	}	
-	.signup-form form a:hover{
-		text-decoration: underline;
-	} 
-	 .col-xs-6  input{
-		margin: 10px;
-		padding-right: 120px;
-		padding-left: 20px;
-		
-	}
+
+
 </style>
 
 
 <script type="text/javascript">
 function IsEmpty() {
+var name = document.getElementById('registerForm:nameId').value;
+var userName = document.getElementById('registerForm:userNameId').value;
+var email = document.getElementById('registerForm:emailId').value;
+var password = document.getElementById('registerForm:passwordId').value;
+var confirmPassword = document.getElementById('registerForm:confirmPasswordId').value;
 
-  if (document.forms['frm'].first_name.value === ""||document.forms['frm'].username.value === ""||document.forms['frm'].email.value === ""||document.forms['frm'].department.value === ""||document.forms['frm'].level.value === ""||document.forms['frm'].password.value === ""||document.forms['frm'].confirm_password.value === "") {
-    alert("Please Fill All Required Field");
-    return false;
-  } else{
+				if (userName == null || userName == "" || password == null|| password == ""
+					|| name= null || name == "" || email == null || email == ""
+					|| confrimPassword == null || confirmPassword == "") {
+					 alert("Please Fill All Required Field");
+					return true;
+					}
+					 else{
   if(document.forms['frm'].password.value != document.forms['frm'].confirm_password.value)
       alert("Passwords did not match");
     return false;
@@ -129,20 +82,20 @@ function IsEmpty() {
 
   </h:head>
   <h:body>
-  <h:form>
+
     <div class="signup-form">
-      <form name="frm" action="/examples/actions/confirmation.php" method="post">
+    <h:form id="registerForm"  > 
         <h2>
           Register
         </h2>
-<h:form>
+
         <div class="form-group">
           <div class="row">
 
             <div class="col-xs-6">
             <label>Full Name</label> 
  <!--              <input type="text" class="form-control" name="first_name"/>-->
-          <h:inputText placeholder="#{msgs.label_userName}"  value="#{register.student.name}" styleClass="input-login placeholder-password-username" type="text placeholder" />
+          <h:inputText id="nameId" placeholder="#{msgs.label_userName}"  value="#{register.student.name}" styleClass="input-login placeholder-password-username" type="text placeholder" />
  
             </div>
 <!--  
@@ -166,13 +119,13 @@ function IsEmpty() {
 		<div class="col-xs-6">
         <label>Department</label>
          <h:inputText placeholder="#{msgs.label_department}"  value="#{register.student.department}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
-       
+          </div>
          <div class="col-xs-6">
         <label>Level</label>
          <h:inputText placeholder="#{msgs.label_department}"  value="#{register.student.level}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
     
         </div>
-        </div>
+     
         <div class="col-xs-6">
         <label>Password</label>
         <!--  
@@ -188,8 +141,9 @@ function IsEmpty() {
          <h:inputSecret placeholder="#{msgs.label_password}"  value="#{register.confirmPassword}" styleClass="input-login placeholder-password-username" type="text placeholder" /> 
         </div>
         <div class="col-xs-6">
+         <input type="checkbox" id="chk" name="chk" value="#{msgs.checkbox_acceptTerms}"/>
         <label>#{msgs.checkbox_acceptTerms}
-        <input type="checkbox" id="chk" name="chk" value="#{msgs.checkbox_acceptTerms}"/>
+       
         </label>
           
         </div>
@@ -200,12 +154,11 @@ function IsEmpty() {
 		</h:commandButton>
         </div>
         </h:form>
-      </form>
-      <div class="text-center">
+<div class="col-xs-6">
       #{msgs.label_haveAccount}
-       <a href="#">#{msgs.label_login}</a>
+       <a href="#" onclick="history.go(-1)">#{msgs.label_login}</a>
       </div>
     </div>
-    </h:form>
+
   </h:body>
 </html>

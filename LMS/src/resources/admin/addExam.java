@@ -17,13 +17,13 @@ public class addExam implements Serializable{
 	 private static exam exam; // +getter +setter
 		private examService ex;
 		private String examText; 
-		private  static questionAnswers question1; 
-		private  static questionAnswers question2; 
-		private  static questionAnswers question3; 
-		private  static questionAnswers question4; 
+		private   questionAnswers question1; 
+		private   questionAnswers question2; 
+		private   questionAnswers question3; 
+		private   questionAnswers question4; 
 		private  static questionAnswers question5; 
 		private int[] qNumber= new int[10]; 
-		private static List<questionAnswers> questions; 
+		private  List<questionAnswers> questions; 
 
 		public addExam() {
 			ex = new examService();
@@ -34,7 +34,7 @@ public class addExam implements Serializable{
 			question4 = new questionAnswers(); 
 			question5 = new questionAnswers(); 
 		}
-		public static String addExam() {
+		public String addExamtoTheDB() {
 			questions = new ArrayList<questionAnswers>();
 			
 			questions.add(question1);

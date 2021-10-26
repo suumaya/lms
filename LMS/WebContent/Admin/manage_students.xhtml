@@ -76,17 +76,20 @@ background-color: #ececec;
   
    <h:column>    				
       <f:facet name = "header"> Action </f:facet>    				
-        <h:commandButton value="Remove"  class="btn btn-fail" actionListener	="#{dataBean.removeStudent(student)}" /> 
+          <h:commandLink  value="Remove" class="btn btn-fail" actionListener	="#{dataBean.removeStudent(student)}" action= "manage_students?faces-redirect=true"/>
+         
    </h:column>  
   
    
 </h:dataTable>
 	
-
- 		    <h:commandLink id = "addNewStudent"  value="Add New Student" class="btn btn-success" action= "addStudent?faces-redirect=true"/>
+   		    <h:commandButton id = "addNewStudent"  value="Add New Student" class="btn btn-success" action= "#{dataBean.goToAdd}">
+ 	 
+ 		     		</h:commandButton>
  		    
-				 </h:form>
-		
+ 				 </h:form>
+ 
+ 		
 		 </ui:decorate> 
 		
 </h:body>

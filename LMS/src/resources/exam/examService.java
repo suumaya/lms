@@ -1,17 +1,27 @@
 package resources.exam;
 
+import java.io.PrintWriter;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+
 
 import resources.admin.questionAnswers;
 
@@ -155,5 +165,53 @@ public class examService {
 			}
 		return examData;
 	    }
+	    
+	    @SuppressWarnings({ "rawtypes", "unused" })
+		public void retrieveUserAnswers(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	        Statement statement = null;
+            ResultSet resultSet = null;
+            
+         response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+             try {
+                Class.forName("com.mysql.jdbc.Driver");
+            } catch (ClassNotFoundException ex) {
+               
+            }
+            con= DriverManager.getConnection(connString, user, pass);
+            Enumeration retrieve = request.getParameterNames();
+            statement = con.createStatement();
+            HttpSession session = request.getSession();
+            
+            int marks = 0;
+            
+           while(retrieve.hasMoreElements()){
+              
+           String var = (String) retrieve.nextElement(); // gripping the answer from radio button
+           resultSet = statement.executeQuery("");  // query statement to be completed.
+           
+           String [] useranswers = request.getParameterValues(var);  // each element is inserted in user answer array in each iteration
+           
+           for(String i:useranswers){
+               
+                  while (resultSet.next()){ 
+                        String rightAnswers = resultSet.getString("answer");
+                        
+
+                    if(i.equals(rightAnswers)){
+                        marks++;
+                      
+                    }
+                  
+                  }
+               }
+           
+           }
+	   }
+        catch(SQLException e) {
+        	
+        }
+        
+	 }
 
 }

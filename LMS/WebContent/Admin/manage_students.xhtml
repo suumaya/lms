@@ -76,7 +76,8 @@ background-color: #ececec;
   
    <h:column>    				
       <f:facet name = "header"> Action </f:facet>    				
-        <h:commandButton value="Remove"  class="btn btn-fail" actionListener	="#{dataBean.removeStudent(student)}" /> 
+          <h:commandLink  value="Remove" class="btn btn-fail" actionListener	="#{dataBean.removeStudent(student)}" action= "manage_students?faces-redirect=true"/>
+         
    </h:column>  
   
    

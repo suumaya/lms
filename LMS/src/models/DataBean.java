@@ -12,7 +12,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
-
+import resources.exam.*;
 import resources.student.Student;
   
 import com.code.hibernate.DatabaseOperations;
@@ -31,6 +31,7 @@ public class DataBean implements Serializable {
 
 	private static final long serialVersionUID = 6081417964063918994L;
 	List<Student> students = new ArrayList<Student>();
+	List<ExamData> exams = new ArrayList<ExamData>();
 	Student std1 = new Student("John1","aa","joh1" ,"jogn@gmail.com","Finance","level1","12345j");
 	Student std2 = new Student("John2","bb","joh2" ,"jogn2@gmail.com","Finance","level1","12345j");
 	
@@ -50,7 +51,7 @@ public class DataBean implements Serializable {
  	
  
 	public List<Student> getStudents() throws ClassNotFoundException, SQLException {
-
+		students = new ArrayList<Student>();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			connect = DriverManager.getConnection(url, username, password);
@@ -93,70 +94,7 @@ public class DataBean implements Serializable {
 	}
 	
  
-	public List<Student> getOther_students() throws ClassNotFoundException, SQLException {
-
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			connect = DriverManager.getConnection(url, username, password);
-			PreparedStatement pstmt = connect
-					.prepareStatement("select firstName,lastName,userName,department,level,email from student where department !=?");
-			   pstmt.setString(1, "SWE");
-			ResultSet rs = pstmt.executeQuery();
-			System.out.println("############################# success #############################");
-			
-			while (rs.next()) {
-
-				Student std = new Student();
-				std.setName(rs.getString("firstName"));
-				std.setLname(rs.getString("lastName"));
-				std.setUsername(rs.getString("userName"));
-//				std.setPassword(rs.getString("password"));
-				std.setDepartment(rs.getString("department"));
-				std.setLevel(rs.getString("level"));
-				std.setEmail(rs.getString("email"));
-//<<<<<<< HEAD
-//
-//				other_students.add(std);
-// 
-//		}
-//			
-//			rs.close();
-//			pstmt.close();
-//			connect.close();
-//			} catch (SQLException ex) {
-//			System.out.println("*** in exec:");
-//			System.out.println("*** messafe: "+ex.getMessage());
-//			
-//			System.out.println("############################# failed #############################");
-//			return other_students;
-//			
-//			 
-// 		}
-//
-//		return other_students;
-//
-//
-//				other_students.add(std);
-// 
-//		}
-			
-			rs.close();
-			pstmt.close();
-			connect.close();
-			}} catch (SQLException ex) {
-			System.out.println("*** in exec:");
-			System.out.println("*** messafe: "+ex.getMessage());
-			
-			System.out.println("############################# failed #############################");
-			return other_students;
-			
-			 
- 		}
-
-		return other_students;
-
-	}
- 	
+	
 	
 	 public void removeStudent(Student student) throws ClassNotFoundException, SQLException {
  
@@ -250,6 +188,47 @@ public class DataBean implements Serializable {
 		 return "examList";  
 
 	}
+	 
+	 
+	 public List<ExamData> getExams() throws ClassNotFoundException, SQLException {
+			exams = new ArrayList<ExamData>();
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				connect = DriverManager.getConnection(url, username, password);
+				PreparedStatement pstmt = connect
+						.prepareStatement("select name,description from exam");
+//				   pstmt.setString(1, "SWE");
+				ResultSet rs = pstmt.executeQuery();
+				System.out.println("############################# success #############################");
+				
+				while (rs.next()) {
+
+					ExamData exam = new ExamData();
+					exam.setExamName(rs.getString("name"));
+					exam.setDescription(rs.getString("description"));
+			 
+
+					exams.add(exam);
+	 
+			}
+				
+				rs.close();
+				pstmt.close();
+				connect.close();
+				} catch (SQLException ex) {
+				System.out.println("*** in exec:");
+				System.out.println("*** messafe: "+ex.getMessage());
+				
+				System.out.println("############################# failed #############################");
+				return exams;
+				
+				 
+	 		}
+
+			return exams;
+
+		}
+		
 	 
 
 	 public boolean isTableEnabled() {

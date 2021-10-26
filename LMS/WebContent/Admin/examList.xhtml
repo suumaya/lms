@@ -48,7 +48,7 @@ background-color: #ececec;
 </h:head>
 <h:body  >
 
-
+<h:form>
 <ui:decorate template="../Main/admin_Template.xhtml">
    
        <h1> 
@@ -71,17 +71,21 @@ background-color: #ececec;
        #{exam.getDescription()}
    </h:column>
   
-     <h:column>    				
-      <f:facet name = "header"> Action </f:facet>    				
-        <h:commandButton value="Remove" type="submit" action="#{studentsBean.removeStudent(student)}" class="btn btn-fail" /> 
-   </h:column>
+   				
   
    
+    <h:column>    				
+      <f:facet name = "header"> Action </f:facet>    				
+          <h:commandLink  value="Remove" class="btn btn-fail" actionListener	="#{dataBean.removeExam(exam)}" action= "examList?faces-redirect=true"/>
+         
+   </h:column>  
+
 </h:dataTable>
-    
+      
+
     
 		</ui:decorate> 
 			 
-		
+		   </h:form>
 </h:body>
 </html>

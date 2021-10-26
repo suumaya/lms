@@ -230,6 +230,40 @@ public class DataBean implements Serializable {
 		}
 		
 	 
+	 
+	 public void removeExam(ExamData exam) throws ClassNotFoundException, SQLException {
+		 
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				connect = DriverManager.getConnection(url, username, password);			
+				PreparedStatement pstmt = connect.prepareStatement("delete from exam WHERE name=?");
+		            pstmt.setString(1, exam.getExamName());
+		            int row = pstmt.executeUpdate();
+		            // rows affected
+		            System.out.println(row);
+	 				System.out.println("############################# in remove success #############################");
+	 				exams.remove(0);
+				 
+				
+	 			pstmt.close();
+				connect.close();	
+			
+		} catch (SQLException e) {
+			System.out.println("############################# sql remove failed #############################");
+	        System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+	 
+	    } catch (Exception e) {
+	        e.printStackTrace();
+			System.out.println("############################# general remove failed #############################");
+
+	    } 
+			
+			
+			 exams = getExams();
+	 
+		}
+	 
+	 
 
 	 public boolean isTableEnabled() {
 								System.out.println("############## Is enabled =" + tableEnabled);

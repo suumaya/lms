@@ -1,4 +1,5 @@
-LMS
+#LMS
+This application written using JSF framework
 ## Requirements:
 - Eclipse 
 - WebLogic server
